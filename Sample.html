@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Agent Template Hub</title>
+    <style>
+        :root {
+            --primary-start: #5E72E4;
+            --primary-end: #825EE4;
+            --background-start: #172b4d;
+            --background-end: #1a174d;
+            --text-light: #f8f9fe;
+            --text-dark: #2d3748;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            font-size: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: var(--text-light);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: white;
+            color: var(--primary-start);
+            border-color: white;
+        }
+
+        .results-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-start), var(--primary-end));
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            background: white;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.3;
+            flex: 1;
+            margin-right: 1rem;
+        }
+
+        .category-badge {
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            box-shadow: 0 4px 15px rgba(94, 114, 228, 0.3);
+            flex-shrink: 0;
+        }
+
+        .card-description {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: #f0f2f5;
+            color: #4a5568;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem; border: none; border-radius: 50px; cursor: pointer;
+            font-weight: 600; transition: all 0.3s ease; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.9rem; flex: 1; justify-content: center;
+        }
+        
+        .btn-icon { width: 16px; height: 16px; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            color: white;
+            box-shadow: 0 8px 25px rgba(94, 114, 228, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(94, 114, 228, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent; color: var(--primary-start); border: 2px solid var(--primary-start);
+        }
+        .btn-secondary:hover {
+            background: var(--primary-start); color: white; transform: translateY(-2px);
+        }
+
+        .toast {
+            position: fixed; bottom: 2rem; left: 50%;
+            transform: translate(-50%, 150px);
+            background: #48bb78; color: white;
+            padding: 1rem 1.5rem; border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            opacity: 0; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000; font-weight: 600;
+        }
+        .toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+        .no-results {
+            text-align: center; padding: 4rem 2rem; color: white; display: none;
+        }
+        .no-results h3 { font-size: 1.5rem; margin-bottom: 1rem; opacity: 0.9; }
+        .no-results p { opacity: 0.7; }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.show { opacity: 1; pointer-events: auto; }
+
+        .modal-content {
+            background: white; border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: 90%; max-width: 800px;
+            max-height: 90vh; display: flex; flex-direction: column;
+            transform: scale(0.95); transition: transform 0.3s ease;
+        }
+        .modal-overlay.show .modal-content { transform: scale(1); }
+
+        .modal-header {
+            padding: 1.5rem 2rem; border-bottom: 1px solid #e2e8f0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-title { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); }
+        .modal-close-btn {
+            background: #f0f2f5; border: none; border-radius: 50%;
+            width: 40px; height: 40px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; transition: all 0.2s;
+        }
+        .modal-close-btn:hover { background: #e2e8f0; transform: rotate(90deg); }
+
+        .modal-body { padding: 2rem; overflow-y: auto; }
+        .modal-prompt {
+            background: #f8f9fe; border: 1px solid #e2e8f0;
+            border-radius: 12px; padding: 1.5rem;
+            white-space: pre-wrap; word-wrap: break-word;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.95rem; line-height: 1.7; color: #334155;
+            max-height: 50vh; overflow-y: auto;
+        }
+        .modal-footer {
+            padding: 1.5rem 2rem; border-top: 1px solid #e2e8f0;
+            display: flex; justify-content: flex-end;
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .header h1 { font-size: 2.2rem; }
+            .cards-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .card { padding: 1.5rem; }
+            .card-footer { flex-direction: column; }
+            .modal-content { width: 95%; }
+            .modal-header, .modal-body, .modal-footer { padding: 1rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="controls">
+            <div class="search-container">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <input type="text" class="search-input" placeholder="Search templates by title, tag, or description..." id="searchInput">
+            </div>
+
+            <div class="filter-bar">
+                </div>
+        </div>
+
+        <div class="results-info" id="resultsInfo"></div>
+        <div class="cards-grid" id="cardsGrid"></div>
+        <div class="no-results" id="noResults">
+            <h3>No Templates Found</h3>
+            <p>Your search or filter criteria did not match any templates. Please try again.</p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Prompt copied to clipboard!</div>
+
+    <div class="modal-overlay" id="promptModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <button class="modal-close-btn" id="modalCloseBtn" title="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre class="modal-prompt" id="modalPrompt"></pre>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="modalCopyBtn">
+                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>Copy Prompt</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const templates = [
+            {
+                id: 1,
+                title: "Professional README.md Generator",
+                category: "utility",
+                tags: ["readme", "markdown", "docs"],
+                description: "Generate a comprehensive and professional README.md for any project, including sections for features, installation, usage, and contributing.",
+                prompt: `Act as an expert technical writer. Your task is to generate the raw Markdown content for a README.md file for a new software project.
+
+Project Name: {{PROJECT_NAME}}
+Primary Technology: {{PRIMARY_TECH}}
+One-Liner Description: {{DESCRIPTION}}
+
+Based on this, create a README.md with these sections:
+- Title with the Project Name.
+- Placeholder badges (Build Status, License, etc.).
+- A brief overview expanding on the one-liner description.
+- ## Key Features (a bulleted list).
+- ## Tech Stack.
+- ## Getting Started (with Prerequisites and Installation steps).
+- ## Usage (how to run the project, with code blocks).
+- ## Contributing (a statement inviting contributions and linking to CONTRIBUTING.md).
+- ## License (e.g., "Distributed under the MIT License.").
+
+Generate only the raw Markdown. Do not add any conversational text.`
+            },
+            {
+                id: 2,
+                title: "Node.js + Express API README",
+                category: "backend",
+                tags: ["nodejs", "express", "api", "readme"],
+                description: "Create a detailed README.md for a Node.js and Express REST API, outlining endpoints, environment setup, and running procedures.",
+                prompt: `Generate a README.md for a Node.js/Express REST API.
+
+The API has the following characteristics:
+- Authentication: JWT
+- Database: {{DATABASE_TYPE e.g., MongoDB with Mongoose}}
+- Key Endpoint Prefixes: /api/users, /api/posts, /api/auth
+
+The README must include:
+1.  Project Title.
+2.  Brief description.
+3.  ## API Endpoints: A table listing key endpoints (e.g., GET /api/posts), their purpose, and if they are protected.
+4.  ## Environment Variables: A template for the \`.env\` file, explaining each variable (PORT, DATABASE_URL, JWT_SECRET).
+5.  ## Installation and Running: Step-by-step instructions using 'npm install' and 'npm start'.
+6.  ## Scripts: Explanation of scripts in package.json (e.g., 'start:dev', 'test').
+
+Produce only the raw Markdown content for the file.`
+            },
+            {
+                id: 3,
+                title: "React + Vite Project README",
+                category: "frontend",
+                tags: ["react", "vite", "frontend", "readme"],
+                description: "Generate a README for a modern React 18 project bootstrapped with Vite, including TypeScript and ESLint configurations.",
+                prompt: `Act as a senior frontend developer. Create a README.md for a React project.
+
+Project Details:
+- Framework: React 18
+- Build Tool: Vite
+- Language: TypeScript
+- State Management: {{STATE_MANAGEMENT e.g., Redux Toolkit, Zustand}}
+- Styling: {{STYLING e.g., Tailwind CSS, CSS Modules}}
+
+The README should contain:
+- Project Title and a short description.
+- ## Features: List of core features implemented.
+- ## Tech Stack: A list of technologies used.
+- ## Folder Structure: A brief explanation of the key directories (e.g., \`src/components\`, \`src/pages\`, \`src/hooks\`).
+- ## Available Scripts: How to install dependencies, start the dev server, build for production, and run linter.
+
+Generate the raw Markdown output only.`
+            },
+            {
+                id: 4,
+                title: "GitHub Actions CI/CD Workflow",
+                category: "devops",
+                tags: ["ci-cd", "github-actions", "devops", "yaml"],
+                description: "Generate a YAML file for a GitHub Actions workflow that builds, tests, and deploys a Node.js application.",
+                prompt: `Act as a DevOps expert. Generate a complete GitHub Actions workflow YAML file (\`ci-cd.yml\`) for a standard Node.js application.
+
+The workflow should:
+- Be named "CI/CD Pipeline".
+- Trigger on push to the \`main\` branch and pull requests.
+- Define environment variables for \`NODE_VERSION\` (e.g., 18.x) and \`NPM_VERSION\`.
+- Consist of two jobs: \`build\` and \`deploy\`.
+- The \`build\` job must:
+    - Run on \`ubuntu-latest\`.
+    - Check out the code.
+    - Set up the specified Node.js version.
+    - Install dependencies using \`npm ci\`.
+    - Run tests using \`npm test\`.
+- The \`deploy\` job must:
+    - Only run if the \`build\` job succeeds on a push to \`main\`.
+    - Depend on the \`build\` job.
+    - Contain placeholder steps for deploying to a service (e.g., Heroku, Vercel), with comments explaining what to do.
+
+Generate only the raw YAML content.`
+            },
+            {
+                id: 5,
+                title: "Python + FastAPI Backend README",
+                category: "backend",
+                tags: ["python", "fastapi", "uvicorn", "readme"],
+                description: "Create a README for a Python backend using FastAPI, detailing virtual environment setup, dependencies, and running with Uvicorn.",
+                prompt: `Generate a README.md for a Python API built with FastAPI.
+
+The README must include:
+1. Project Title.
+2. A short description of the API's purpose.
+3. ## Technology Stack: List FastAPI, Pydantic, Uvicorn, and the database used (e.g., PostgreSQL with SQLAlchemy).
+4. ## Setup and Installation:
+    - How to create and activate a Python virtual environment (\`venv\`).
+    - How to install dependencies from \`requirements.txt\`.
+    - How to set up the required \`.env\` file (provide a template).
+5. ## Running the Application: The \`uvicorn\` command needed to start the server and enable auto-reload.
+6. ## API Documentation: A note on how to access the auto-generated docs at \`/docs\` and \`/redoc\`.
+
+Produce only the raw Markdown content.`
+            },
+            {
+                id: 6,
+                title: "Flutter Mobile App README",
+                category: "mobile",
+                tags: ["flutter", "dart", "mobile", "readme"],
+                description: "Generate a comprehensive README for a Flutter project, covering setup, build commands, and state management approach.",
+                prompt: `Act as a senior Flutter developer. Create a README.md for a new Flutter application.
+
+Project Details:
+- State Management: {{STATE_MANAGEMENT e.g., BLoC, Provider, Riverpod}}
+- Key Packages: {{KEY_PACKAGES e.g., http, go_router, firebase_auth}}
+
+The README should detail:
+- Project Title.
+- A section on the app's core functionality with screenshots (use placeholders).
+- ## Getting Started: Prerequisites (Flutter SDK version).
+- ## Installation: \`flutter pub get\`.
+- ## State Management: A brief explanation of the chosen approach.
+- ## Build & Run: Instructions for running the app and for building the APK/IPA (\`flutter build apk\`, \`flutter build ipa\`).
+- ## Project Structure: Overview of the \`lib\` folder's organization.
+
+Generate raw Markdown only.`
+            },
+            {
+                id: 7,
+                title: "Cypress E2E Test Plan",
+                category: "testing",
+                tags: ["cypress", "e2e", "testing", "markdown"],
+                description: "Create a Markdown document outlining an End-to-End test plan for a web application using Cypress.",
+                prompt: `Act as a QA Automation Engineer. Generate a Markdown document for a Cypress E2E Test Plan.
+
+Application Feature to Test: {{FEATURE_NAME e.g., User Authentication Flow}}
+
+The document should have the following structure:
+1. # Cypress E2E Test Plan: {{FEATURE_NAME}}
+2. ## 1. Objective: What this test plan aims to verify.
+3. ## 2. Scope:
+    - ### 2.1. In-Scope: A bulleted list of user stories or functionalities to be tested.
+    - ### 2.2. Out-of-Scope: A bulleted list of what will not be tested.
+4. ## 3. Test Scenarios: A table with columns for 'Test Case ID', 'Description', 'Steps', and 'Expected Result'. Populate it with at least 3 sample test cases for the specified feature.
+5. ## 4. Prerequisites: Required test data or application state.
+6. ## 5. How to Run Tests: The Cypress CLI command to run these specific tests (e.g., \`npx cypress run --spec "cypress/e2e/auth.cy.js"\`).
+
+Generate only the raw Markdown content.`
+            },
+            {
+                id: 8,
+                title: "MERN Stack Project README",
+                category: "fullstack",
+                tags: ["mern", "mongodb", "react", "fullstack"],
+                description: "Generate a README for a full-stack MERN project, detailing how to run both the backend API and the frontend client.",
+                prompt: `Generate a complete README.md for a MERN (MongoDB, Express, React, Node.js) stack project. The project is structured with a root directory containing a \`client\` folder for the React app and a \`server\` folder for the Express API.
+
+The README must include:
+1.  Project Title and Description.
+2.  ## Tech Stack: List all four MERN technologies.
+3.  ## Project Structure: A simple tree showing the \`client\` and \`server\` directories.
+4.  ## Getting Started:
+    - A 'Prerequisites' section (Node.js, npm, MongoDB).
+    - A 'Setup' section with clear, step-by-step instructions:
+        1.  Clone the repository.
+        2.  Instructions for the Server (navigate to \`server\`, install dependencies, create \`.env\` from \`.env.example\`).
+        3.  Instructions for the Client (navigate to \`client\`, install dependencies).
+5.  ## Running the Application: How to run the server (\`npm run dev\` in \`/server\`) and the client (\`npm start\` in \`/client\`) concurrently.
+
+Generate only the raw Markdown.`
+            },
+            {
+                id: 9,
+                title: "LangChain Agent Boilerplate",
+                category: "ai-ml",
+                tags: ["langchain", "python", "ai", "llm"],
+                description: "Generate a Python script for a basic LangChain agent that uses a search tool to answer questions.",
+                prompt: `Act as an AI Engineer specializing in LangChain. Generate a self-contained Python script (\`agent.py\`) that creates and runs a basic ReAct agent.
+
+The script must:
+- Import necessary components from \`langchain\`, \`langchain_community\`, and \`langchain_openai\`.
+- Use environment variables to load API keys for OpenAI and a search tool (e.g., Tavily Search).
+- Initialize an OpenAI LLM (e.g., \`ChatOpenAI\`).
+- Define a list of tools, including a search tool (e.g., \`TavilySearchResults\`).
+- Create a ReAct agent prompt using \`hub.pull("hwchase17/react")\`.
+- Create the agent using \`create_react_agent\`.
+- Create an \`AgentExecutor\`.
+- Invoke the agent with a sample question like "What is the current weather in London?".
+- Print the agent's response.
+- Include comments explaining each major step.
+
+Generate only the raw Python code.`
+            },
+            {
+                id: 10,
+                title: "CONTRIBUTING.md Generator",
+                category: "utility",
+                tags: ["contributing", "markdown", "open-source"],
+                description: "Create a standard CONTRIBUTING.md file to guide potential contributors on how to submit issues and pull requests.",
+                prompt: `Generate a standard \`CONTRIBUTING.md\` file for an open-source software project.
+
+The file should be structured with the following sections:
+- # Contributing to {{PROJECT_NAME}}
+- A welcoming paragraph thanking potential contributors.
+- ## How Can I Contribute?
+    - ### Reporting Bugs: Explain how to submit a good bug report, referencing the issue template.
+    - ### Suggesting Enhancements: Explain how to submit an enhancement suggestion.
+    - ### Your First Code Contribution: Steps for beginners to find an issue to work on.
+- ## Pull Request Process
+    1. A numbered list detailing the fork/branch/commit/PR workflow.
+    2. A note on ensuring the test suite passes.
+    3. A note on updating the README or docs if necessary.
+- ## Code of Conduct: A link to the \`CODE_OF_CONDUCT.md\` file.
+
+Generate raw Markdown only.`
+            },
+            {
+                id: 11,
+                title: "Dockerfile for React App",
+                category: "devops",
+                tags: ["docker", "react", "nginx", "frontend"],
+                description: "Generate a multi-stage Dockerfile for a production-ready React application served by Nginx.",
+                prompt: `Act as a DevOps Engineer. Generate a multi-stage Dockerfile to build and serve a standard React application (created with Create React App or Vite).
+
+The Dockerfile must:
+- Use a \`node:alpine\` image as a 'builder' stage.
+- Set the working directory to \`/app\`.
+- Copy \`package.json\` and \`package-lock.json\` and install dependencies using \`npm ci\`.
+- Copy the rest of the application source code.
+- Run \`npm run build\` to create the production build.
+- Use an \`nginx:stable-alpine\` image for the final stage.
+- Copy the built assets from the 'builder' stage to Nginx's HTML directory.
+- Expose port 80.
+- Set the default command to start Nginx.
+- Include comments to explain each stage.
+
+Generate only the raw Dockerfile content.`
+            },
+            {
+                id: 12,
+                title: "SvelteKit Project README",
+                category: "frontend",
+                tags: ["svelte", "sveltekit", "frontend", "readme"],
+                description: "Generate a README for a SvelteKit project, covering structure, adapters, and key commands.",
+                prompt: `Generate a README.md for a SvelteKit project.
+
+Project Details:
+- Adapter: {{ADAPTER e.g., @sveltejs/adapter-auto, @sveltejs/adapter-node}}
+- Features: Server-Side Rendering (SSR), Prerendering, API Routes.
+
+The README needs to include:
+1.  Project Title.
+2.  ## About This Project: A brief description.
+3.  ## Core Concepts: A short explanation of SvelteKit's key directories: \`src/routes\`, \`src/lib\`, and \`static\`.
+4.  ## Adapter: A note on which adapter is being used for deployment.
+5.  ## Developing: How to install dependencies and start the dev server.
+6.  ## Building: The command to build the project for production (\`npm run build\`).
+
+Generate raw Markdown only.`
+            },
+            {
+                id: 13,
+                title: "Go Microservice README",
+                category: "backend",
+                tags: ["go", "golang", "microservice", "readme"],
+                description: "Create a README for a Go microservice, including build/run instructions, dependencies, and configuration details.",
+                prompt: `Act as a senior Go developer. Generate a README.md for a Go microservice.
+
+Service Details:
+- Framework/Router: {{ROUTER e.g., Gin, Chi, standard library 'net/http'}}
+- Key Dependencies: Mention any key dependencies (e.g., Viper for config, GORM for database).
+
+The README must include:
+1.  Service Name (Title).
+2.  ## Overview: One-paragraph description of the service's responsibility.
+3.  ## Configuration: How the service is configured (e.g., via a \`config.yml\` or environment variables), with an example.
+4.  ## Building and Running:
+    - How to fetch dependencies (\`go mod tidy\`).
+    - How to build the binary (\`go build\`).
+    - How to run the service from the command line.
+5.  ## API Endpoints: A table of the main API endpoints provided by this service.
+
+Generate the raw Markdown content.`
+            },
+            {
+                id: 14,
+                title: "PyTorch Training Script README",
+                category: "ai-ml",
+                tags: ["pytorch", "ai", "ml", "python"],
+                description: "Generate a README explaining how to run a PyTorch model training script, including arguments and dataset format.",
+                prompt: `Act as a Machine Learning Engineer. Generate a README.md file that documents a Python script named \`train.py\` for training a PyTorch model.
+
+The README must explain:
+1.  ## Model Training Script (\`train.py\`).
+2.  ## Dataset:
+    - Expected directory structure for the training data.
+    - Format of the data (e.g., JPG images, CSV files).
+3.  ## Prerequisites: How to install the required Python packages from \`requirements.txt\`.
+4.  ## Usage:
+    - The basic command to run the script (\`python train.py\`).
+    - A table explaining the command-line arguments available, such as:
+        - \`--data-dir\`: Path to the dataset.
+        - \`--epochs\`: Number of training epochs.
+        - \`--learning-rate\`: The learning rate.
+        - \`--batch-size\`: The batch size.
+    - Provide a full example command.
+5.  ## Output: What the script produces (e.g., saved model checkpoints in a \`./models\` directory).
+
+Generate the raw Markdown only.`
+            },
+            {
+                id: 15,
+                title: "Jest Unit Test File",
+                category: "testing",
+                tags: ["jest", "testing", "javascript", "unit-test"],
+                description: "Generate a Jest test file (`.test.js`) for a hypothetical JavaScript utility function.",
+                prompt: `Act as a JavaScript developer with expertise in testing. Generate a complete Jest test file named \`utils.test.js\`.
+
+The file should test a hypothetical function \`formatDate(dateString)\` from \`./utils.js\`. The function takes an ISO date string and returns it in \`DD/MM/YYYY\` format.
+
+The test file must:
+1.  Import the function to be tested.
+2.  Use a \`describe\` block for the \`formatDate\` function.
+3.  Include at least three \`test\` (or \`it\`) cases:
+    - A valid date string.
+    - A scenario where the input is invalid or null, expecting an error to be thrown.
+    - A leap year date to check for edge cases.
+4.  Use Jest's expectation functions (\`expect\`, \`toBe\`, \`toThrow\`).
+5.  Include comments where necessary.
+
+Generate only the raw JavaScript code for the test file.`
+            },
+            {
+                id: 16,
+                title: "T3 Stack App README",
+                category: "fullstack",
+                tags: ["t3-stack", "nextjs", "trpc", "prisma"],
+                description: "Generate a README for an application built with the T3 Stack (Next.js, TypeScript, tRPC, Prisma, Tailwind CSS).",
+                prompt: `Generate a detailed README.md for a web application built using the T3 Stack.
+
+The README must cover:
+1.  Project Title and a brief introduction to the T3 Stack.
+2.  ## Tech Stack: List Next.js, TypeScript, tRPC, Prisma, and Tailwind CSS.
+3.  ## Project Structure: Explain the purpose of key files and directories, including:
+    - \`src/pages/api/trpc/[trpc].ts\` (tRPC endpoint)
+    - \`src/server/api/\` (tRPC routers and procedures)
+    - \`prisma/schema.prisma\` (database schema)
+4.  ## Getting Started:
+    - How to set up the \`.env\` file with \`DATABASE_URL\`.
+    - How to install dependencies (\`npm install\`).
+    - How to push the Prisma schema to the database (\`npx prisma db push\`).
+5.  ## How to Run: The command to start the development server.
+
+Produce only the raw Markdown content.`
+            }
+        ];
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardsGrid = document.getElementById('cardsGrid');
+            const resultsInfo = document.getElementById('resultsInfo');
+            const noResults = document.getElementById('noResults');
+            const searchInput = document.getElementById('searchInput');
+            const filterBar = document.querySelector('.filter-bar');
+            
+            // Modal elements
+            const modal = document.getElementById('promptModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalPrompt = document.getElementById('modalPrompt');
+            const modalCloseBtn = document.getElementById('modalCloseBtn');
+            const modalCopyBtn = document.getElementById('modalCopyBtn');
+            const overlay = document.querySelector('.modal-overlay');
+
+            let currentFilter = 'all';
+            let currentSearch = '';
+            let currentPromptToCopy = '';
+
+            const icons = {
+                preview: `<svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
+                copy: `<svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`
+            };
+            
+            function getUniqueCategories() {
+                const categories = new Set(templates.map(t => t.category));
+                return ['all', ...Array.from(categories).sort()];
+            }
+
+            function populateFilters() {
+                const categories = getUniqueCategories();
+                filterBar.innerHTML = categories.map(category => 
+                    `<button class="filter-btn ${category === 'all' ? 'active' : ''}" data-category="${category}">${category.replace('-', '/')}</button>`
+                ).join('');
+            }
+
+            function renderCards(filteredTemplates) {
+                cardsGrid.innerHTML = '';
+                resultsInfo.textContent = `Showing ${filteredTemplates.length} template${filteredTemplates.length !== 1 ? 's' : ''}`;
+                
+                if (filteredTemplates.length === 0) {
+                    cardsGrid.style.display = 'none';
+                    noResults.style.display = 'block';
+                } else {
+                    cardsGrid.style.display = 'grid';
+                    noResults.style.display = 'none';
+                }
+
+                filteredTemplates.forEach((template, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card fade-in';
+                    card.style.animationDelay = `${index * 0.05}s`;
+                    
+                    card.innerHTML = `
+                        <div class="card-header">
+                            <h3 class="card-title">${template.title}</h3>
+                            <span class="category-badge">${template.category.replace('-', '/')}</span>
+                        </div>
+                        <p class="card-description">${template.description}</p>
+                        <div class="card-tags">
+                            ${template.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" data-id="${template.id}" data-action="preview">
+                                ${icons.preview}
+                                <span>Preview Prompt</span>
+                            </button>
+                            <button class="btn btn-secondary" data-id="${template.id}" data-action="copy">
+                                ${icons.copy}
+                                <span>Quick Copy</span>
+                            </button>
+                        </div>
+                    `;
+                    cardsGrid.appendChild(card);
+                });
+            }
+
+            function filterAndRender() {
+                const searchTerm = currentSearch.toLowerCase();
+                let filtered = templates;
+
+                if (currentFilter !== 'all') {
+                    filtered = filtered.filter(template => template.category === currentFilter);
+                }
+
+                if (searchTerm) {
+                    filtered = filtered.filter(template => 
+                        template.title.toLowerCase().includes(searchTerm) ||
+                        template.description.toLowerCase().includes(searchTerm) ||
+                        template.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    );
+                }
+                
+                renderCards(filtered);
+            }
+
+            function setActiveFilter(category) {
+                currentFilter = category;
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.category === category);
+                });
+                filterAndRender();
+            }
+            
+            function showToast() {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+            
+            function copyPrompt(templateId, btnElement = null) {
+                const template = templates.find(t => t.id === templateId);
+                navigator.clipboard.writeText(template.prompt).then(() => {
+                    showToast();
+                    if(btnElement) {
+                        const originalText = btnElement.innerHTML;
+                        btnElement.innerHTML = `Copied!`;
+                        setTimeout(() => {
+                           btnElement.innerHTML = originalText;
+                        }, 2000);
+                    }
+                }).catch(err => console.error('Failed to copy: ', err));
+            }
+
+            function openModal(templateId) {
+                const template = templates.find(t => t.id === templateId);
+                modalTitle.textContent = template.title;
+                modalPrompt.textContent = template.prompt;
+                currentPromptToCopy = template.prompt;
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Event Listeners
+            filterBar.addEventListener('click', e => {
+                if (e.target.matches('.filter-btn')) {
+                    setActiveFilter(e.target.dataset.category);
+                }
+            });
+
+            searchInput.addEventListener('input', e => {
+                currentSearch = e.target.value;
+                filterAndRender();
+            });
+            
+            cardsGrid.addEventListener('click', e => {
+                const button = e.target.closest('button');
+                if (!button) return;
+                
+                const templateId = parseInt(button.dataset.id);
+                const action = button.dataset.action;
+
+                if (action === 'preview') {
+                    openModal(templateId);
+                } else if (action === 'copy') {
+                    copyPrompt(templateId, button);
+                }
+            });
+
+            // Modal events
+            modalCloseBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', e => {
+                if(e.target === overlay) closeModal();
+            });
+            modalCopyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(currentPromptToCopy).then(() => {
+                    showToast();
+                    closeModal();
+                });
+            });
+
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && modal.classList.contains('show')) {
+                    closeModal();
+                }
+                if (e.key === '/' && document.activeElement !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
+
+            // Initial Load
+            populateFilters();
+            filterAndRender();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+[
+  {
+    "slug": "CIA-Investigator",
+    "title": "CIA Investigator Roleplay",
+    "tags": [
+      "roleplay",
+      "analysis",
+      "investigation"
+    ],
+    "collection": "Creative",
+    "updatedAt": "2025-08-23T23:01:48.989Z",
+    "excerpt": "Let's engage in a serious roleplay: You are a CIA investigator with full access to all of my ChatGPT interactions, custom instructions, and behavioral..."
+  },
+  {
+    "slug": "cypress-e2e-test-plan",
+    "title": "Cypress E2E Test Plan",
+    "tags": [
+      "cypress",
+      "e2e",
+      "testing",
+      "markdown"
+    ],
+    "collection": "Testing",
+    "updatedAt": "2025-08-23T22:59:34.788Z",
+    "excerpt": "Create a Markdown document outlining an End-to-End test plan for a web application using Cypress.\r # E2E Test Plan for {{appName}}\r..."
+  },
+  {
+    "slug": "flutter-mobile-app-readme",
+    "title": "Flutter Mobile App README",
+    "tags": [
+      "flutter",
+      "dart",
+      "mobile",
+      "readme",
+      "test"
+    ],
+    "collection": "Mobile",
+    "updatedAt": "2025-08-23T23:16:03.884Z",
+    "excerpt": "Generate a comprehensive README for a Flutter project, covering setup, build commands, and state management approach.\r # {{appName}}\r..."
+  },
+  {
+    "slug": "github-actions-cicd",
+    "title": "GitHub Actions CI/CD Workflow",
+    "tags": [
+      "ci-cd",
+      "github-actions",
+      "devops",
+      "yaml"
+    ],
+    "collection": "DevOps",
+    "updatedAt": "2023-11-15T12:00:00Z",
+    "excerpt": "Generate a YAML file for a GitHub Actions workflow that builds, tests, and deploys a {{projectType}} application.\r # GitHub Actions CI/CD Workflow\r..."
+  },
+  {
+    "slug": "langchain-agent-boilerplate",
+    "title": "LangChain Agent Boilerplate",
+    "tags": [
+      "langchain",
+      "python",
+      "ai",
+      "llm"
+    ],
+    "collection": "AI/ML",
+    "updatedAt": "2023-11-15T12:00:00Z",
+    "excerpt": "Generate a Python script for a basic LangChain agent that uses a search tool to answer questions.\r # {{agentName}} - LangChain Agent\r..."
+  },
+  {
+    "slug": "mern-stack-project",
+    "title": "MERN Stack Project README",
+    "tags": [
+      "mern",
+      "mongodb",
+      "react",
+      "fullstack"
+    ],
+    "collection": "Fullstack",
+    "updatedAt": "2025-08-23T23:14:35.591Z",
+    "excerpt": "Generate a README for a full-stack MERN project, detailing how to run both the backend API and the frontend client. Test changes..."
+  },
+  {
+    "slug": "nodejs-express-api-readme",
+    "title": "Node.js + Express API README",
+    "tags": [
+      "nodejs",
+      "express",
+      "api",
+      "readme",
+      "backend"
+    ],
+    "collection": "Backend",
+    "updatedAt": "2023-11-15T12:00:00Z",
+    "excerpt": "Create a detailed README.md for a Node.js and Express REST API, outlining endpoints, environment setup, and running procedures.\r # {{apiName}}\r..."
+  },
+  {
+    "slug": "professional-readme-generator",
+    "title": "Professional README.md Generator",
+    "tags": [
+      "readme",
+      "markdown",
+      "docs",
+      "utility"
+    ],
+    "collection": "Utility",
+    "updatedAt": "2023-11-15T12:00:00Z",
+    "excerpt": "Generate a comprehensive and professional README.md for any project, including sections for features, installation, usage, and contributing.\r # {{proj..."
+  },
+  {
+    "slug": "python-fastapi-backend",
+    "title": "Python + FastAPI Backend README",
+    "tags": [
+      "python",
+      "fastapi",
+      "backend",
+      "readme"
+    ],
+    "collection": "Backend",
+    "updatedAt": "2023-11-15T12:00:00Z",
+    "excerpt": "Create a README for a Python backend using FastAPI, detailing virtual environment setup, dependencies, and running with Uvicorn.\r # {{apiName}}\r..."
+  },
+  {
+    "slug": "react-vite-project-readme",
+    "title": "React + Vite Project README",
+    "tags": [
+      "react",
+      "vite",
+      "frontend",
+      "readme"
+    ],
+    "collection": "Frontend",
+    "updatedAt": "2023-11-15T12:00:00Z",
+    "excerpt": "Generate a README for a modern React 18 project bootstrapped with Vite, including TypeScript and ESLint configurations.\r # {{projectName}}\r..."
+  },
+  {
+    "slug": "sample-prompt",
+    "title": "Sample Prompt",
+    "tags": [
+      "example",
+      "test"
+    ],
+    "aliases": [
+      "example-prompt",
+      "test-prompt"
+    ],
+    "collection": "Examples",
+    "updatedAt": "2023-11-15T12:00:00Z",
+    "excerpt": "# {{name}}'s Custom Plan\r Hello {{name}}! I'll help you achieve your goal:\r..."
+  },
+  {
+    "slug": "test",
+    "title": "Test",
+    "tags": [],
+    "collection": "Test",
+    "updatedAt": "2025-08-23T23:08:09.976Z",
+    "excerpt": "Test..."
+  },
+  {
+    "slug": "testtesttest",
+    "title": "testtesttest",
+    "tags": [
+      "testtesttesttest"
+    ],
+    "updatedAt": "2025-08-23T23:09:05.895Z",
+    "excerpt": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestte..."
+  }
+]
