@@ -10,9 +10,10 @@ interface PromptCardProps {
   index?: number;
   onPreview?: (prompt: PromptCatalogEntry) => void;
   onCopy?: () => void;
+  onTagClick?: (tag: string) => void;
 }
 
-export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy }: PromptCardProps) {
+export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onTagClick }: PromptCardProps) {
   // Safety check for malformed data
   if (!prompt || !prompt.slug || !prompt.title || !prompt.excerpt || !Array.isArray(prompt.tags)) {
     return null;
@@ -87,12 +88,17 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy }: P
             <div className="flex items-center justify-between">
               <div className="flex flex-wrap gap-1">
                 {prompt.tags.slice(0, 6).map((tag) => (
-                  <span
+                  <button
+                    type="button"
                     key={tag}
-                    className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white/80 rounded-full text-xs backdrop-blur-sm font-medium"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onTagClick?.(tag);
+                    }}
+                    className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white/80 rounded-full text-xs backdrop-blur-sm font-medium hover:bg-blue-200 dark:hover:bg-white/20 transition-colors"
                   >
                     #{tag}
-                  </span>
+                  </button>
                 ))}
                 {prompt.tags.length > 6 && (
                   <span className="px-2 py-1 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-white/60 rounded-full text-xs backdrop-blur-sm font-medium">
@@ -166,12 +172,17 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy }: P
         {/* Tags */}
         <div className="flex flex-wrap gap-1 mb-2">
           {prompt.tags.slice(0, 4).map((tag) => (
-            <span
+            <button
+              type="button"
               key={tag}
-              className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white/80 rounded-full text-xs backdrop-blur-sm font-medium"
+              onClick={(e) => {
+                e.stopPropagation();
+                onTagClick?.(tag);
+              }}
+              className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white/80 rounded-full text-xs backdrop-blur-sm font-medium hover:bg-blue-200 dark:hover:bg-white/20 transition-colors"
             >
               #{tag}
-            </span>
+            </button>
           ))}
           {prompt.tags.length > 4 && (
             <span className="px-2 py-1 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-white/60 rounded-full text-xs backdrop-blur-sm font-medium">

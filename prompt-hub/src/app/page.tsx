@@ -218,6 +218,7 @@ export default function Home() {
                     index={index}
                     onPreview={openModal}
                     onCopy={showCopyToast}
+                    onTagClick={(tag) => updateSearchParams({ q: tag })}
                   />
                 ))}
               </div>
