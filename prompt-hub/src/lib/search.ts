@@ -52,21 +52,43 @@ export function searchPrompts(query: string, prompts: PromptCatalogEntry[]): Pro
     handled by FlexSearch’s highly-optimised index.
   */
 
-  // Ask FlexSearch for enriched results so we can access stored documents directly.
+  // Ask FlexSearch for enriched results to get `id` and `score` info (the stored doc isn't required).
   const rawResults = searchIndex.search(query, { enrich: true, limit: 100 }) as any[];
 
-  // Map<slug, { doc: PromptCatalogEntry; score: number }>
+  // Map slug → { doc: PromptCatalogEntry; score: number }
   const resultMap = new Map<string, { doc: PromptCatalogEntry; score: number }>();
+
+  // Quickly map slug → original prompt for restoration of full data (tags array, etc.)
+  const promptLookup = new Map<string, PromptCatalogEntry>();
+  for (const p of prompts) {
+    promptLookup.set(p.slug, p);
+  }
 
   for (const fieldResult of rawResults) {
     if (!fieldResult || !Array.isArray(fieldResult.result)) continue;
 
     for (const item of fieldResult.result) {
-      const { id, score, doc } = item;
-      // The stored document is already of type PromptCatalogEntry because we added it via `add`.
+      const { id, score } = item;
+      const originalPrompt = promptLookup.get(id);
+      // If not found in catalog (maybe catalog loaded before new prompt was added), reconstruct from stored doc
+      const docPrompt: PromptCatalogEntry | undefined = originalPrompt ?? (item.doc
+        ? {
+            // ensure stored doc fields mapped correctly
+            slug: item.doc.slug ?? item.doc.id ?? id,
+            title: item.doc.title,
+            excerpt: item.doc.excerpt ?? '',
+            tags: Array.isArray(item.doc.tags) ? item.doc.tags : (typeof item.doc.tags === 'string' ? item.doc.tags.split(' ') : []),
+            collection: item.doc.collection,
+            aliases: item.doc.aliases,
+            updatedAt: item.doc.updatedAt,
+          }
+        : undefined);
+
+      if (!docPrompt) continue;
+
       const existing = resultMap.get(id);
       if (!existing || existing.score < score) {
-        resultMap.set(id, { doc: doc as PromptCatalogEntry, score });
+        resultMap.set(id, { doc: docPrompt, score });
       }
     }
   }
