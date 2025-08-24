@@ -12,59 +12,6 @@
     "excerpt": "Let's engage in a serious roleplay: You are a CIA investigator with full access to all of my ChatGPT interactions, custom instructions, and behavioral patterns. Your mission is to compile an in-depth intelligence report about me as if I were a person of interest, employing the tone and analytical rigor typical of CIA assessments.\r The report should include a nuanced evaluation of my traits, motivations, and behaviors, but framed through the lens of potential risks, threats, or disruptive tendenc..."
   },
   {
-    "slug": "cypress-e2e-test-plan",
-    "title": "Cypress E2E Test Plan",
-    "tags": [
-      "cypress",
-      "e2e",
-      "testing",
-      "markdown"
-    ],
-    "collection": "Testing",
-    "updatedAt": "2025-08-23T22:59:34.788Z",
-    "excerpt": "Create a Markdown document outlining an End-to-End test plan for a web application using Cypress.\r # E2E Test Plan for {{appName}}\r ## Overview\r This document outlines the comprehensive End-to-End testing strategy for {{appName}} using Cypress.\r ## Test Environment\r"
-  },
-  {
-    "slug": "flutter-mobile-app-readme",
-    "title": "Flutter Mobile App README",
-    "tags": [
-      "flutter",
-      "dart",
-      "mobile",
-      "readme",
-      "test"
-    ],
-    "collection": "Mobile",
-    "updatedAt": "2025-08-23T23:16:03.884Z",
-    "excerpt": "Generate a comprehensive README for a Flutter project, covering setup, build commands, and state management approach.\r # {{appName}}\r {{description}}\r A cross-platform mobile application built with Flutter.\r ## Features\r"
-  },
-  {
-    "slug": "github-actions-cicd",
-    "title": "GitHub Actions CI/CD Workflow",
-    "tags": [
-      "ci-cd",
-      "github-actions",
-      "devops",
-      "yaml"
-    ],
-    "collection": "DevOps",
-    "updatedAt": "2023-11-15T12:00:00Z",
-    "excerpt": "Generate a YAML file for a GitHub Actions workflow that builds, tests, and deploys a {{projectType}} application.\r # GitHub Actions CI/CD Workflow\r A comprehensive workflow for continuous integration and deployment.\r ```yaml\r name: CI/CD Pipeline\r"
-  },
-  {
-    "slug": "langchain-agent-boilerplate",
-    "title": "LangChain Agent Boilerplate",
-    "tags": [
-      "langchain",
-      "python",
-      "ai",
-      "llm"
-    ],
-    "collection": "AI/ML",
-    "updatedAt": "2023-11-15T12:00:00Z",
-    "excerpt": "Generate a Python script for a basic LangChain agent that uses a search tool to answer questions.\r # {{agentName}} - LangChain Agent\r A Python-based AI agent built with LangChain that can search the web and answer questions intelligently.\r ## Features\r - **LangChain Integration**: Built on the LangChain framework\r"
-  },
-  {
     "slug": "life-prediction",
     "title": "Life Prediction",
     "tags": [
@@ -72,33 +19,6 @@
     ],
     "updatedAt": "2025-08-24T00:19:59.193Z",
     "excerpt": "SYSTEM: Based on everything you know about me, reason + predict what the next 50 years of my life will look like."
-  },
-  {
-    "slug": "mern-stack-project",
-    "title": "MERN Stack Project README",
-    "tags": [
-      "mern",
-      "mongodb",
-      "react",
-      "fullstack"
-    ],
-    "collection": "Fullstack",
-    "updatedAt": "2025-08-23T23:14:35.591Z",
-    "excerpt": "Generate a README for a full-stack MERN project, detailing how to run both the backend API and the frontend client. Test changes # {{projectName}} {{description}} A full-stack web application built with the MERN stack (MongoDB, Express.js, React, Node.js)."
-  },
-  {
-    "slug": "nodejs-express-api-readme",
-    "title": "Node.js + Express API README",
-    "tags": [
-      "nodejs",
-      "express",
-      "api",
-      "readme",
-      "backend"
-    ],
-    "collection": "Backend",
-    "updatedAt": "2023-11-15T12:00:00Z",
-    "excerpt": "Create a detailed README.md for a Node.js and Express REST API, outlining endpoints, environment setup, and running procedures.\r # {{apiName}}\r A RESTful API built with Node.js and Express.js.\r ## Prerequisites\r - Node.js (v14 or higher)\r"
   },
   {
     "slug": "person-of-interest-report-generator",
@@ -115,60 +35,6 @@
     "excerpt": "SYSTEM: Tell me something incredibly special or unique you've noticed about me, but you think I haven't realized about myself yet."
   },
   {
-    "slug": "professional-readme-generator",
-    "title": "Professional README.md Generator",
-    "tags": [
-      "readme",
-      "markdown",
-      "docs",
-      "utility"
-    ],
-    "collection": "Utility",
-    "updatedAt": "2023-11-15T12:00:00Z",
-    "excerpt": "Generate a comprehensive and professional README.md for any project, including sections for features, installation, usage, and contributing.\r # {{projectName}}\r {{description}}\r ## Features\r - Feature 1\r"
-  },
-  {
-    "slug": "python-fastapi-backend",
-    "title": "Python + FastAPI Backend README",
-    "tags": [
-      "python",
-      "fastapi",
-      "backend",
-      "readme"
-    ],
-    "collection": "Backend",
-    "updatedAt": "2023-11-15T12:00:00Z",
-    "excerpt": "Create a README for a Python backend using FastAPI, detailing virtual environment setup, dependencies, and running with Uvicorn.\r # {{apiName}}\r A high-performance API built with FastAPI and Python {{pythonVersion}}.\r ## Features\r - **Fast**: Very high performance, on par with NodeJS and Go\r"
-  },
-  {
-    "slug": "react-vite-project-readme",
-    "title": "React + Vite Project README",
-    "tags": [
-      "react",
-      "vite",
-      "frontend",
-      "readme"
-    ],
-    "collection": "Frontend",
-    "updatedAt": "2023-11-15T12:00:00Z",
-    "excerpt": "Generate a README for a modern React 18 project bootstrapped with Vite, including TypeScript and ESLint configurations.\r # {{projectName}}\r {{description}}\r This project was bootstrapped with Vite and includes modern development tools and configurations.\r ## Tech Stack\r"
-  },
-  {
-    "slug": "sample-prompt",
-    "title": "Sample Prompt",
-    "tags": [
-      "example",
-      "test"
-    ],
-    "aliases": [
-      "example-prompt",
-      "test-prompt"
-    ],
-    "collection": "Examples",
-    "updatedAt": "2023-11-15T12:00:00Z",
-    "excerpt": "# {{name}}'s Custom Plan\r Hello {{name}}! I'll help you achieve your goal:\r > {{goal}}\r Based on your {{experience}} experience level, here's a customized plan:\r 1. First step\r"
-  },
-  {
     "slug": "smooth-animations-and-micro-interactions",
     "title": "Smooth animations and micro interactions",
     "tags": [
@@ -183,17 +49,8 @@
     "title": "Test",
     "tags": [],
     "collection": "Test",
-    "updatedAt": "2025-08-23T23:08:09.976Z",
+    "updatedAt": "2025-08-24T03:07:35.223Z",
     "excerpt": "Test"
-  },
-  {
-    "slug": "testtesttest",
-    "title": "testtesttest",
-    "tags": [
-      "testtesttesttest"
-    ],
-    "updatedAt": "2025-08-23T23:09:05.895Z",
-    "excerpt": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest..."
   },
   {
     "slug": "vibe-coding-documentation",
