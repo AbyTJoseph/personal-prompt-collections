@@ -2,3 +2,5 @@ Run npm install to install dependencies
 Run npm run dev to start the development server
 Add more prompts to the /prompts directory following the sample format
 Run npm run index to rebuild the catalog when adding new prompts
+
+npm run dev:watch

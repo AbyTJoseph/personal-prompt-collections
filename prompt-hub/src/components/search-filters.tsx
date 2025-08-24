@@ -61,13 +61,13 @@ export function SearchFilters({
         {/* Create New Button */}
         <button
           onClick={onCreateNew}
-          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-medium hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+          className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
         >
           <Plus className="h-4 w-4" />
           Create New Prompt
         </button>
 
-        {/* View Mode Toggle */}
+        {/* View Mode Toggle - Moved to right */}
         <div className="flex items-center gap-2">
           <span className="text-white/80 text-sm mr-2">View:</span>
           <div className="flex bg-white/10 backdrop-blur-sm rounded-full p-1 border border-white/20">
@@ -99,7 +99,7 @@ export function SearchFilters({
 
       {/* Search Container */}
       <div className="flex justify-center">
-        <div className="relative max-w-2xl w-full">
+        <div className="relative max-w-3xl w-full">
           <div className="search-icon absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60">
             <Search className="h-5 w-5" />
           </div>
@@ -108,7 +108,7 @@ export function SearchFilters({
             placeholder="Search prompts by title, tag, or description..."
             value={localSearchQuery}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="w-full pl-12 pr-6 py-4 text-white placeholder-white/60 bg-white/10 border-white/20 rounded-full backdrop-blur-sm focus:bg-white/20 focus:border-white/30 transition-all duration-300 text-lg"
+            className="w-full pl-12 pr-6 py-5 text-white placeholder-white/60 bg-white/10 border-white/20 rounded-full backdrop-blur-sm focus:bg-white/20 focus:border-white/30 transition-all duration-300 text-lg"
           />
           {localSearchQuery && (
             <button

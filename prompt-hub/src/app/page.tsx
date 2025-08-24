@@ -23,7 +23,10 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('Prompt copied to clipboard!');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   // URL-synced state
   const searchQuery = searchParams.get('q') || '';
@@ -66,7 +69,11 @@ export default function Home() {
     async function loadCatalog() {
       try {
         setIsLoading(true);
-        const response = await fetch('/data/catalog.json');
+        // Try dynamic API first
+        const response = await fetch('/api/prompts');
+        if (!response.ok) {
+          throw new Error(`API failed: ${response.status}`);
+        }
         const data = await response.json();
         
         // Validate and sanitize the catalog data
@@ -85,8 +92,30 @@ export default function Home() {
           indexPrompts(validatedData);
         }
       } catch (error) {
-        console.error('Failed to load catalog:', error);
-        setCatalog([]);
+        console.error('Dynamic API failed, falling back to static catalog:', error);
+        
+        // Fallback to static catalog
+        try {
+          const fallbackResponse = await fetch('/data/catalog.json');
+          const fallbackData = await fallbackResponse.json();
+          
+          const validatedFallbackData = Array.isArray(fallbackData) ? fallbackData.filter(item => 
+            item && 
+            typeof item === 'object' && 
+            item.slug && 
+            item.title && 
+            Array.isArray(item.tags) && 
+            item.excerpt
+          ) : [];
+          
+          setCatalog(validatedFallbackData);
+          if (validatedFallbackData.length > 0) {
+            indexPrompts(validatedFallbackData);
+          }
+        } catch (fallbackError) {
+          console.error('Fallback also failed:', fallbackError);
+          setCatalog([]);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -94,6 +123,24 @@ export default function Home() {
 
     loadCatalog();
   }, []);
+
+  // Auto-refresh catalog every 30 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLastRefresh(new Date());
+      loadCatalog();
+    }, 30000); // 30 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Function to manually refresh catalog
+  const refreshCatalog = async () => {
+    setIsRefreshing(true);
+    setLastRefresh(new Date());
+    await loadCatalog();
+    setIsRefreshing(false);
+  };
 
   const updateSearchParams = (updates: Record<string, string | null>) => {
     const newParams = new URLSearchParams(searchParams.toString());
@@ -117,7 +164,10 @@ export default function Home() {
     setSelectedPrompt(null);
   };
 
-  const showCopyToast = () => {
+  const showCopyToast = (message?: string) => {
+    if (message) {
+      setToastMessage(message);
+    }
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
@@ -180,9 +230,39 @@ export default function Home() {
     }
   };
 
+  const handleDeletePrompt = async (slug: string) => {
+    try {
+      const response = await fetch(`/api/prompts?slug=${slug}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to delete prompt');
+      }
+
+      // Remove from catalog
+      setCatalog(prev => prev.filter(prompt => prompt.slug !== slug));
+      
+      // Close modal if it was open
+      if (selectedPrompt?.slug === slug) {
+        closeModal();
+      }
+      
+      showCopyToast('Prompt deleted successfully!');
+    } catch (error) {
+      console.error('Failed to delete prompt:', error);
+      alert('Failed to delete prompt. Please try again.');
+    }
+  };
+
   return (
     <main className="container mx-auto px-6 py-12 relative max-w-7xl">
-      <Header onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
+      <Header 
+        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} 
+        onRefresh={refreshCatalog}
+        isRefreshing={isRefreshing}
+      />
       
       <ClientOnly>
         <CommandPalette
@@ -245,6 +325,7 @@ export default function Home() {
               prompt={selectedPrompt}
               onCopy={showCopyToast}
               onEdit={handleEditPrompt}
+              onDelete={handleDeletePrompt}
             />
 
             <CreatePromptModal
@@ -257,7 +338,7 @@ export default function Home() {
             {showToast && (
               <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
                 <div className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg font-medium">
-                  Prompt copied to clipboard!
+                  {toastMessage}
                 </div>
               </div>
             )}

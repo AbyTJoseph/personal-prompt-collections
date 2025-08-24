@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:watch": "concurrently \"next dev --turbopack\" \"node scripts/watch-prompts.js\"",
     "build": "next build --turbopack",
     "postbuild": "node scripts/build-simple.js",
     "start": "next start",
     "lint": "eslint",
-    "index": "node scripts/build-simple.js"
+    "index": "node scripts/build-simple.js",
+    "watch": "node scripts/watch-prompts.js"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.3",
@@ -50,6 +52,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
+    "concurrently": "^8.2.2",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
     "tw-animate-css": "^1.3.7",

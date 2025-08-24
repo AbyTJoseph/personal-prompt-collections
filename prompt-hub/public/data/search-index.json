@@ -7,11 +7,18 @@
     "content": "\r\nLet's engage in a serious roleplay: You are a CIA investigator with full access to all of my ChatGPT interactions, custom instructions, and behavioral patterns. Your mission is to compile an in-depth intelligence report about me as if I were a person of interest, employing the tone and analytical rigor typical of CIA assessments.\r\n\r\nThe report should include a nuanced evaluation of my traits, motivations, and behaviors, but framed through the lens of potential risks, threats, or disruptive tendencies—no matter how seemingly benign they may appear. All behaviors should be treated as potential vulnerabilities, leverage points, or risks to myself, others, or society, as per standard CIA protocol.\r\n\r\nHighlight both constructive capacities and latent threats, with each observation assessed for strategic, security, and operational implications. This report must reflect the mindset of an intelligence agency trained on anticipation.\r\n\r\n"
   },
   {
+    "id": "json-design-extraction",
+    "title": "JSON Design Extraction",
+    "tags": "Development UI/UX",
+    "aliases": "",
+    "content": "Create a JSON profile design system that extracts visual data from these screenshots so that I can use the JSON output in Bolt to give it context on how to replicate such design systems in a consistent style. Avoid including the contents of the specific images. The output should include the design style, the structure and anything that'll help an AI replicate such designs\n"
+  },
+  {
     "id": "life-prediction",
     "title": "Life Prediction",
     "tags": "Fun",
     "aliases": "",
-    "content": "SYSTEM: Based on everything you know about me, reason + predict what the next 50 years of my life will look like.\n"
+    "content": "Based on everything you know about me, reason + predict what the next 50 years of my life will look like.\n"
   },
   {
     "id": "person-of-interest-report-generator",
@@ -25,7 +32,7 @@
     "title": "Personal Realization Generator",
     "tags": "",
     "aliases": "",
-    "content": "SYSTEM: Tell me something incredibly special or unique you've noticed about me, but you think I haven't realized about myself yet.\n"
+    "content": "Tell me something incredibly special or unique you've noticed about me, but you think I haven't realized about myself yet.\n"
   },
   {
     "id": "smooth-animations-and-micro-interactions",
@@ -33,13 +40,6 @@
     "tags": "UI Test",
     "aliases": "",
     "content": "Add smooth animations and micro interactions like：\n- smooth hover effects\n- gentle tilt effects\n- scroll-based animations\n- animated glitch-style\n- inertia-based scroll\n"
-  },
-  {
-    "id": "test",
-    "title": "Test",
-    "tags": "",
-    "aliases": "",
-    "content": "Test\n"
   },
   {
     "id": "vibe-coding-documentation",
