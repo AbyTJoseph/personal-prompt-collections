@@ -138,6 +138,34 @@ export default function Home() {
   const refreshCatalog = async () => {
     setIsRefreshing(true);
     setLastRefresh(new Date());
+    
+    try {
+      // First sync with git repository
+      const gitSyncResponse = await fetch('/api/git-sync', {
+        method: 'POST',
+      });
+      
+      if (!gitSyncResponse.ok) {
+        const errorData = await gitSyncResponse.json();
+        console.error('Git sync failed:', errorData);
+        // Continue with local refresh even if git sync fails
+      } else {
+        const gitSyncResult = await gitSyncResponse.json();
+        console.log('Git sync result:', gitSyncResult);
+        
+        // Show toast message about git sync
+        if (gitSyncResult.changes?.count > 0) {
+          setToastMessage(`Synced ${gitSyncResult.changes.count} prompt files from git`);
+          setShowToast(true);
+          setTimeout(() => setShowToast(false), 3000);
+        }
+      }
+    } catch (error) {
+      console.error('Error during git sync:', error);
+      // Continue with local refresh even if git sync fails
+    }
+    
+    // Then load catalog from local files
     await loadCatalog();
     setIsRefreshing(false);
   };

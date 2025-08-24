@@ -4,3 +4,15 @@ Add more prompts to the /prompts directory following the sample format
 Run npm run index to rebuild the catalog when adding new prompts
 
 npm run dev:watch
+
+
+In Production
+Option 1: Combined Server & Watcher
+   npm run start:watch
+
+Option 2: Separate Processes
+   # Terminal 1
+   npm start
+   
+   # Terminal 2
+   npm run watch:prod

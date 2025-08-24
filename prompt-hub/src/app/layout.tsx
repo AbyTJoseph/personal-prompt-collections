@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import { Toaster } from "@/components/ui/sonner";
+import ClientPromptWatcher from "@/components/client-prompt-watcher";
 import "./globals.css";
 
 const geist = Geist({
@@ -43,6 +45,8 @@ export default function RootLayout({
           <SmoothScrollProvider>
             <div className="relative min-h-screen overflow-x-hidden">
               {children}
+              <ClientPromptWatcher />
+              <Toaster position="top-right" />
             </div>
           </SmoothScrollProvider>
         </ThemeProvider>

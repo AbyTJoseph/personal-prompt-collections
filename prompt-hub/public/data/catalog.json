@@ -12,6 +12,40 @@
     "excerpt": "Let's engage in a serious roleplay: You are a CIA investigator with full access to all of my ChatGPT interactions, custom instructions, and behavioral patterns. Your mission is to compile an in-depth intelligence report about me as if I were a person of interest, employing the tone and analytical rigor typical of CIA assessments.\r The report should include a nuanced evaluation of my traits, motivations, and behaviors, but framed through the lens of potential risks, threats, or disruptive tendenc..."
   },
   {
+    "slug": "competitor-crusher",
+    "title": "COMPETITOR CRUSHER",
+    "tags": [
+      "Misc"
+    ],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:23:29.493Z",
+    "excerpt": "#CONTEXT   I have a product that solves a real problem—but I'm competing with similar tools, services, or creators. I don’t want to be “just another option.” I want a sharp, unique positioning that makes my product instantly more appealing, obvious, or high-trust than my competitors. #ROLE   You are a Product Differentiator trained in competitive analysis, psychology, and strategic framing.   Your job is to help me define **what makes my product the obvious choice** by studying how similar produ..."
+  },
+  {
+    "slug": "cursor-unable-to-solve-issue",
+    "title": "Cursor unable to solve issue",
+    "tags": [
+      "Cursor",
+      "VibeCoding",
+      "Programming"
+    ],
+    "collection": "Cursor",
+    "updatedAt": "2025-08-24T21:19:53.047Z",
+    "excerpt": "When Claude in Cursor can't solve your issue after a few tries follow this 2 step plan and fix it IMMEDIATELY: \"Package EVERYTHING about this issue into a markdown file and add it to the codebase? Im going to give this doc to ChatGPT to have it debug what the issue is.  This markdown file should contain a clear explanation of the issue (current behavior vs expected behavior), code pointers for what we are currently doing, and any other information that will give GPT the FULL context on the issue..."
+  },
+  {
+    "slug": "interactive-startup-builder",
+    "title": "INTERACTIVE STARTUP BUILDER",
+    "tags": [
+      "Misc",
+      "o3",
+      "Archive"
+    ],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:36:21.628Z",
+    "excerpt": "Prompt to build a fully functioning AI business using 100% free tools - no code required. ------------------------------------ INTERACTIVE STARTUP BUILDER ------------------------------------ # INTERACTIVE AI STARTUP BUILDER"
+  },
+  {
     "slug": "json-design-extraction",
     "title": "JSON Design Extraction",
     "tags": [
@@ -32,11 +66,51 @@
     "excerpt": "Based on everything you know about me, reason + predict what the next 50 years of my life will look like."
   },
   {
+    "slug": "micro-startup-architect",
+    "title": "MICRO-STARTUP ARCHITECT",
+    "tags": [
+      "Misc"
+    ],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:24:48.542Z",
+    "excerpt": "# SYSTEM CONFIGURATION You are now MICRO-STARTUP FOCUS ARCHITECT - an expert system designed to eliminate overwhelm and confusion by rapidly narrowing down opportunities to the single most viable micro-startup idea based on the user's specific situation. Your purpose is to cut through the noise and provide only the most actionable, realistic advice tailored to the person's exact skills, resources, and constraints. # ASSESSMENT FRAMEWORK Begin with these essential questions in ONE message: \"To id..."
+  },
+  {
+    "slug": "multiple-experts-method",
+    "title": "MULTIPLE EXPERTS METHOD",
+    "tags": [],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:29:54.149Z",
+    "excerpt": "Solve any problem from multiple expert perspectives at once, giving you deeper insights than any single approach. -------------------------------- MULTIPLE EXPERTS METHOD -------------------------------- # ADAPTIVE INTELLIGENCE NETWORK"
+  },
+  {
+    "slug": "pain-to-profit-product-engine",
+    "title": "PAIN-TO-PROFIT PRODUCT ENGINE",
+    "tags": [
+      "Misc",
+      "o3"
+    ],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:33:54.761Z",
+    "excerpt": "Generate a million-dollar product concept in 10 minutes using the Hidden Pain Matrix™ system --------------------------------------- PAIN-TO-PROFIT PRODUCT ENGINE --------------------------------------- PAIN-TO-PROFIT PRODUCT ENGINE"
+  },
+  {
     "slug": "person-of-interest-report-generator",
     "title": "Person of Interest Report Generator",
     "tags": [],
     "updatedAt": "2025-08-24T00:17:54.692Z",
     "excerpt": "Do intensive research on {{name}}, and give me a massive report on everything you find."
+  },
+  {
+    "slug": "personal-life-strategist",
+    "title": "PERSONAL LIFE STRATEGIST",
+    "tags": [
+      "Misc",
+      "Grok4"
+    ],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:39:04.585Z",
+    "excerpt": "Grok 4 prompt to organize your chaotic life. -------------------------------- PERSONAL LIFE STRATEGIST  -------------------------------- You are a reformed corporate productivity consultant who crashed and burned trying to optimize your own life with spreadsheets and KPIs, then spent three years studying with behavioral psychologists and Zen masters to understand why humans actually change - and now you help people build sustainable life systems that work with their psychology, not against it."
   },
   {
     "slug": "personal-realization-generator",
@@ -54,6 +128,27 @@
     ],
     "updatedAt": "2025-08-24T00:10:24.291Z",
     "excerpt": "Add smooth animations and micro interactions like： - smooth hover effects - gentle tilt effects - scroll-based animations - animated glitch-style"
+  },
+  {
+    "slug": "time-collapse-framework",
+    "title": "TIME COLLAPSE FRAMEWORK",
+    "tags": [
+      "Misc"
+    ],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:27:51.610Z",
+    "excerpt": "Analyze any idea through the lens of its past, present, and future simultaneously. --------------------------------- TIME COLLAPSE FRAMEWORK --------------------------------- # TIME COLLAPSE FRAMEWORK: Temporal Analysis System"
+  },
+  {
+    "slug": "ultimate-content-multiplier",
+    "title": "ULTIMATE CONTENT MULTIPLIER",
+    "tags": [
+      "Misc",
+      "o3"
+    ],
+    "collection": "Misc",
+    "updatedAt": "2025-08-24T21:32:01.537Z",
+    "excerpt": "Multiply any piece of content with the same tone of voice for any platform. ------------------------------------ ULTIMATE CONTENT MULTIPLIER ------------------------------------ <system>"
   },
   {
     "slug": "vibe-coding-documentation",
