@@ -2,6 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
+// Constants
+const EXCERPT_LENGTH = 500;
+const EXCERPT_LINES = 5;
+
 const PROMPTS_DIR = path.join(process.cwd(), 'prompts');
 const PUBLIC_DATA_DIR = path.join(process.cwd(), 'public', 'data');
 
@@ -29,12 +33,15 @@ function getAllPrompts() {
 }
 
 function generateCatalogEntry(prompt) {
-  const excerpt = prompt.content
+  const processedText = prompt.content
     .split('\n')
     .filter(line => line.trim() !== '')
-    .slice(0, 2)
-    .join(' ')
-    .slice(0, 150) + '...';
+    .slice(0, EXCERPT_LINES)
+    .join(' ');
+  
+  const excerpt = processedText.length > EXCERPT_LENGTH 
+    ? processedText.slice(0, EXCERPT_LENGTH) + '...'
+    : processedText;
 
   return {
     slug: prompt.slug,

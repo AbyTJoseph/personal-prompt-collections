@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import { PromptFrontmatterSchema, PromptSchema, type Prompt, type PromptCatalogEntry } from '@/types/prompt';
+import { EXCERPT_LENGTH, EXCERPT_LINES } from '@/config/constants';
 
 const PROMPTS_DIR = join(process.cwd(), 'prompts');
 
@@ -32,12 +33,15 @@ export function getAllPrompts(): Prompt[] {
 }
 
 export function generateCatalogEntry(prompt: Prompt): PromptCatalogEntry {
-  const excerpt = prompt.content
+  const processedText = prompt.content
     .split('\n')
     .filter(line => line.trim() !== '')
-    .slice(0, 2)
-    .join(' ')
-    .slice(0, 150) + '...';
+    .slice(0, EXCERPT_LINES)
+    .join(' ');
+  
+  const excerpt = processedText.length > EXCERPT_LENGTH 
+    ? processedText.slice(0, EXCERPT_LENGTH) + '...'
+    : processedText;
 
   return {
     slug: prompt.slug,

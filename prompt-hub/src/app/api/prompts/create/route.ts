@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { EXCERPT_LENGTH } from '@/config/constants';
 
 const PROMPTS_DIR = join(process.cwd(), 'prompts');
 
@@ -64,7 +65,9 @@ export async function POST(request: NextRequest) {
       title,
       tags: tags || [],
       collection,
-      excerpt: content.slice(0, 150) + '...',
+      excerpt: content.length > EXCERPT_LENGTH 
+        ? content.slice(0, EXCERPT_LENGTH) + '...'
+        : content,
       updatedAt: frontmatter.updatedAt,
     });
 

@@ -43,8 +43,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy }: P
         className="group"
       >
         <div
-          className="glass-card p-4 transition-all duration-300 hover:scale-[1.02] cursor-pointer flex gap-3 items-start"
-          style={{ minHeight: '240px' }}
+          className="glass-card p-6 md:p-8 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl cursor-pointer flex gap-4 items-start min-h-[260px]"
           onClick={() => onPreview?.(prompt)}
         >
           {/* Content Section */}
@@ -79,13 +78,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy }: P
 
             {/* Description - show more in list view */}
             <p 
-              className="text-gray-600 dark:text-white/80 mb-3 leading-normal text-sm overflow-hidden"
-              style={{
-                display: '-webkit-box',
-                WebkitLineClamp: 4,
-                WebkitBoxOrient: 'vertical',
-                lineHeight: '1.4'
-              }}
+              className="text-gray-600 dark:text-white/80 mb-3 leading-normal text-sm line-clamp-6"
             >
               {prompt.excerpt.length > 800 ? prompt.excerpt.slice(0, 800) + '...' : prompt.excerpt}
             </p>
@@ -131,8 +124,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy }: P
       className="group"
     >
       <div
-        className="glass-card p-2 flex flex-col h-full transition-all duration-300 hover:scale-105 cursor-pointer"
-        style={{ minHeight: '360px' }}
+        className="glass-card p-4 md:p-6 flex flex-col h-full transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer min-h-[380px]"
         onClick={() => onPreview?.(prompt)}
       >
         {/* Card Header */}
@@ -166,13 +158,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy }: P
 
         {/* Card Description - show more content in grid */}
         <p 
-          className="text-gray-600 dark:text-white/80 mb-2 flex-grow leading-normal text-sm overflow-hidden"
-          style={{
-            display: '-webkit-box',
-            WebkitLineClamp: 10,
-            WebkitBoxOrient: 'vertical',
-            lineHeight: '1.4'
-          }}
+          className="text-gray-600 dark:text-white/80 mb-2 flex-grow leading-normal text-sm line-clamp-16"
         >
           {prompt.excerpt.length > 600 ? prompt.excerpt.slice(0, 600) + '...' : prompt.excerpt}
         </p>

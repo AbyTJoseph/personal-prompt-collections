@@ -33,47 +33,67 @@ export function indexPrompts(prompts: PromptCatalogEntry[]) {
 }
 
 export function searchPrompts(query: string, prompts: PromptCatalogEntry[]): PromptCatalogEntry[] {
+  // Return full list when query is empty or whitespace
   if (!query.trim()) {
     return prompts;
   }
 
-  const queryLower = query.toLowerCase().trim();
-  
-  // Simple but effective search that works reliably
-  const searchResults = prompts.filter(prompt => {
-    if (!prompt) return false;
-    
-    // Search in title
-    const titleMatch = prompt.title?.toLowerCase().includes(queryLower);
-    
-    // Search in excerpt/content
-    const excerptMatch = prompt.excerpt?.toLowerCase().includes(queryLower);
-    
-    // Search in tags
-    const tagMatch = prompt.tags?.some(tag => 
-      tag.toLowerCase().includes(queryLower)
-    );
-    
-    // Search in collection
-    const collectionMatch = prompt.collection?.toLowerCase().includes(queryLower);
-    
-    return titleMatch || excerptMatch || tagMatch || collectionMatch;
-  });
+  // Ensure the prompts are indexed exactly once per session
+  indexPrompts(prompts);
 
-  // Sort by relevance (title matches first, then tags, then content)
-  return searchResults.sort((a, b) => {
-    const aTitle = a.title?.toLowerCase().includes(queryLower) ? 1 : 0;
-    const bTitle = b.title?.toLowerCase().includes(queryLower) ? 1 : 0;
-    
-    if (aTitle !== bTitle) return bTitle - aTitle;
-    
-    const aTag = a.tags?.some(tag => tag.toLowerCase().includes(queryLower)) ? 1 : 0;
-    const bTag = b.tags?.some(tag => tag.toLowerCase().includes(queryLower)) ? 1 : 0;
-    
-    if (aTag !== bTag) return bTag - aTag;
-    
-    return 0;
-  });
+  /*
+    FlexSearch `Document` returns an array where each entry corresponds to a field that
+    matched (title, excerpt, tags, collection).  Each entry contains a `result` array
+    with objects of the form `{ id, score, doc }` when `store: true` and `enrich: true`.
+
+    We flatten these results, deduplicate by `id` (slug) and sort by the best score so
+    that the most relevant hits appear first.  This approach is dramatically faster
+    than iterating over every prompt on each keystroke because the heavy-lifting is
+    handled by FlexSearch’s highly-optimised index.
+  */
+
+  // Ask FlexSearch for enriched results so we can access stored documents directly.
+  const rawResults = searchIndex.search(query, { enrich: true, limit: 100 }) as any[];
+
+  // Map<slug, { doc: PromptCatalogEntry; score: number }>
+  const resultMap = new Map<string, { doc: PromptCatalogEntry; score: number }>();
+
+  for (const fieldResult of rawResults) {
+    if (!fieldResult || !Array.isArray(fieldResult.result)) continue;
+
+    for (const item of fieldResult.result) {
+      const { id, score, doc } = item;
+      // The stored document is already of type PromptCatalogEntry because we added it via `add`.
+      const existing = resultMap.get(id);
+      if (!existing || existing.score < score) {
+        resultMap.set(id, { doc: doc as PromptCatalogEntry, score });
+      }
+    }
+  }
+
+  // Convert to array sorted by descending score (higher score == more relevant)
+  const sorted = Array.from(resultMap.values())
+    .sort((a, b) => b.score - a.score)
+    .map((entry) => entry.doc);
+
+  /*
+    In the rare event FlexSearch returns no matches (e.g. extremely short query that
+    doesn’t meet the index’s tokenisation rules) we fall back to the previous
+    lightweight filtering strategy to avoid showing an empty list.
+  */
+  if (sorted.length === 0) {
+    const queryLower = query.toLowerCase().trim();
+    return prompts.filter((prompt) => {
+      return (
+        prompt.title?.toLowerCase().includes(queryLower) ||
+        prompt.excerpt?.toLowerCase().includes(queryLower) ||
+        prompt.collection?.toLowerCase().includes(queryLower) ||
+        prompt.tags?.some((tag) => tag.toLowerCase().includes(queryLower))
+      );
+    });
+  }
+
+  return sorted;
 }
 
 export function clearSearchIndex() {

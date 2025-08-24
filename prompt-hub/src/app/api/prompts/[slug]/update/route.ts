@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { EXCERPT_LENGTH } from '@/config/constants';
 
 const PROMPTS_DIR = join(process.cwd(), 'prompts');
 
@@ -62,7 +63,9 @@ export async function PUT(
       title: updatedFrontmatter.title,
       tags: updatedFrontmatter.tags,
       collection: updatedFrontmatter.collection,
-      excerpt: updatedContent.slice(0, 150) + '...',
+      excerpt: updatedContent.length > EXCERPT_LENGTH 
+        ? updatedContent.slice(0, EXCERPT_LENGTH) + '...'
+        : updatedContent,
       updatedAt: updatedFrontmatter.updatedAt,
     });
 
