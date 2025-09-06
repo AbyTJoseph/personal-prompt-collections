@@ -10,7 +10,7 @@ test.describe('Homepage Functionality', () => {
     await helpers.waitForPromptsToLoad();
   });
 
-  test('should load homepage with prompts', { tag: 'P1' }, async ({ page }) => {
+  test('should load homepage with prompts', { tag: '@P1' }, async ({ page }) => {
     // Check if the page loads with prompts
     await expect(page.locator('[data-testid="prompt-card"]')).toHaveCount(1);
     
@@ -22,7 +22,7 @@ test.describe('Homepage Functionality', () => {
     await expect(page.locator('[data-testid="search-input"]')).toBeVisible();
   });
 
-  test('should display search filters correctly', { tag: 'P1' }, async ({ page }) => {
+  test('should display search filters correctly', { tag: '@P1' }, async ({ page }) => {
     const searchFilters = page.locator('[data-testid="search-filters"]');
     
     // Check if view mode toggles are present
@@ -36,7 +36,7 @@ test.describe('Homepage Functionality', () => {
     await expect(searchFilters.locator('[data-testid="total-results"]')).toBeVisible();
   });
 
-  test('should switch between grid and list view modes', { tag: 'P2' }, async ({ page }) => {
+  test('should switch between grid and list view modes', { tag: '@P2' }, async ({ page }) => {
     // Start with grid view (default)
     await helpers.expectViewMode('grid');
     
@@ -49,7 +49,7 @@ test.describe('Homepage Functionality', () => {
     await helpers.expectViewMode('grid');
   });
 
-  test('should search prompts effectively', { tag: 'P1' }, async ({ page }) => {
+  test('should search prompts effectively', { tag: '@P1' }, async ({ page }) => {
     const initialCount = await helpers.getPromptCardCount();
     
     // Search for a specific term
@@ -70,7 +70,7 @@ test.describe('Homepage Functionality', () => {
     await helpers.expectPromptCardCount(initialCount);
   });
 
-  test('should filter prompts by tags', { tag: 'P2' }, async ({ page }) => {
+  test('should filter prompts by tags', { tag: '@P2' }, async ({ page }) => {
     const initialCount = await helpers.getPromptCardCount();
     
     // Click on a tag (assuming there are tags available)
@@ -84,7 +84,7 @@ test.describe('Homepage Functionality', () => {
     }
   });
 
-  test('should handle empty search results', { tag: 'P2' }, async ({ page }) => {
+  test('should handle empty search results', { tag: '@P2' }, async ({ page }) => {
     // Search for a term that likely won't exist
     await helpers.searchPrompts('xyz123nonexistent');
     
@@ -98,7 +98,7 @@ test.describe('Homepage Functionality', () => {
     await expect(page.locator('[data-testid="prompt-card"]')).toHaveCount(1);
   });
 
-  test('should refresh catalog successfully', { tag: 'P2' }, async ({ page }) => {
+  test('should refresh catalog successfully', { tag: '@P2' }, async ({ page }) => {
     const initialCount = await helpers.getPromptCardCount();
     
     // Refresh the catalog
@@ -111,7 +111,7 @@ test.describe('Homepage Functionality', () => {
     await helpers.expectPromptCardCount(initialCount);
   });
 
-  test('should scroll to top when button is clicked', { tag: 'P3' }, async ({ page }) => {
+  test('should scroll to top when button is clicked', { tag: '@P3' }, async ({ page }) => {
     // Scroll down first
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
     
@@ -127,7 +127,7 @@ test.describe('Homepage Functionality', () => {
     expect(scrollY).toBeLessThan(100);
   });
 
-  test('should display prompt cards with correct information', { tag: 'P1' }, async ({ page }) => {
+  test('should display prompt cards with correct information', { tag: '@P1' }, async ({ page }) => {
     const firstCard = page.locator('[data-testid="prompt-card"]').first();
     
     // Check if card has title
@@ -143,7 +143,7 @@ test.describe('Homepage Functionality', () => {
     await expect(firstCard.locator('[data-testid="preview-button"]')).toBeVisible();
   });
 
-  test('should handle keyboard shortcuts', { tag: 'P2' }, async ({ page }) => {
+  test('should handle keyboard shortcuts', { tag: '@P2' }, async ({ page }) => {
     // Test command palette shortcut (Ctrl+K)
     await helpers.openCommandPalette();
     await expect(page.locator('[data-testid="command-palette"]')).toBeVisible();
@@ -153,7 +153,7 @@ test.describe('Homepage Functionality', () => {
     await expect(page.locator('[data-testid="command-palette"]')).not.toBeVisible();
   });
 
-  test('should be responsive on different viewport sizes', { tag: 'P3' }, async ({ page }) => {
+  test('should be responsive on different viewport sizes', { tag: '@P3' }, async ({ page }) => {
     // Test mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
     await page.waitForTimeout(500);
@@ -175,7 +175,7 @@ test.describe('Homepage Functionality', () => {
     await page.waitForTimeout(500);
   });
 
-  test('should handle loading states correctly', { tag: 'P2' }, async ({ page }) => {
+  test('should handle loading states correctly', { tag: '@P2' }, async ({ page }) => {
     // Navigate to page and check loading
     await page.goto('/');
     
@@ -189,7 +189,7 @@ test.describe('Homepage Functionality', () => {
     await expect(page.locator('[data-testid="prompt-card"]')).toHaveCount(1);
   });
 
-  test('should maintain search state in URL', { tag: 'P2' }, async ({ page }) => {
+  test('should maintain search state in URL', { tag: '@P2' }, async ({ page }) => {
     // Perform a search
     await helpers.searchPrompts('test');
     

@@ -1,0 +1,1617 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\playwright.config.ts",
+    "rootDir": "C:/Users/AbyTJoseph/Desktop/AI Experiments/personal-prompt-collections/prompt-hub/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 10
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/AbyTJoseph/Desktop/AI Experiments/personal-prompt-collections/prompt-hub/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 10
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/AbyTJoseph/Desktop/AI Experiments/personal-prompt-collections/prompt-hub/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 10,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "command-palette.spec.ts",
+      "file": "command-palette.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Command Palette Functionality",
+          "file": "command-palette.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should open command palette with Ctrl+K shortcut",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 26138,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:03.079Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3f783ade4f1b8d5bdb19-57caaa9e530a92574755",
+              "file": "command-palette.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should close command palette with Escape key",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 27964,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:03.804Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3f783ade4f1b8d5bdb19-6491c7bdd519116d433f",
+              "file": "command-palette.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "should display command palette with search input",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 37338,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:7:8",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts",
+                          "column": 8,
+                          "line": 7
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mlet\u001b[39m helpers\u001b[33m:\u001b[39m \u001b[33mTestHelpers\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m     helpers \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mTestHelpers\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m helpers\u001b[33m.\u001b[39mwaitForPromptsToLoad()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts",
+                            "column": 8,
+                            "line": 7
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mlet\u001b[39m helpers\u001b[33m:\u001b[39m \u001b[33mTestHelpers\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m     helpers \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mTestHelpers\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m helpers\u001b[33m.\u001b[39mwaitForPromptsToLoad()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:7:8\u001b[22m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/\", waiting until \"load\"\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m  8 |\u001b[39m     helpers \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mTestHelpers\u001b[39m(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m helpers\u001b[33m.\u001b[39mwaitForPromptsToLoad()\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:9:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:04.137Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts",
+                        "column": 8,
+                        "line": 7
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3f783ade4f1b8d5bdb19-9824a76758cf1de3b485",
+              "file": "command-palette.spec.ts",
+              "line": 53,
+              "column": 7
+            },
+            {
+              "title": "should search and filter commands",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "timedOut",
+                      "duration": 31648,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:7:8",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts",
+                          "column": 8,
+                          "line": 7
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mlet\u001b[39m helpers\u001b[33m:\u001b[39m \u001b[33mTestHelpers\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m     helpers \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mTestHelpers\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m helpers\u001b[33m.\u001b[39mwaitForPromptsToLoad()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts",
+                            "column": 8,
+                            "line": 7
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mlet\u001b[39m helpers\u001b[33m:\u001b[39m \u001b[33mTestHelpers\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m     helpers \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mTestHelpers\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m helpers\u001b[33m.\u001b[39mwaitForPromptsToLoad()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:7:8\u001b[22m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "Error: page.waitForSelector: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:04.804Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-4a493--search-and-filter-commands-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-4a493--search-and-filter-commands-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-4a493--search-and-filter-commands-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts",
+                        "column": 8,
+                        "line": 7
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3f783ade4f1b8d5bdb19-bec08c6c92aa394a3cf3",
+              "file": "command-palette.spec.ts",
+              "line": 64,
+              "column": 7
+            },
+            {
+              "title": "should execute command with Enter key",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 28757,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\command-palette.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:04.586Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-0ed38-cute-command-with-Enter-key-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-0ed38-cute-command-with-Enter-key-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\command-palette-Command-Pa-0ed38-cute-command-with-Enter-key-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3f783ade4f1b8d5bdb19-45305aa6d69f6f1fa439",
+              "file": "command-palette.spec.ts",
+              "line": 104,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "create-prompt.spec.ts",
+      "file": "create-prompt.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Create Prompt Functionality",
+          "file": "create-prompt.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should open create prompt modal when create button is clicked",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 28802,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:04.483Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-0ab51-en-create-button-is-clicked-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-0ab51-en-create-button-is-clicked-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-0ab51-en-create-button-is-clicked-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c2f464f65268a415fa78-87b5ae5de23aa8d3b173",
+              "file": "create-prompt.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should display create prompt form correctly",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 31551,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:04.987Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c2f464f65268a415fa78-2cb36aa516e702b48053",
+              "file": "create-prompt.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "should create prompt with valid data",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 7,
+                      "status": "failed",
+                      "duration": 28818,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:02.225Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-edecb-eate-prompt-with-valid-data-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-edecb-eate-prompt-with-valid-data-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-edecb-eate-prompt-with-valid-data-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c2f464f65268a415fa78-e532968695d43c2f85fa",
+              "file": "create-prompt.spec.ts",
+              "line": 67,
+              "column": 7
+            },
+            {
+              "title": "should validate required fields",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 8,
+                      "status": "timedOut",
+                      "duration": 31389,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:7:8",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts",
+                          "column": 8,
+                          "line": 7
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mlet\u001b[39m helpers\u001b[33m:\u001b[39m \u001b[33mTestHelpers\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m     helpers \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mTestHelpers\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m helpers\u001b[33m.\u001b[39mwaitForPromptsToLoad()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts",
+                            "column": 8,
+                            "line": 7
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mlet\u001b[39m helpers\u001b[33m:\u001b[39m \u001b[33mTestHelpers\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m     helpers \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mTestHelpers\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m helpers\u001b[33m.\u001b[39mwaitForPromptsToLoad()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:7:8\u001b[22m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "Error: page.waitForSelector: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:03.967Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-01a35-ld-validate-required-fields-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-01a35-ld-validate-required-fields-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\create-prompt-Create-Promp-01a35-ld-validate-required-fields-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\create-prompt.spec.ts",
+                        "column": 8,
+                        "line": 7
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c2f464f65268a415fa78-9d0472b26732c3320c5d",
+              "file": "create-prompt.spec.ts",
+              "line": 98,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "homepage.spec.ts",
+      "file": "homepage.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Homepage Functionality",
+          "file": "homepage.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load homepage with prompts",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 9,
+                      "status": "failed",
+                      "duration": 29966,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:01.517Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-0d3a9--load-homepage-with-prompts-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-0d3a9--load-homepage-with-prompts-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-0d3a9--load-homepage-with-prompts-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "84e7eb052e8cbae1c9f0-d19c8cfd4fe5436389f6",
+              "file": "homepage.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should display search filters correctly",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 18217,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:40.364Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "84e7eb052e8cbae1c9f0-b15bf20fb69a29586c2b",
+              "file": "homepage.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should search prompts effectively",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 8,
+                      "status": "failed",
+                      "duration": 21463,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:40.382Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "84e7eb052e8cbae1c9f0-62cd1900f8eeb119053d",
+              "file": "homepage.spec.ts",
+              "line": 52,
+              "column": 7
+            },
+            {
+              "title": "should display prompt cards with correct information",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 21368,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\homepage.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:40.360Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "84e7eb052e8cbae1c9f0-46bf8644768533dfd667",
+              "file": "homepage.spec.ts",
+              "line": 130,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "prompt-modal.spec.ts",
+      "file": "prompt-modal.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Prompt Modal Functionality",
+          "file": "prompt-modal.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should open prompt modal when clicking on prompt card",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28759,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:40.827Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4489a48f939c1401d967-40d4f69c847c155f4c1f",
+              "file": "prompt-modal.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should display prompt information correctly in modal",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 7,
+                      "status": "failed",
+                      "duration": 28701,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:40.824Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--c77e2-ormation-correctly-in-modal-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--c77e2-ormation-correctly-in-modal-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--c77e2-ormation-correctly-in-modal-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4489a48f939c1401d967-bacd2869577a79adceb9",
+              "file": "prompt-modal.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should copy prompt content to clipboard",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 29563,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:40.801Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--a1b2a-prompt-content-to-clipboard-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--a1b2a-prompt-content-to-clipboard-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--a1b2a-prompt-content-to-clipboard-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4489a48f939c1401d967-a8ad9aae503b2560e1b7",
+              "file": "prompt-modal.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "should enter edit mode when edit button is clicked",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 28320,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:41.393Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--3827b-when-edit-button-is-clicked-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--3827b-when-edit-button-is-clicked-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--3827b-when-edit-button-is-clicked-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4489a48f939c1401d967-2d77039be225b0fde1e7",
+              "file": "prompt-modal.spec.ts",
+              "line": 85,
+              "column": 7
+            },
+            {
+              "title": "should edit prompt title successfully",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 28329,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:41.361Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--8cb78-t-prompt-title-successfully-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--8cb78-t-prompt-title-successfully-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--8cb78-t-prompt-title-successfully-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4489a48f939c1401d967-4fcdf6c903b0a267b8d9",
+              "file": "prompt-modal.spec.ts",
+              "line": 97,
+              "column": 7
+            },
+            {
+              "title": "should delete prompt successfully",
+              "ok": false,
+              "tags": [
+                "P1"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 9,
+                      "status": "failed",
+                      "duration": 28193,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\n    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19",
+                        "location": {
+                          "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                          "column": 21,
+                          "line": 10
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                            "column": 21,
+                            "line": 10
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"prompt-card\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\test-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36masync\u001b[39m waitForPromptsToLoad() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'[data-testid=\"prompt-card\"]'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   }\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m/**\u001b[39m\u001b[0m\n\u001b[2m    at TestHelpers.waitForPromptsToLoad (C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts:10:21)\u001b[22m\n\u001b[2m    at C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\prompt-modal.spec.ts:10:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-06T22:47:41.389Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--9a8fd--delete-prompt-successfully-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--9a8fd--delete-prompt-successfully-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\test-results\\prompt-modal-Prompt-Modal--9a8fd--delete-prompt-successfully-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\AbyTJoseph\\Desktop\\AI Experiments\\personal-prompt-collections\\prompt-hub\\tests\\utils\\test-helpers.ts",
+                        "column": 21,
+                        "line": 10
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "4489a48f939c1401d967-77228d7bd4a3f07ecc0a",
+              "file": "prompt-modal.spec.ts",
+              "line": 208,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-09-06T22:46:51.544Z",
+    "duration": 80330.107,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 19,
+    "flaky": 0
+  }
+}

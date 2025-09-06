@@ -10,7 +10,7 @@ test.describe('Command Palette Functionality', () => {
     await helpers.waitForPromptsToLoad();
   });
 
-  test('should open command palette with Ctrl+K shortcut', { tag: 'P1' }, async ({ page }) => {
+  test('should open command palette with Ctrl+K shortcut', { tag: '@P1' }, async ({ page }) => {
     // Open command palette
     await helpers.openCommandPalette();
     
@@ -22,7 +22,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(searchInput).toBeFocused();
   });
 
-  test('should open command palette with Cmd+K shortcut on Mac', { tag: 'P2' }, async ({ page }) => {
+  test('should open command palette with Cmd+K shortcut on Mac', { tag: '@P2' }, async ({ page }) => {
     // Simulate Mac keyboard shortcut
     await page.keyboard.press('Meta+k');
     
@@ -30,7 +30,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('[data-testid="command-palette"]')).toBeVisible();
   });
 
-  test('should close command palette with Escape key', { tag: 'P1' }, async ({ page }) => {
+  test('should close command palette with Escape key', { tag: '@P1' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Press Escape to close
@@ -40,7 +40,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('[data-testid="command-palette"]')).not.toBeVisible();
   });
 
-  test('should close command palette when clicking outside', { tag: 'P2' }, async ({ page }) => {
+  test('should close command palette when clicking outside', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Click outside the command palette
@@ -50,7 +50,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('[data-testid="command-palette"]')).not.toBeVisible();
   });
 
-  test('should display command palette with search input', { tag: 'P1' }, async ({ page }) => {
+  test('should display command palette with search input', { tag: '@P1' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Check if search input is present
@@ -61,7 +61,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(searchInput).toHaveAttribute('placeholder', /search/i);
   });
 
-  test('should search and filter commands', { tag: 'P1' }, async ({ page }) => {
+  test('should search and filter commands', { tag: '@P1' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     const searchInput = page.locator('[data-testid="command-search-input"]');
@@ -79,7 +79,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('[data-testid="command-item"]')).toBeVisible();
   });
 
-  test('should navigate through commands with arrow keys', { tag: 'P2' }, async ({ page }) => {
+  test('should navigate through commands with arrow keys', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Press down arrow to select first command
@@ -101,7 +101,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(firstCommand).toHaveClass(/selected/);
   });
 
-  test('should execute command with Enter key', { tag: 'P1' }, async ({ page }) => {
+  test('should execute command with Enter key', { tag: '@P1' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Search for create command
@@ -121,7 +121,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('[data-testid="create-prompt-modal"]')).toBeVisible();
   });
 
-  test('should execute command with mouse click', { tag: 'P2' }, async ({ page }) => {
+  test('should execute command with mouse click', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Search for create command
@@ -139,7 +139,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('[data-testid="create-prompt-modal"]')).toBeVisible();
   });
 
-  test('should show keyboard shortcuts in command items', { tag: 'P3' }, async ({ page }) => {
+  test('should show keyboard shortcuts in command items', { tag: '@P3' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Check if command items show keyboard shortcuts
@@ -150,7 +150,7 @@ test.describe('Command Palette Functionality', () => {
     expect(hasShortcuts).toBeTruthy();
   });
 
-  test('should handle empty search results', { tag: 'P2' }, async ({ page }) => {
+  test('should handle empty search results', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     const searchInput = page.locator('[data-testid="command-search-input"]');
@@ -163,7 +163,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('text=No commands found')).toBeVisible();
   });
 
-  test('should maintain focus in search input', { tag: 'P2' }, async ({ page }) => {
+  test('should maintain focus in search input', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     const searchInput = page.locator('[data-testid="command-search-input"]');
@@ -182,7 +182,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(searchInput).toBeFocused();
   });
 
-  test('should handle special characters in search', { tag: 'P3' }, async ({ page }) => {
+  test('should handle special characters in search', { tag: '@P3' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     const searchInput = page.locator('[data-testid="command-search-input"]');
@@ -195,7 +195,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(searchInput).toHaveValue(specialSearch);
   });
 
-  test('should show recent commands or suggestions', { tag: 'P3' }, async ({ page }) => {
+  test('should show recent commands or suggestions', { tag: '@P3' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Check if recent commands or suggestions are shown
@@ -207,7 +207,7 @@ test.describe('Command Palette Functionality', () => {
     expect(hasRecentOrSuggestions).toBeTruthy();
   });
 
-  test('should handle rapid typing in search', { tag: 'P3' }, async ({ page }) => {
+  test('should handle rapid typing in search', { tag: '@P3' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     const searchInput = page.locator('[data-testid="command-search-input"]');
@@ -225,7 +225,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(searchInput).toHaveValue('abcd');
   });
 
-  test('should close command palette when navigating away', { tag: 'P2' }, async ({ page }) => {
+  test('should close command palette when navigating away', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Navigate to a different page
@@ -235,7 +235,7 @@ test.describe('Command Palette Functionality', () => {
     await expect(page.locator('[data-testid="command-palette"]')).not.toBeVisible();
   });
 
-  test('should handle command palette in different viewport sizes', { tag: 'P3' }, async ({ page }) => {
+  test('should handle command palette in different viewport sizes', { tag: '@P3' }, async ({ page }) => {
     // Test mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
     await page.waitForTimeout(500);
@@ -257,7 +257,7 @@ test.describe('Command Palette Functionality', () => {
     await page.waitForTimeout(500);
   });
 
-  test('should show appropriate commands based on context', { tag: 'P2' }, async ({ page }) => {
+  test('should show appropriate commands based on context', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCommandPalette();
     
     // Check if context-appropriate commands are shown

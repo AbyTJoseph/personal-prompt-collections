@@ -10,7 +10,7 @@ test.describe('Prompt Modal Functionality', () => {
     await helpers.waitForPromptsToLoad();
   });
 
-  test('should open prompt modal when clicking on prompt card', async ({ page }) => {
+  test('should open prompt modal when clicking on prompt card', { tag: '@P1' }, async ({ page }) => {
     // Open modal by clicking on first prompt card
     await helpers.openPromptModal(0);
     
@@ -22,7 +22,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="modal-content"]')).toBeVisible();
   });
 
-  test('should display prompt information correctly in modal', async ({ page }) => {
+  test('should display prompt information correctly in modal', { tag: '@P1' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     
     // Check if title is displayed
@@ -38,7 +38,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="copy-prompt-button"]')).toBeVisible();
   });
 
-  test('should close modal when clicking close button', async ({ page }) => {
+  test('should close modal when clicking close button', { tag: '@P2' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     
     // Click close button
@@ -48,7 +48,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="prompt-modal"]')).not.toBeVisible();
   });
 
-  test('should close modal when clicking backdrop', async ({ page }) => {
+  test('should close modal when clicking backdrop', { tag: '@P2' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     
     // Click on backdrop (outside modal content)
@@ -58,7 +58,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="prompt-modal"]')).not.toBeVisible();
   });
 
-  test('should close modal with Escape key', async ({ page }) => {
+  test('should close modal with Escape key', { tag: '@P2' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     
     // Press Escape key
@@ -68,7 +68,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="prompt-modal"]')).not.toBeVisible();
   });
 
-  test('should copy prompt content to clipboard', async ({ page }) => {
+  test('should copy prompt content to clipboard', { tag: '@P1' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     
     // Click copy button
@@ -82,7 +82,7 @@ test.describe('Prompt Modal Functionality', () => {
     await helpers.waitForToast('Prompt copied to clipboard!');
   });
 
-  test('should enter edit mode when edit button is clicked', async ({ page }) => {
+  test('should enter edit mode when edit button is clicked', { tag: '@P1' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     
     // Click edit button
@@ -94,7 +94,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="edit-tags-section"]')).toBeVisible();
   });
 
-  test('should edit prompt title successfully', async ({ page }) => {
+  test('should edit prompt title successfully', { tag: '@P1' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     await page.locator('[data-testid="edit-prompt-button"]').click();
     
@@ -135,7 +135,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="modal-content"]')).toContainText('Updated content for testing');
   });
 
-  test('should manage prompt tags in edit mode', async ({ page }) => {
+  test('should manage prompt tags in edit mode', { tag: '@P2' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     await page.locator('[data-testid="edit-prompt-button"]').click();
     
@@ -205,7 +205,7 @@ test.describe('Prompt Modal Functionality', () => {
     await expect(page.locator('[data-testid="prompt-modal"]')).toBeVisible();
   });
 
-  test('should delete prompt successfully', async ({ page }) => {
+  test('should delete prompt successfully', { tag: '@P1' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     await page.locator('[data-testid="delete-prompt-button"]').click();
     
@@ -272,7 +272,7 @@ test.describe('Prompt Modal Functionality', () => {
     // await expect(saveButton).toBeDisabled();
   });
 
-  test('should handle concurrent edits gracefully', async ({ page }) => {
+  test('should handle concurrent edits gracefully', { tag: '@P3' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     await page.locator('[data-testid="edit-prompt-button"]').click();
     

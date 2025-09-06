@@ -10,7 +10,7 @@ test.describe('Create Prompt Functionality', () => {
     await helpers.waitForPromptsToLoad();
   });
 
-  test('should open create prompt modal when create button is clicked', { tag: 'P1' }, async ({ page }) => {
+  test('should open create prompt modal when create button is clicked', { tag: '@P1' }, async ({ page }) => {
     // Open create modal
     await helpers.openCreatePromptModal();
     
@@ -23,7 +23,7 @@ test.describe('Create Prompt Functionality', () => {
     await expect(page.locator('[data-testid="create-tags-section"]')).toBeVisible();
   });
 
-  test('should display create prompt form correctly', { tag: 'P1' }, async ({ page }) => {
+  test('should display create prompt form correctly', { tag: '@P1' }, async ({ page }) => {
     await helpers.openCreatePromptModal();
     
     // Check if all form fields are present
@@ -34,7 +34,7 @@ test.describe('Create Prompt Functionality', () => {
     await expect(page.locator('[data-testid="create-cancel-button"]')).toBeVisible();
   });
 
-  test('should close create modal when close button is clicked', { tag: 'P2' }, async ({ page }) => {
+  test('should close create modal when close button is clicked', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCreatePromptModal();
     
     // Click close button
@@ -44,7 +44,7 @@ test.describe('Create Prompt Functionality', () => {
     await expect(page.locator('[data-testid="create-prompt-modal"]')).not.toBeVisible();
   });
 
-  test('should close create modal when clicking backdrop', { tag: 'P2' }, async ({ page }) => {
+  test('should close create modal when clicking backdrop', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCreatePromptModal();
     
     // Click on backdrop (outside modal content)
@@ -54,7 +54,7 @@ test.describe('Create Prompt Functionality', () => {
     await expect(page.locator('[data-testid="create-prompt-modal"]')).not.toBeVisible();
   });
 
-  test('should close create modal with Escape key', { tag: 'P2' }, async ({ page }) => {
+  test('should close create modal with Escape key', { tag: '@P2' }, async ({ page }) => {
     await helpers.openCreatePromptModal();
     
     // Press Escape key
@@ -64,7 +64,7 @@ test.describe('Create Prompt Functionality', () => {
     await expect(page.locator('[data-testid="create-prompt-modal"]')).not.toBeVisible();
   });
 
-  test('should create prompt with valid data', { tag: 'P1' }, async ({ page }) => {
+  test('should create prompt with valid data', { tag: '@P1' }, async ({ page }) => {
     await helpers.openCreatePromptModal();
     
     // Fill in form data
@@ -95,7 +95,7 @@ test.describe('Create Prompt Functionality', () => {
     await expect(page.locator('text=Test Prompt Title')).toBeVisible();
   });
 
-  test('should validate required fields', { tag: 'P1' }, async ({ page }) => {
+  test('should validate required fields', { tag: '@P1' }, async ({ page }) => {
     await helpers.openCreatePromptModal();
     
     // Try to submit without title

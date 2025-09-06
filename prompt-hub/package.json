@@ -19,10 +19,10 @@
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
     "test:install": "playwright install",
-    "test:p1": "playwright test --grep @P1",
-    "test:p2": "playwright test --grep @P2",
-    "test:p3": "playwright test --grep @P3",
-    "test:critical": "playwright test --grep @P1",
+    "test:p1": "playwright test --grep \"@P1\"",
+    "test:p2": "playwright test --grep \"@P2\"",
+    "test:p3": "playwright test --grep \"@P3\"",
+    "test:critical": "playwright test --grep \"@P1\"",
     "test:full": "playwright test"
   },
   "dependencies": {
