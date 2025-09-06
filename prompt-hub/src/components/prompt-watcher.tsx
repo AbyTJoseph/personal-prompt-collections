@@ -142,3 +142,4 @@ export default function PromptWatcher() {
   // It just manages the WebSocket connection
   return null;
 }
+

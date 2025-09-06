@@ -19,6 +19,41 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
     return null;
   }
 
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    console.log('Copy button clicked for prompt:', prompt.slug);
+    
+    try {
+      // Fetch the full prompt content
+      console.log('Fetching full prompt from:', `/api/prompts/${prompt.slug}`);
+      const response = await fetch(`/api/prompts/${prompt.slug}`);
+      console.log('Response status:', response.status);
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Full prompt data received:', data);
+        console.log('Content length:', data.content?.length);
+        await navigator.clipboard.writeText(data.content);
+        console.log('Full prompt content copied to clipboard');
+        onCopy?.();
+      } else {
+        console.log('Failed to fetch full prompt, falling back to excerpt');
+        // Fallback to excerpt if full content fetch fails
+        await navigator.clipboard.writeText(prompt.excerpt);
+        onCopy?.();
+      }
+    } catch (error) {
+      console.error('Failed to fetch full prompt for copying:', error);
+      // Fallback to excerpt if there's an error
+      try {
+        await navigator.clipboard.writeText(prompt.excerpt);
+        onCopy?.();
+      } catch (fallbackError) {
+        console.error('Failed to copy excerpt as fallback:', fallbackError);
+      }
+    }
+  };
+
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -66,11 +101,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
                 </button>
                 <button
                   className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigator.clipboard.writeText(prompt.excerpt);
-                    onCopy?.();
-                  }}
+                  onClick={handleCopy}
                 >
                   <Copy className="h-4 w-4 text-gray-600 dark:text-white" />
                 </button>
@@ -151,11 +182,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
             </button>
             <button
               className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100"
-              onClick={(e) => {
-                e.stopPropagation();
-                navigator.clipboard.writeText(prompt.excerpt);
-                onCopy?.();
-              }}
+              onClick={handleCopy}
             >
               <Copy className="h-4 w-4 text-gray-600 dark:text-white" />
             </button>

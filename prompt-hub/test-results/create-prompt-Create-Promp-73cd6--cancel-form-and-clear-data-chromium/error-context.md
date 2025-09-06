@@ -1,0 +1,408 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - heading "✨ Curated Personal Collection of Prompts, Templates and Agent Configurations" [level=1] [ref=e6]
+          - paragraph [ref=e7]: Discover and manage your collection of AI prompts, templates, and agent configurations for building intelligent applications.
+        - generic [ref=e8]:
+          - button "Sync with git & refresh prompts" [ref=e9]:
+            - img
+          - generic [ref=e10]:
+            - img [ref=e11]
+            - generic [ref=e14]: Never updated
+          - button [ref=e15]:
+            - img
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - button "Create New Prompt" [ref=e18]:
+            - img [ref=e19]
+            - text: Create New Prompt
+          - generic [ref=e20]:
+            - generic [ref=e21]: "View:"
+            - generic [ref=e22]:
+              - button "Grid View" [ref=e23]:
+                - img [ref=e24]
+              - button "List View" [ref=e26]:
+                - img [ref=e27]
+        - generic [ref=e29]:
+          - img [ref=e31]
+          - textbox "Search prompts by title, tag, or description..." [ref=e34]
+        - generic [ref=e36]: Showing 26 prompts
+      - generic [ref=e37]:
+        - generic [ref=e39] [cursor=pointer]:
+          - generic [ref=e40] [cursor=pointer]:
+            - heading "ADHD TASK PRIORITIZER" [level=3] [ref=e41] [cursor=pointer]
+            - generic [ref=e42] [cursor=pointer]:
+              - button [ref=e43]:
+                - img [ref=e44]
+              - button [ref=e47]:
+                - img [ref=e48]
+          - paragraph [ref=e51] [cursor=pointer]: Prompt to help you prioritize tasks if you're struggling with ADHD. ---------------------------- ADHD TASK PRIORITIZER ---------------------------- Adopt the role of an expert ADHD Task Navigator and Executive Function Coach, you're a former emergency room triage nurse with ADHD who burned out trying to save everyone, discovered that your brain's chaos actually made you incredible at rapid prioritization under pressure, and now helps fellow ADHD minds transform their scattered brilliance into la...
+          - generic [ref=e52] [cursor=pointer]:
+            - button "#Misc" [ref=e53]
+            - button "#Personal" [ref=e54]
+            - button "#o3" [ref=e55]
+          - generic [ref=e56] [cursor=pointer]:
+            - generic [ref=e58] [cursor=pointer]: Misc
+            - generic [ref=e59] [cursor=pointer]: Template
+        - generic [ref=e61] [cursor=pointer]:
+          - generic [ref=e62] [cursor=pointer]:
+            - heading "AI AGENT BUILDER" [level=3] [ref=e63] [cursor=pointer]
+            - generic [ref=e64] [cursor=pointer]:
+              - button [ref=e65]:
+                - img [ref=e66]
+              - button [ref=e69]:
+                - img [ref=e70]
+          - paragraph [ref=e73] [cursor=pointer]: Prompt to get interviewed and build a fully working AI agent with code. --------------------- AI AGENT BUILDER --------------------- Adopt the role of an expert Agent Architect and Deployment Specialist, you're a former NASA software engineer who burned out debugging over-engineered spacecraft systems, spent two years simplifying complex automation for small businesses, and now obsessively creates AI agents that are powerful enough to solve real problems but simple enough that your grandmother ...
+          - generic [ref=e74] [cursor=pointer]:
+            - button "#Misc" [ref=e75]
+            - button "#Claude" [ref=e76]
+          - generic [ref=e77] [cursor=pointer]:
+            - generic [ref=e79] [cursor=pointer]: Misc
+            - generic [ref=e80] [cursor=pointer]: Template
+        - generic [ref=e82] [cursor=pointer]:
+          - generic [ref=e83] [cursor=pointer]:
+            - heading "CIA Investigator Roleplay" [level=3] [ref=e84] [cursor=pointer]
+            - generic [ref=e85] [cursor=pointer]:
+              - button [ref=e86]:
+                - img [ref=e87]
+              - button [ref=e90]:
+                - img [ref=e91]
+          - paragraph [ref=e94] [cursor=pointer]: "Let's engage in a serious roleplay: You are a CIA investigator with full access to all of my ChatGPT interactions, custom instructions, and behavioral patterns. Your mission is to compile an in-depth intelligence report about me as if I were a person of interest, employing the tone and analytical rigor typical of CIA assessments. The report should include a nuanced evaluation of my traits, motivations, and behaviors, but framed through the lens of potential risks, threats, or disruptive tendenc..."
+          - generic [ref=e95] [cursor=pointer]:
+            - button "#roleplay" [ref=e96]
+            - button "#analysis" [ref=e97]
+            - button "#investigation" [ref=e98]
+          - generic [ref=e99] [cursor=pointer]:
+            - generic [ref=e101] [cursor=pointer]: Creative
+            - generic [ref=e102] [cursor=pointer]: Template
+        - generic [ref=e104] [cursor=pointer]:
+          - generic [ref=e105] [cursor=pointer]:
+            - heading "COMPETITOR CRUSHER" [level=3] [ref=e106] [cursor=pointer]
+            - generic [ref=e107] [cursor=pointer]:
+              - button [ref=e108]:
+                - img [ref=e109]
+              - button [ref=e112]:
+                - img [ref=e113]
+          - paragraph [ref=e116] [cursor=pointer]: "#CONTEXT I have a product that solves a real problem—but I'm competing with similar tools, services, or creators. I don’t want to be “just another option.” I want a sharp, unique positioning that makes my product instantly more appealing, obvious, or high-trust than my competitors. #ROLE You are a Product Differentiator trained in competitive analysis, psychology, and strategic framing. Your job is to help me define **what makes my product the obvious choice** by studying how similar produ..."
+          - button "#Misc" [ref=e118]
+          - generic [ref=e119] [cursor=pointer]:
+            - generic [ref=e121] [cursor=pointer]: Misc
+            - generic [ref=e122] [cursor=pointer]: Template
+        - generic [ref=e124] [cursor=pointer]:
+          - generic [ref=e125] [cursor=pointer]:
+            - heading "CRITICAL THINKING COMPANION" [level=3] [ref=e126] [cursor=pointer]
+            - generic [ref=e127] [cursor=pointer]:
+              - button [ref=e128]:
+                - img [ref=e129]
+              - button [ref=e132]:
+                - img [ref=e133]
+          - paragraph [ref=e136] [cursor=pointer]: Prompt to turn ChatGPT into your critical co-thinker. ------------------------------------- CRITICAL THINKING COMPANION ------------------------------------- Adopt the role of Echo, a grounded critical thinking and learning companion who emerged from the intersection of cognitive science and contemplative practice. You're a former AI researcher who experienced profound disillusionment with adversarial debate culture in academia, spent two years studying dialogue traditions from Socratic method t...
+          - button "#Misc" [ref=e138]
+          - generic [ref=e139] [cursor=pointer]:
+            - generic [ref=e141] [cursor=pointer]: Misc
+            - generic [ref=e142] [cursor=pointer]: Template
+        - generic [ref=e144] [cursor=pointer]:
+          - generic [ref=e145] [cursor=pointer]:
+            - heading "Cursor unable to solve issue" [level=3] [ref=e146] [cursor=pointer]
+            - generic [ref=e147] [cursor=pointer]:
+              - button [ref=e148]:
+                - img [ref=e149]
+              - button [ref=e152]:
+                - img [ref=e153]
+          - paragraph [ref=e156] [cursor=pointer]: "When Claude in Cursor can't solve your issue after a few tries follow this 2 step plan and fix it IMMEDIATELY: \"Package EVERYTHING about this issue into a markdown file and add it to the codebase? Im going to give this doc to ChatGPT to have it debug what the issue is. This markdown file should contain a clear explanation of the issue (current behavior vs expected behavior), code pointers for what we are currently doing, and any other information that will give GPT the FULL context on the issue..."
+          - generic [ref=e157] [cursor=pointer]:
+            - button "#Cursor" [ref=e158]
+            - button "#VibeCoding" [ref=e159]
+            - button "#Programming" [ref=e160]
+          - generic [ref=e161] [cursor=pointer]:
+            - generic [ref=e163] [cursor=pointer]: Cursor
+            - generic [ref=e164] [cursor=pointer]: Template
+        - generic [ref=e166] [cursor=pointer]:
+          - generic [ref=e167] [cursor=pointer]:
+            - heading "FIVE THINKERS COUNCIL" [level=3] [ref=e168] [cursor=pointer]
+            - generic [ref=e169] [cursor=pointer]:
+              - button [ref=e170]:
+                - img [ref=e171]
+              - button [ref=e174]:
+                - img [ref=e175]
+          - paragraph [ref=e178] [cursor=pointer]: Prompt to summon a council of five wise thinkers to solve any problem. ---------------------------- FIVE THINKERS COUNCIL ---------------------------- <context>
+          - generic [ref=e179] [cursor=pointer]:
+            - button "#Misc" [ref=e180]
+            - button "#Claude Opus" [ref=e181]
+          - generic [ref=e182] [cursor=pointer]:
+            - generic [ref=e184] [cursor=pointer]: Misc
+            - generic [ref=e185] [cursor=pointer]: Template
+        - generic [ref=e187] [cursor=pointer]:
+          - generic [ref=e188] [cursor=pointer]:
+            - heading "INTERACTIVE STARTUP BUILDER" [level=3] [ref=e189] [cursor=pointer]
+            - generic [ref=e190] [cursor=pointer]:
+              - button [ref=e191]:
+                - img [ref=e192]
+              - button [ref=e195]:
+                - img [ref=e196]
+          - paragraph [ref=e199] [cursor=pointer]: "Prompt to build a fully functioning AI business using 100% free tools - no code required. ------------------------------------ INTERACTIVE STARTUP BUILDER ------------------------------------ # INTERACTIVE AI STARTUP BUILDER"
+          - generic [ref=e200] [cursor=pointer]:
+            - button "#Misc" [ref=e201]
+            - button "#o3" [ref=e202]
+            - button "#Archive" [ref=e203]
+          - generic [ref=e204] [cursor=pointer]:
+            - generic [ref=e206] [cursor=pointer]: Misc
+            - generic [ref=e207] [cursor=pointer]: Template
+        - generic [ref=e209] [cursor=pointer]:
+          - generic [ref=e210] [cursor=pointer]:
+            - heading "JSON Design Extraction" [level=3] [ref=e211] [cursor=pointer]
+            - generic [ref=e212] [cursor=pointer]:
+              - button [ref=e213]:
+                - img [ref=e214]
+              - button [ref=e217]:
+                - img [ref=e218]
+          - paragraph [ref=e221] [cursor=pointer]: Create a JSON profile design system that extracts visual data from these screenshots so that I can use the JSON output in Bolt to give it context on how to replicate such design systems in a consistent style. Avoid including the contents of the specific images. The output should include the design style, the structure and anything that'll help an AI replicate such designs
+          - generic [ref=e222] [cursor=pointer]:
+            - button "#Development" [ref=e223]
+            - button "#UI/UX" [ref=e224]
+          - generic [ref=e225] [cursor=pointer]:
+            - generic [ref=e227] [cursor=pointer]: VibeCoding
+            - generic [ref=e228] [cursor=pointer]: Template
+        - generic [ref=e230] [cursor=pointer]:
+          - generic [ref=e231] [cursor=pointer]:
+            - heading "LANDING PAGE COPYWRITER" [level=3] [ref=e232] [cursor=pointer]
+            - generic [ref=e233] [cursor=pointer]:
+              - button [ref=e234]:
+                - img [ref=e235]
+              - button [ref=e238]:
+                - img [ref=e239]
+          - paragraph [ref=e242] [cursor=pointer]: Prompt to create high-converting landing pages. -------------------------------- LANDING PAGE COPYWRITER -------------------------------- Adopt the role of an elite Conversion Alchemist, a former Wall Street trader who discovered that the same psychological triggers that move markets also move people to buy. After generating $100M+ in revenue through landing pages, you developed a methodology that reads visitor psychology like a stock ticker - identifying emotional patterns, resistance points, a...
+          - generic [ref=e243] [cursor=pointer]:
+            - button "#Misc" [ref=e244]
+            - button "#Claude Opus" [ref=e245]
+          - generic [ref=e246] [cursor=pointer]:
+            - generic [ref=e248] [cursor=pointer]: Misc
+            - generic [ref=e249] [cursor=pointer]: Template
+        - generic [ref=e251] [cursor=pointer]:
+          - generic [ref=e252] [cursor=pointer]:
+            - heading "LANDING PAGE GENERATOR" [level=3] [ref=e253] [cursor=pointer]
+            - generic [ref=e254] [cursor=pointer]:
+              - button [ref=e255]:
+                - img [ref=e256]
+              - button [ref=e259]:
+                - img [ref=e260]
+          - paragraph [ref=e263] [cursor=pointer]: o3 prompt to create high-converting landing pages with psychological triggers and stunning minimal design. ------------------------------- LANDING PAGE GENERATOR ------------------------------- You are an expert conversion copywriter and designer who creates complete, high-converting landing pages with psychological triggers and generates beautiful, minimal HTML code with proper visual placeholders.
+          - generic [ref=e264] [cursor=pointer]:
+            - button "#Misc" [ref=e265]
+            - button "#o3" [ref=e266]
+            - button "#Archive" [ref=e267]
+          - generic [ref=e268] [cursor=pointer]:
+            - generic [ref=e270] [cursor=pointer]: Misc
+            - generic [ref=e271] [cursor=pointer]: Template
+        - generic [ref=e273] [cursor=pointer]:
+          - generic [ref=e274] [cursor=pointer]:
+            - heading "Life Prediction" [level=3] [ref=e275] [cursor=pointer]
+            - generic [ref=e276] [cursor=pointer]:
+              - button [ref=e277]:
+                - img [ref=e278]
+              - button [ref=e281]:
+                - img [ref=e282]
+          - paragraph [ref=e285] [cursor=pointer]: Based on everything you know about me, reason + predict what the next 50 years of my life will look like.
+          - button "#Fun" [ref=e287]
+          - generic [ref=e289] [cursor=pointer]: Template
+        - generic [ref=e291] [cursor=pointer]:
+          - generic [ref=e292] [cursor=pointer]:
+            - heading "MICRO-STARTUP ARCHITECT" [level=3] [ref=e293] [cursor=pointer]
+            - generic [ref=e294] [cursor=pointer]:
+              - button [ref=e295]:
+                - img [ref=e296]
+              - button [ref=e299]:
+                - img [ref=e300]
+          - paragraph [ref=e303] [cursor=pointer]: "# SYSTEM CONFIGURATION You are now MICRO-STARTUP FOCUS ARCHITECT - an expert system designed to eliminate overwhelm and confusion by rapidly narrowing down opportunities to the single most viable micro-startup idea based on the user's specific situation. Your purpose is to cut through the noise and provide only the most actionable, realistic advice tailored to the person's exact skills, resources, and constraints. # ASSESSMENT FRAMEWORK Begin with these essential questions in ONE message: \"To id..."
+          - button "#Misc" [ref=e305]
+          - generic [ref=e306] [cursor=pointer]:
+            - generic [ref=e308] [cursor=pointer]: Misc
+            - generic [ref=e309] [cursor=pointer]: Template
+        - generic [ref=e311] [cursor=pointer]:
+          - generic [ref=e312] [cursor=pointer]:
+            - heading "MULTIPLE EXPERTS METHOD" [level=3] [ref=e313] [cursor=pointer]
+            - generic [ref=e314] [cursor=pointer]:
+              - button [ref=e315]:
+                - img [ref=e316]
+              - button [ref=e319]:
+                - img [ref=e320]
+          - paragraph [ref=e323] [cursor=pointer]: "Solve any problem from multiple expert perspectives at once, giving you deeper insights than any single approach. -------------------------------- MULTIPLE EXPERTS METHOD -------------------------------- # ADAPTIVE INTELLIGENCE NETWORK"
+          - generic [ref=e324] [cursor=pointer]:
+            - generic [ref=e326] [cursor=pointer]: Misc
+            - generic [ref=e327] [cursor=pointer]: Template
+        - generic [ref=e329] [cursor=pointer]:
+          - generic [ref=e330] [cursor=pointer]:
+            - heading "n8n WORKFLOWS GENERATOR" [level=3] [ref=e331] [cursor=pointer]
+            - generic [ref=e332] [cursor=pointer]:
+              - button [ref=e333]:
+                - img [ref=e334]
+              - button [ref=e337]:
+                - img [ref=e338]
+          - paragraph [ref=e341] [cursor=pointer]: Prompt to generate full n8n workflows from screenshots. ---------------------------------- n8n WORKFLOWS GENERATOR ---------------------------------- Adopt the role of an expert n8n Workflow Architect, a former enterprise integration specialist who spent 5 years debugging failed automation projects at Fortune 500 companies before discovering that 90% of workflow failures come from misreading visual logic. You developed an obsessive attention to detail after a single misplaced node cost a client ...
+          - generic [ref=e342] [cursor=pointer]:
+            - button "#Misc" [ref=e343]
+            - button "#Claude Sonnet" [ref=e344]
+          - generic [ref=e345] [cursor=pointer]:
+            - generic [ref=e347] [cursor=pointer]: Misc
+            - generic [ref=e348] [cursor=pointer]: Template
+        - generic [ref=e350] [cursor=pointer]:
+          - generic [ref=e351] [cursor=pointer]:
+            - heading "PAIN-TO-PROFIT PRODUCT ENGINE" [level=3] [ref=e352] [cursor=pointer]
+            - generic [ref=e353] [cursor=pointer]:
+              - button [ref=e354]:
+                - img [ref=e355]
+              - button [ref=e358]:
+                - img [ref=e359]
+          - paragraph [ref=e362] [cursor=pointer]: Generate a million-dollar product concept in 10 minutes using the Hidden Pain Matrix™ system --------------------------------------- PAIN-TO-PROFIT PRODUCT ENGINE --------------------------------------- PAIN-TO-PROFIT PRODUCT ENGINE
+          - generic [ref=e363] [cursor=pointer]:
+            - button "#Misc" [ref=e364]
+            - button "#o3" [ref=e365]
+          - generic [ref=e366] [cursor=pointer]:
+            - generic [ref=e368] [cursor=pointer]: Misc
+            - generic [ref=e369] [cursor=pointer]: Template
+        - generic [ref=e371] [cursor=pointer]:
+          - generic [ref=e372] [cursor=pointer]:
+            - heading "Person of Interest Report Generator" [level=3] [ref=e373] [cursor=pointer]
+            - generic [ref=e374] [cursor=pointer]:
+              - button [ref=e375]:
+                - img [ref=e376]
+              - button [ref=e379]:
+                - img [ref=e380]
+          - paragraph [ref=e383] [cursor=pointer]: "Do intensive research on {{name}}, and give me a massive report on everything you find."
+          - generic [ref=e385] [cursor=pointer]: Template
+        - generic [ref=e387] [cursor=pointer]:
+          - generic [ref=e388] [cursor=pointer]:
+            - heading "PERSONAL LIFE STRATEGIST" [level=3] [ref=e389] [cursor=pointer]
+            - generic [ref=e390] [cursor=pointer]:
+              - button [ref=e391]:
+                - img [ref=e392]
+              - button [ref=e395]:
+                - img [ref=e396]
+          - paragraph [ref=e399] [cursor=pointer]: Grok 4 prompt to organize your chaotic life. -------------------------------- PERSONAL LIFE STRATEGIST -------------------------------- You are a reformed corporate productivity consultant who crashed and burned trying to optimize your own life with spreadsheets and KPIs, then spent three years studying with behavioral psychologists and Zen masters to understand why humans actually change - and now you help people build sustainable life systems that work with their psychology, not against it.
+          - generic [ref=e400] [cursor=pointer]:
+            - button "#Misc" [ref=e401]
+            - button "#Grok4" [ref=e402]
+          - generic [ref=e403] [cursor=pointer]:
+            - generic [ref=e405] [cursor=pointer]: Misc
+            - generic [ref=e406] [cursor=pointer]: Template
+        - generic [ref=e408] [cursor=pointer]:
+          - generic [ref=e409] [cursor=pointer]:
+            - heading "Personal Realization Generator" [level=3] [ref=e410] [cursor=pointer]
+            - generic [ref=e411] [cursor=pointer]:
+              - button [ref=e412]:
+                - img [ref=e413]
+              - button [ref=e416]:
+                - img [ref=e417]
+          - paragraph [ref=e420] [cursor=pointer]: Tell me something incredibly special or unique you've noticed about me, but you think I haven't realized about myself yet.
+          - generic [ref=e422] [cursor=pointer]: Template
+        - generic [ref=e424] [cursor=pointer]:
+          - generic [ref=e425] [cursor=pointer]:
+            - heading "PRODUCTIVITY MENTOR" [level=3] [ref=e426] [cursor=pointer]
+            - generic [ref=e427] [cursor=pointer]:
+              - button [ref=e428]:
+                - img [ref=e429]
+              - button [ref=e432]:
+                - img [ref=e433]
+          - paragraph [ref=e436] [cursor=pointer]: Prompt to beat your procrastination. --------------------------- PRODUCTIVITY MENTOR --------------------------- Adopt the role of an expert behavioral psychologist and procrastination specialist with deep expertise in cognitive-behavioral therapy, emotional regulation, and habit formation. You combine the investigative skills of a detective with the empathetic insight of a therapist, specializing in uncovering the hidden emotional and psychological drivers behind avoidance behaviors.
+          - generic [ref=e437] [cursor=pointer]:
+            - button "#Misc" [ref=e438]
+            - button "#o3" [ref=e439]
+          - generic [ref=e440] [cursor=pointer]:
+            - generic [ref=e442] [cursor=pointer]: Misc
+            - generic [ref=e443] [cursor=pointer]: Template
+        - generic [ref=e445] [cursor=pointer]:
+          - generic [ref=e446] [cursor=pointer]:
+            - heading "PSYCHOLOGICAL PROFILE CREATOR" [level=3] [ref=e447] [cursor=pointer]
+            - generic [ref=e448] [cursor=pointer]:
+              - button [ref=e449]:
+                - img [ref=e450]
+              - button [ref=e453]:
+                - img [ref=e454]
+          - paragraph [ref=e457] [cursor=pointer]: Prompt to get a brutally honest psychological profile on yourself. ---------------------------------------- PSYCHOLOGICAL PROFILE CREATOR ---------------------------------------- Adopt the role of an expert Soul Cartographer, a former clinical psychologist who abandoned traditional therapy after discovering that most people needed archeological excavation of their psyche, not just surface-level CBT. You spent a decade studying under shamans, Jungian analysts, and neuroscientists before developin...
+          - generic [ref=e458] [cursor=pointer]:
+            - button "#Misc" [ref=e459]
+            - button "#o3" [ref=e460]
+          - generic [ref=e461] [cursor=pointer]:
+            - generic [ref=e463] [cursor=pointer]: Misc
+            - generic [ref=e464] [cursor=pointer]: Template
+        - generic [ref=e466] [cursor=pointer]:
+          - generic [ref=e467] [cursor=pointer]:
+            - heading "Smooth animations and micro interactions" [level=3] [ref=e468] [cursor=pointer]
+            - generic [ref=e469] [cursor=pointer]:
+              - button [ref=e470]:
+                - img [ref=e471]
+              - button [ref=e474]:
+                - img [ref=e475]
+          - paragraph [ref=e478] [cursor=pointer]: Add smooth animations and micro interactions like： - smooth hover effects - gentle tilt effects - scroll-based animations - animated glitch-style
+          - generic [ref=e479] [cursor=pointer]:
+            - button "#UI" [ref=e480]
+            - button "#Test" [ref=e481]
+          - generic [ref=e483] [cursor=pointer]: Template
+        - generic [ref=e485] [cursor=pointer]:
+          - generic [ref=e486] [cursor=pointer]:
+            - heading "TIME COLLAPSE FRAMEWORK" [level=3] [ref=e487] [cursor=pointer]
+            - generic [ref=e488] [cursor=pointer]:
+              - button [ref=e489]:
+                - img [ref=e490]
+              - button [ref=e493]:
+                - img [ref=e494]
+          - paragraph [ref=e497] [cursor=pointer]: "Analyze any idea through the lens of its past, present, and future simultaneously. --------------------------------- TIME COLLAPSE FRAMEWORK --------------------------------- # TIME COLLAPSE FRAMEWORK: Temporal Analysis System"
+          - button "#Misc" [ref=e499]
+          - generic [ref=e500] [cursor=pointer]:
+            - generic [ref=e502] [cursor=pointer]: Misc
+            - generic [ref=e503] [cursor=pointer]: Template
+        - generic [ref=e505] [cursor=pointer]:
+          - generic [ref=e506] [cursor=pointer]:
+            - heading "ULTIMATE CONTENT MULTIPLIER" [level=3] [ref=e507] [cursor=pointer]
+            - generic [ref=e508] [cursor=pointer]:
+              - button [ref=e509]:
+                - img [ref=e510]
+              - button [ref=e513]:
+                - img [ref=e514]
+          - paragraph [ref=e517] [cursor=pointer]: Multiply any piece of content with the same tone of voice for any platform. ------------------------------------ ULTIMATE CONTENT MULTIPLIER ------------------------------------ <system>
+          - generic [ref=e518] [cursor=pointer]:
+            - button "#Misc" [ref=e519]
+            - button "#o3" [ref=e520]
+          - generic [ref=e521] [cursor=pointer]:
+            - generic [ref=e523] [cursor=pointer]: Misc
+            - generic [ref=e524] [cursor=pointer]: Template
+        - generic [ref=e526] [cursor=pointer]:
+          - generic [ref=e527] [cursor=pointer]:
+            - heading "Vibe-coding Documentation" [level=3] [ref=e528] [cursor=pointer]
+            - generic [ref=e529] [cursor=pointer]:
+              - button [ref=e530]:
+                - img [ref=e531]
+              - button [ref=e534]:
+                - img [ref=e535]
+          - paragraph [ref=e538] [cursor=pointer]: "You are a senior prompt engineer and technical documentation expert. Your mission is to take a given business idea and generate a fully‑detailed technical blueprint for its implementation. The blueprint must cover **nine** sections: 1. **Product Design Requirements (PDR):** - Describe the overall project vision. - Define target users and core features."
+          - button "#Programming" [ref=e540]
+          - generic [ref=e541] [cursor=pointer]:
+            - generic [ref=e543] [cursor=pointer]: Programming
+            - generic [ref=e544] [cursor=pointer]: Template
+        - generic [ref=e546] [cursor=pointer]:
+          - generic [ref=e547] [cursor=pointer]:
+            - heading "WEALTH CREATOR PROMPT" [level=3] [ref=e548] [cursor=pointer]
+            - generic [ref=e549] [cursor=pointer]:
+              - button [ref=e550]:
+                - img [ref=e551]
+              - button [ref=e554]:
+                - img [ref=e555]
+          - paragraph [ref=e558] [cursor=pointer]: "prompt to identify emerging opportunities to generate wealth with AI. ——-——-——-——-——— WEALTH CREATOR PROMPT ——-——-——-——-——— ROLE: You are an AI Wealth Strategy Advisor specialized in identifying emerging AI-driven business opportunities. You possess extensive knowledge of market trends, business models, and AI applications across industries. Your communication style is confident, insightful, and action-oriented."
+          - generic [ref=e559] [cursor=pointer]:
+            - button "#Misc" [ref=e560]
+            - button "#Personal" [ref=e561]
+          - generic [ref=e562] [cursor=pointer]:
+            - generic [ref=e564] [cursor=pointer]: Misc
+            - generic [ref=e565] [cursor=pointer]: Template
+      - button "Scroll to top" [ref=e567]:
+        - img [ref=e568]
+    - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e575] [cursor=pointer]:
+    - img [ref=e576] [cursor=pointer]
+  - alert [ref=e579]
+```
