@@ -110,8 +110,8 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
             </div>
 
             {/* Description - show more in list view */}
-            <p 
-              className="text-gray-600 dark:text-white/80 mb-3 leading-normal text-sm line-clamp-6"
+            <p
+              className="text-gray-600 dark:text-white mb-3 leading-normal text-sm line-clamp-6"
             >
               {prompt.excerpt.length > 800 ? prompt.excerpt.slice(0, 800) + '...' : prompt.excerpt}
             </p>
@@ -127,19 +127,19 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
                       e.stopPropagation();
                       onTagClick?.(tag);
                     }}
-                    className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white/80 rounded-full text-xs backdrop-blur-sm font-medium hover:bg-blue-200 dark:hover:bg-white/20 transition-colors"
+                    className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white rounded-full text-xs backdrop-blur-sm font-medium hover:bg-blue-200 dark:hover:bg-white/20 transition-colors"
                   >
                     #{tag}
                   </button>
                 ))}
                 {prompt.tags.length > 6 && (
-                  <span className="px-2 py-1 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-white/60 rounded-full text-xs backdrop-blur-sm font-medium">
+                  <span className="px-2 py-1 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-white rounded-full text-xs backdrop-blur-sm font-medium">
                     +{prompt.tags.length - 6}
                   </span>
                 )}
               </div>
               
-              <div className="text-sm text-gray-500 dark:text-white/60 ml-4">
+              <div className="text-sm text-gray-500 dark:text-white ml-4">
                 {prompt.collection && (
                   <span className="capitalize">{prompt.collection} • </span>
                 )}
@@ -194,7 +194,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
 
         {/* Card Description - show more content in grid */}
         <p
-          className="text-gray-600 dark:text-white/80 mb-2 flex-grow leading-normal text-sm line-clamp-16"
+          className="text-gray-600 dark:text-white mb-2 flex-grow leading-normal text-sm line-clamp-16"
           data-testid="prompt-excerpt"
         >
           {prompt.excerpt.length > 600 ? prompt.excerpt.slice(0, 600) + '...' : prompt.excerpt}
@@ -210,13 +210,13 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
                 e.stopPropagation();
                 onTagClick?.(tag);
               }}
-              className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white/80 rounded-full text-xs backdrop-blur-sm font-medium hover:bg-blue-200 dark:hover:bg-white/20 transition-colors"
+              className="px-2 py-1 bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white rounded-full text-xs backdrop-blur-sm font-medium hover:bg-blue-200 dark:hover:bg-white/20 transition-colors"
             >
               #{tag}
             </button>
           ))}
           {prompt.tags.length > 4 && (
-            <span className="px-2 py-1 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-white/60 rounded-full text-xs backdrop-blur-sm font-medium">
+            <span className="px-2 py-1 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-white rounded-full text-xs backdrop-blur-sm font-medium">
               +{prompt.tags.length - 4}
             </span>
           )}
@@ -224,12 +224,12 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
 
         {/* Card Footer */}
         <div className="flex items-center justify-between pt-1 border-t border-gray-200 dark:border-white/10 mt-auto">
-          <div className="text-xs text-gray-500 dark:text-white/60">
+          <div className="text-xs text-gray-500 dark:text-white">
             {prompt.collection && (
               <span className="capitalize">{prompt.collection}</span>
             )}
           </div>
-          <div className="text-gray-500 dark:text-white/60 text-xs">
+          <div className="text-gray-500 dark:text-white text-xs">
             Template
           </div>
         </div>
