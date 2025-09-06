@@ -55,13 +55,14 @@ export function SearchFilters({
   }, []);
 
   return (
-    <div className="mb-8 space-y-6">
+    <div className="mb-8 space-y-6" data-testid="search-filters">
       {/* Top Controls Bar */}
       <div className="flex items-center justify-between gap-4">
         {/* Create New Button */}
         <button
           onClick={onCreateNew}
           className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+          data-testid="create-prompt-button"
         >
           <Plus className="h-4 w-4" />
           Create New Prompt
@@ -79,6 +80,7 @@ export function SearchFilters({
                   : 'text-white/60 hover:text-white/80 hover:bg-white/10'
               }`}
               title="Grid View"
+              data-testid="view-toggle-grid"
             >
               <Grid3X3 className="h-4 w-4" />
             </button>
@@ -90,6 +92,7 @@ export function SearchFilters({
                   : 'text-white/60 hover:text-white/80 hover:bg-white/10'
               }`}
               title="List View"
+              data-testid="view-toggle-list"
             >
               <List className="h-4 w-4" />
             </button>
@@ -109,6 +112,7 @@ export function SearchFilters({
             value={localSearchQuery}
             onChange={(e) => handleSearchChange(e.target.value)}
             className="w-full pl-12 pr-6 py-5 text-white placeholder-white/60 bg-white/10 border-white/20 rounded-full backdrop-blur-sm focus:bg-white/20 focus:border-white/30 transition-all duration-300 text-lg"
+            data-testid="search-input"
           />
           {localSearchQuery && (
             <button
@@ -123,7 +127,7 @@ export function SearchFilters({
 
       {/* Results Info */}
       <div className="text-center">
-        <div className="text-white/80 text-lg">
+        <div className="text-white/80 text-lg" data-testid="total-results">
           {localSearchQuery ? (
             <>
               Found {totalResults} result{totalResults !== 1 ? 's' : ''} for "{localSearchQuery}"

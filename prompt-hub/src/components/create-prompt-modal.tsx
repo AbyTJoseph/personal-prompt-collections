@@ -134,6 +134,7 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.3 }}
           className="relative w-full max-w-4xl h-[85vh] bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+          data-testid="create-prompt-modal"
         >
           {/* Modal Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
@@ -141,6 +142,7 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
             <button
               onClick={handleClose}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+              data-testid="create-modal-close-button"
             >
               <X className="h-6 w-6 text-gray-500 dark:text-gray-400" />
             </button>
@@ -159,6 +161,7 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Enter a descriptive title for your prompt..."
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                data-testid="create-title-input"
               />
             </div>
 
@@ -173,11 +176,12 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
                 onChange={(e) => setCollection(e.target.value)}
                 placeholder="e.g., Creative, Development, Analysis..."
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                data-testid="create-collection-select"
               />
             </div>
 
             {/* Tags Section */}
-            <div>
+            <div data-testid="create-tags-section">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Tags
               </label>
@@ -205,10 +209,12 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
                   onKeyPress={(e) => e.key === 'Enter' && handleAddTag()}
                   placeholder="Add a tag..."
                   className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  data-testid="create-new-tag-input"
                 />
                 <button
                   onClick={handleAddTag}
                   className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/50 transition-colors"
+                  data-testid="create-add-tag-button"
                 >
                   <Plus className="h-4 w-4" />
                 </button>
@@ -226,6 +232,7 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
                 placeholder="Enter your prompt content here. You can use variables like {{variable_name}} for dynamic content..."
                 rows={12}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none font-mono text-sm leading-relaxed"
+                data-testid="create-content-textarea"
               />
             </div>
           </div>
@@ -240,6 +247,7 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
               <button
                 onClick={handleClose}
                 className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300"
+                data-testid="create-cancel-button"
               >
                 Cancel
               </button>
@@ -247,6 +255,7 @@ export function CreatePromptModal({ isOpen, onClose, onSave }: CreatePromptModal
                 onClick={handleSave}
                 disabled={isSaving || !title.trim() || !content.trim()}
                 className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-medium hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                data-testid="create-submit-button"
               >
                 {isSaving ? (
                   <>

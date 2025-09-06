@@ -37,7 +37,7 @@ export function Header({ onOpenCommandPalette, onRefresh, isRefreshing }: Header
   };
 
   return (
-    <header className="text-center mb-12">
+    <header className="text-center mb-12" data-testid="header">
       <div className="mb-6">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
           ✨ Curated Personal Collection of Prompts, Templates and Agent Configurations
@@ -59,6 +59,7 @@ export function Header({ onOpenCommandPalette, onRefresh, isRefreshing }: Header
                 disabled={isLoading}
                 className="bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm p-3 rounded-full transition-all duration-300 disabled:opacity-50"
                 title="Sync with git & refresh prompts"
+                data-testid="refresh-button"
               >
                 <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
               </Button>

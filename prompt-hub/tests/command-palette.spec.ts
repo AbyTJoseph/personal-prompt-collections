@@ -7,7 +7,7 @@ test.describe('Command Palette Functionality', () => {
   test.beforeEach(async ({ page }) => {
     helpers = new TestHelpers(page);
     await page.goto('/');
-    await helpers.waitForPromptsToLoad();
+    await helpers.waitForPageLoaded();
   });
 
   test('should open command palette with Ctrl+K shortcut', { tag: '@P1' }, async ({ page }) => {

@@ -81,6 +81,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
         <div
           className="glass-card p-6 md:p-8 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl cursor-pointer flex gap-4 items-start min-h-[260px]"
           onClick={() => onPreview?.(prompt)}
+          data-testid="prompt-card"
         >
           {/* Content Section */}
           <div className="flex-1 min-w-0">
@@ -116,7 +117,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
             </p>
 
             {/* Tags and Meta */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mt-6">
               <div className="flex flex-wrap gap-1">
                 {prompt.tags.slice(0, 6).map((tag) => (
                   <button
@@ -163,10 +164,11 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
       <div
         className="glass-card p-4 md:p-6 flex flex-col h-full transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer min-h-[380px]"
         onClick={() => onPreview?.(prompt)}
+        data-testid="prompt-card"
       >
         {/* Card Header */}
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg font-bold text-gray-800 dark:text-white leading-tight flex-1 mr-4">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white leading-tight flex-1 mr-4" data-testid="prompt-title">
             {prompt.title}
           </h3>
 
@@ -177,6 +179,7 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
                 e.stopPropagation();
                 onPreview?.(prompt);
               }}
+              data-testid="preview-button"
             >
               <Eye className="h-4 w-4 text-gray-600 dark:text-white" />
             </button>
@@ -190,14 +193,15 @@ export function PromptCard({ prompt, viewMode, index = 0, onPreview, onCopy, onT
         </div>
 
         {/* Card Description - show more content in grid */}
-        <p 
+        <p
           className="text-gray-600 dark:text-white/80 mb-2 flex-grow leading-normal text-sm line-clamp-16"
+          data-testid="prompt-excerpt"
         >
           {prompt.excerpt.length > 600 ? prompt.excerpt.slice(0, 600) + '...' : prompt.excerpt}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-1 mb-2">
+        <div className="flex flex-wrap gap-1 mb-2" data-testid="prompt-tags">
           {prompt.tags.slice(0, 4).map((tag) => (
             <button
               type="button"

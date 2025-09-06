@@ -7,7 +7,7 @@ test.describe('Search and Filtering Functionality', () => {
   test.beforeEach(async ({ page }) => {
     helpers = new TestHelpers(page);
     await page.goto('/');
-    await helpers.waitForPromptsToLoad();
+    await helpers.waitForPageLoaded();
   });
 
   test('should display search input prominently', async ({ page }) => {

@@ -7,7 +7,7 @@ test.describe('Responsive Design and Accessibility', () => {
   test.beforeEach(async ({ page }) => {
     helpers = new TestHelpers(page);
     await page.goto('/');
-    await helpers.waitForPromptsToLoad();
+    await helpers.waitForPageLoaded();
   });
 
   test('should be responsive on mobile viewport', async ({ page }) => {

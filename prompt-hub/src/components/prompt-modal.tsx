@@ -206,7 +206,8 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
+    // Only close modal on actual clicks, not on scroll wheel events
+    if (e.target === e.currentTarget && e.type === 'click') {
       onClose();
     }
   };
@@ -226,7 +227,7 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
             onClick={handleBackdropClick}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" data-testid="modal-backdrop" />
 
             {/* Modal */}
             <motion.div
@@ -235,12 +236,14 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
               className="relative w-full max-w-6xl h-[85vh] bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+              data-testid="prompt-modal"
+              onClick={(e) => e.stopPropagation()} // Prevent backdrop click when clicking on modal
             >
               {/* Modal Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
                 <div className="flex-1">
                   {!isEditing ? (
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2" data-testid="modal-title">
                       {fullPrompt?.frontmatter.title || prompt.title}
                     </h2>
                   ) : (
@@ -344,6 +347,7 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
                 <button
                   onClick={onClose}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors ml-4"
+                  data-testid="modal-close-button"
                 >
                   <X className="h-6 w-6 text-gray-500 dark:text-gray-400" />
                 </button>
@@ -357,7 +361,11 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
                     <span className="ml-3 text-gray-600 dark:text-gray-400">Loading full prompt...</span>
                   </div>
                 ) : (
-                  <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 h-full overflow-y-auto custom-scrollbar">
+                  <div
+                    className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 h-full overflow-y-auto custom-scrollbar"
+                    data-testid="modal-content"
+                    onWheel={(e) => e.stopPropagation()} // Ensure scroll events don't bubble to backdrop
+                  >
                     {!isEditing ? (
                       <div className="prose prose-gray dark:prose-invert max-w-none">
                         <pre className="whitespace-pre-wrap text-gray-800 dark:text-gray-200 font-mono text-sm leading-relaxed break-words">
@@ -388,6 +396,7 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
                   <button
                     onClick={handleCopy}
                     className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg"
+                    data-testid="copy-prompt-button"
                   >
                     <Copy className="h-4 w-4" />
                     {copied ? 'Copied!' : 'Copy Prompt'}

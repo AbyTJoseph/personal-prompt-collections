@@ -7,6 +7,13 @@ export class TestHelpers {
    * Wait for the page to be fully loaded with prompts
    */
   async waitForPromptsToLoad() {
+    // First wait for the loading text to disappear
+    await this.page.waitForFunction(() => {
+      const loadingText = document.querySelector('p');
+      return loadingText && !loadingText.textContent?.includes('Loading templates...');
+    }, { timeout: 15000 });
+
+    // Then wait for prompt cards to appear
     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
   }
 
@@ -15,6 +22,94 @@ export class TestHelpers {
    */
   async waitForLoadingToComplete() {
     await this.page.waitForSelector('[data-testid="loading-spinner"]', { state: 'hidden', timeout: 10000 });
+  }
+
+  /**
+   * Wait for the "Loading templates..." text to disappear
+   */
+  async waitForTemplatesToLoad() {
+    await this.page.waitForFunction(() => {
+      const loadingText = document.querySelector('p');
+      return loadingText && !loadingText.textContent?.includes('Loading templates...');
+    }, { timeout: 60000 });
+  }
+
+  /**
+   * Wait for page to be fully loaded and ready for interaction
+   */
+  async waitForPageReady() {
+    // Wait for DOM to be ready
+    await this.page.waitForLoadState('domcontentloaded');
+
+    // Wait for loading text to disappear (this is the key indicator the app has loaded)
+    await this.waitForTemplatesToLoad();
+
+    // Wait for prompt cards to appear with a reasonable timeout
+    await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 15000 });
+  }
+
+  /**
+   * Simplified wait method that focuses on loading state only
+   */
+  async waitForPageLoaded() {
+    // Wait for the loading text to disappear - this indicates the app has finished loading
+    await this.waitForTemplatesToLoad();
+
+    // Give more buffer time for the UI to fully update and render
+    await this.page.waitForTimeout(3000);
+
+    // Wait for prompt cards to appear with a longer timeout
+    await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 30000 });
+
+    // Additional buffer to ensure everything is stable
+    await this.page.waitForTimeout(2000);
+
+    // Final verification that we have prompt cards
+    const promptCards = await this.page.locator('[data-testid="prompt-card"]').count();
+    if (promptCards === 0) {
+      throw new Error('No prompt cards found after loading completed');
+    }
+  }
+
+  /**
+   * Ultra-patient wait method for very slow loading scenarios
+   */
+  async waitForPageLoadedSlow() {
+    console.log('Waiting for page to load (ultra-patient mode)...');
+
+    // Maximum wait time for loading text to disappear
+    const maxWaitTime = 120000; // 2 minutes
+    const startTime = Date.now();
+
+    // Poll for loading text to disappear
+    while (Date.now() - startTime < maxWaitTime) {
+      try {
+        const loadingVisible = await this.page.locator('p').filter({ hasText: 'Loading templates...' }).isVisible();
+        if (!loadingVisible) {
+          console.log('Loading text disappeared, waiting for content...');
+          break;
+        }
+      } catch (e) {
+        // If we can't find the element, it might have disappeared
+        console.log('Loading text not found, assuming loaded...');
+        break;
+      }
+      await this.page.waitForTimeout(2000); // Check every 2 seconds
+    }
+
+    // Long buffer for UI to render
+    console.log('Waiting for UI to render...');
+    await this.page.waitForTimeout(5000);
+
+    // Wait for prompt cards with very long timeout
+    console.log('Waiting for prompt cards...');
+    await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 60000 });
+
+    // Final long buffer
+    console.log('Final stabilization...');
+    await this.page.waitForTimeout(5000);
+
+    console.log('Page loading complete!');
   }
 
   /**

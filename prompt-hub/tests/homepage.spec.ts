@@ -7,7 +7,7 @@ test.describe('Homepage Functionality', () => {
   test.beforeEach(async ({ page }) => {
     helpers = new TestHelpers(page);
     await page.goto('/');
-    await helpers.waitForPromptsToLoad();
+    await helpers.waitForPageLoaded();
   });
 
   test('should load homepage with prompts', { tag: '@P1' }, async ({ page }) => {

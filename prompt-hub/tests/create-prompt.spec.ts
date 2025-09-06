@@ -7,7 +7,7 @@ test.describe('Create Prompt Functionality', () => {
   test.beforeEach(async ({ page }) => {
     helpers = new TestHelpers(page);
     await page.goto('/');
-    await helpers.waitForPromptsToLoad();
+    await helpers.waitForPageLoaded();
   });
 
   test('should open create prompt modal when create button is clicked', { tag: '@P1' }, async ({ page }) => {

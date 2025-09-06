@@ -7,7 +7,7 @@ test.describe('Prompt Modal Functionality', () => {
   test.beforeEach(async ({ page }) => {
     helpers = new TestHelpers(page);
     await page.goto('/');
-    await helpers.waitForPromptsToLoad();
+    await helpers.waitForPageLoaded();
   });
 
   test('should open prompt modal when clicking on prompt card', { tag: '@P1' }, async ({ page }) => {
@@ -275,18 +275,43 @@ test.describe('Prompt Modal Functionality', () => {
   test('should handle concurrent edits gracefully', { tag: '@P3' }, async ({ page }) => {
     await helpers.openPromptModal(0);
     await page.locator('[data-testid="edit-prompt-button"]').click();
-    
+
     // Make some changes
     const titleInput = page.locator('[data-testid="edit-title-input"]');
     await titleInput.clear();
     await titleInput.fill('Concurrent Edit Test');
-    
+
     // Open another modal (if possible)
     await helpers.closePromptModal();
     await helpers.openPromptModal(1);
-    
+
     // First modal should be closed
     await expect(page.locator('[data-testid="prompt-modal"]')).toBeVisible();
+  });
+
+  test('should allow scrolling with mouse wheel in modal content', async ({ page }) => {
+    await helpers.openPromptModal(0);
+
+    // Wait for content to load
+    await helpers.waitForLoadingToComplete();
+
+    // Get the scrollable content area
+    const scrollableContent = page.locator('[data-testid="modal-content"]');
+
+    // Check if content is scrollable (has scrollbar)
+    const isScrollable = await scrollableContent.evaluate((element) => {
+      return element.scrollHeight > element.clientHeight;
+    });
+
+    // If content is scrollable, verify that the scroll container has proper overflow settings
+    if (isScrollable) {
+      const overflowY = await scrollableContent.evaluate((element) => {
+        return window.getComputedStyle(element).overflowY;
+      });
+
+      // Should have auto or scroll overflow to enable scrolling
+      expect(['auto', 'scroll']).toContain(overflowY);
+    }
   });
 });
 

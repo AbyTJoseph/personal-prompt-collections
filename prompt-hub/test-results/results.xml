@@ -1,73 +1,29 @@
-<testsuites id="" name="" tests="19" failures="19" skipped="0" errors="0" time="80.330107">
-<testsuite name="command-palette.spec.ts" timestamp="2025-09-06T22:46:56.682Z" hostname="chromium" tests="5" failures="5" skipped="0" time="151.845" errors="0">
-<testcase name="Command Palette Functionality › should open command palette with Ctrl+K shortcut" classname="command-palette.spec.ts" time="26.138">
-<failure message="command-palette.spec.ts:13:7 should open command palette with Ctrl+K shortcut" type="FAILURE">
-<![CDATA[  [chromium] › command-palette.spec.ts:13:7 › Command Palette Functionality › should open command palette with Ctrl+K shortcut @P1 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
-
-
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:10:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\video.webm]]
-
-[[ATTACHMENT|command-palette-Command-Pa-15b2d-alette-with-Ctrl-K-shortcut-chromium\error-context.md]]
-]]>
-</system-out>
+<testsuites id="" name="" tests="19" failures="12" skipped="0" errors="0" time="196.94687900000002">
+<testsuite name="command-palette.spec.ts" timestamp="2025-09-06T23:21:28.317Z" hostname="chromium" tests="5" failures="3" skipped="0" time="317.18" errors="0">
+<testcase name="Command Palette Functionality › should open command palette with Ctrl+K shortcut" classname="command-palette.spec.ts" time="64.435">
 </testcase>
-<testcase name="Command Palette Functionality › should close command palette with Escape key" classname="command-palette.spec.ts" time="27.964">
+<testcase name="Command Palette Functionality › should close command palette with Escape key" classname="command-palette.spec.ts" time="60.66">
 <failure message="command-palette.spec.ts:33:7 should close command palette with Escape key" type="FAILURE">
 <![CDATA[  [chromium] › command-palette.spec.ts:33:7 › Command Palette Functionality › should close command palette with Escape key @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
     Call log:
       - waiting for locator('[data-testid="prompt-card"]') to be visible
 
 
-       at utils\test-helpers.ts:10
+       at utils\test-helpers.ts:62
 
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
+      60 |
+      61 |     // Wait for prompt cards to appear with a longer timeout
+    > 62 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 30000 });
          |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:10:19
+      63 |
+      64 |     // Additional buffer to ensure everything is stable
+      65 |     await this.page.waitForTimeout(2000);
+        at TestHelpers.waitForPageLoaded (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:62:21)
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:10:5
 
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
     ..\test-results\command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -76,95 +32,38 @@
 </failure>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\test-failed-1.png]]
-
 [[ATTACHMENT|command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\video.webm]]
 
 [[ATTACHMENT|command-palette-Command-Pa-b9da8-and-palette-with-Escape-key-chromium\error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Command Palette Functionality › should display command palette with search input" classname="command-palette.spec.ts" time="37.338">
-<failure message="command-palette.spec.ts:53:7 should display command palette with search input" type="FAILURE">
-<![CDATA[  [chromium] › command-palette.spec.ts:53:7 › Command Palette Functionality › should display command palette with search input @P1 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-
-       5 |   let helpers: TestHelpers;
-       6 |
-    >  7 |   test.beforeEach(async ({ page }) => {
-         |        ^
-       8 |     helpers = new TestHelpers(page);
-       9 |     await page.goto('/');
-      10 |     await helpers.waitForPromptsToLoad();
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:7:8
-
-    Error: page.goto: Test timeout of 30000ms exceeded.
-    Call log:
-      - navigating to "http://localhost:3000/", waiting until "load"
-
-
-       7 |   test.beforeEach(async ({ page }) => {
-       8 |     helpers = new TestHelpers(page);
-    >  9 |     await page.goto('/');
-         |                ^
-      10 |     await helpers.waitForPromptsToLoad();
-      11 |   });
-      12 |
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:9:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\video.webm]]
-
-[[ATTACHMENT|command-palette-Command-Pa-501e1-d-palette-with-search-input-chromium\error-context.md]]
-]]>
-</system-out>
+<testcase name="Command Palette Functionality › should display command palette with search input" classname="command-palette.spec.ts" time="65.254">
 </testcase>
-<testcase name="Command Palette Functionality › should search and filter commands" classname="command-palette.spec.ts" time="31.648">
+<testcase name="Command Palette Functionality › should search and filter commands" classname="command-palette.spec.ts" time="64.819">
 <failure message="command-palette.spec.ts:64:7 should search and filter commands" type="FAILURE">
 <![CDATA[  [chromium] › command-palette.spec.ts:64:7 › Command Palette Functionality › should search and filter commands @P1 
 
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
+    Error: expect(locator).toContainText(expected) failed
 
-       5 |   let helpers: TestHelpers;
-       6 |
-    >  7 |   test.beforeEach(async ({ page }) => {
-         |        ^
-       8 |     helpers = new TestHelpers(page);
-       9 |     await page.goto('/');
-      10 |     await helpers.waitForPromptsToLoad();
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:7:8
+    Locator: locator('[data-testid="command-item"]')
+    Expected string: "create"
+    Received: <element(s) not found>
+    Timeout: 10000ms
 
-    Error: page.waitForSelector: Test timeout of 30000ms exceeded.
     Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('[data-testid="command-item"]')
 
 
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:10:19
+      71 |     
+      72 |     // Should show filtered results
+    > 73 |     await expect(page.locator('[data-testid="command-item"]')).toContainText('create', { ignoreCase: true });
+         |                                                                ^
+      74 |     
+      75 |     // Clear search
+      76 |     await searchInput.clear();
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:73:64
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\command-palette-Command-Pa-4a493--search-and-filter-commands-chromium\test-failed-1.png
@@ -187,26 +86,26 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Command Palette Functionality › should execute command with Enter key" classname="command-palette.spec.ts" time="28.757">
+<testcase name="Command Palette Functionality › should execute command with Enter key" classname="command-palette.spec.ts" time="62.012">
 <failure message="command-palette.spec.ts:104:7 should execute command with Enter key" type="FAILURE">
 <![CDATA[  [chromium] › command-palette.spec.ts:104:7 › Command Palette Functionality › should execute command with Enter key @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
     Call log:
       - waiting for locator('[data-testid="prompt-card"]') to be visible
 
 
-       at utils\test-helpers.ts:10
+       at utils\test-helpers.ts:62
 
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
+      60 |
+      61 |     // Wait for prompt cards to appear with a longer timeout
+    > 62 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 30000 });
          |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:10:19
+      63 |
+      64 |     // Additional buffer to ensure everything is stable
+      65 |     await this.page.waitForTimeout(2000);
+        at TestHelpers.waitForPageLoaded (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:62:21)
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\command-palette.spec.ts:10:5
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\command-palette-Command-Pa-0ed38-cute-command-with-Enter-key-chromium\test-failed-1.png
@@ -230,27 +129,27 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="create-prompt.spec.ts" timestamp="2025-09-06T22:46:56.682Z" hostname="chromium" tests="4" failures="4" skipped="0" time="120.56" errors="0">
-<testcase name="Create Prompt Functionality › should open create prompt modal when create button is clicked" classname="create-prompt.spec.ts" time="28.802">
+<testsuite name="create-prompt.spec.ts" timestamp="2025-09-06T23:21:28.317Z" hostname="chromium" tests="4" failures="3" skipped="0" time="255.77" errors="0">
+<testcase name="Create Prompt Functionality › should open create prompt modal when create button is clicked" classname="create-prompt.spec.ts" time="63.368">
 <failure message="create-prompt.spec.ts:13:7 should open create prompt modal when create button is clicked" type="FAILURE">
 <![CDATA[  [chromium] › create-prompt.spec.ts:13:7 › Create Prompt Functionality › should open create prompt modal when create button is clicked @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
     Call log:
       - waiting for locator('[data-testid="prompt-card"]') to be visible
 
 
-       at utils\test-helpers.ts:10
+       at utils\test-helpers.ts:62
 
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
+      60 |
+      61 |     // Wait for prompt cards to appear with a longer timeout
+    > 62 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 30000 });
          |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:10:19
+      63 |
+      64 |     // Additional buffer to ensure everything is stable
+      65 |     await this.page.waitForTimeout(2000);
+        at TestHelpers.waitForPageLoaded (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:62:21)
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:10:5
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\create-prompt-Create-Promp-0ab51-en-create-button-is-clicked-chromium\test-failed-1.png
@@ -273,68 +172,28 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Create Prompt Functionality › should display create prompt form correctly" classname="create-prompt.spec.ts" time="31.551">
-<failure message="create-prompt.spec.ts:26:7 should display create prompt form correctly" type="FAILURE">
-<![CDATA[  [chromium] › create-prompt.spec.ts:26:7 › Create Prompt Functionality › should display create prompt form correctly @P1 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
-
-
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:10:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\video.webm]]
-
-[[ATTACHMENT|create-prompt-Create-Promp-88142-reate-prompt-form-correctly-chromium\error-context.md]]
-]]>
-</system-out>
+<testcase name="Create Prompt Functionality › should display create prompt form correctly" classname="create-prompt.spec.ts" time="64.476">
 </testcase>
-<testcase name="Create Prompt Functionality › should create prompt with valid data" classname="create-prompt.spec.ts" time="28.818">
+<testcase name="Create Prompt Functionality › should create prompt with valid data" classname="create-prompt.spec.ts" time="63.435">
 <failure message="create-prompt.spec.ts:67:7 should create prompt with valid data" type="FAILURE">
 <![CDATA[  [chromium] › create-prompt.spec.ts:67:7 › Create Prompt Functionality › should create prompt with valid data @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
     Call log:
       - waiting for locator('[data-testid="prompt-card"]') to be visible
 
 
-       at utils\test-helpers.ts:10
+       at utils\test-helpers.ts:62
 
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
+      60 |
+      61 |     // Wait for prompt cards to appear with a longer timeout
+    > 62 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 30000 });
          |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:10:19
+      63 |
+      64 |     // Additional buffer to ensure everything is stable
+      65 |     await this.page.waitForTimeout(2000);
+        at TestHelpers.waitForPageLoaded (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:62:21)
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:10:5
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\create-prompt-Create-Promp-edecb-eate-prompt-with-valid-data-chromium\test-failed-1.png
@@ -357,37 +216,26 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Create Prompt Functionality › should validate required fields" classname="create-prompt.spec.ts" time="31.389">
+<testcase name="Create Prompt Functionality › should validate required fields" classname="create-prompt.spec.ts" time="64.491">
 <failure message="create-prompt.spec.ts:98:7 should validate required fields" type="FAILURE">
 <![CDATA[  [chromium] › create-prompt.spec.ts:98:7 › Create Prompt Functionality › should validate required fields @P1 
 
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-
-       5 |   let helpers: TestHelpers;
-       6 |
-    >  7 |   test.beforeEach(async ({ page }) => {
-         |        ^
-       8 |     helpers = new TestHelpers(page);
-       9 |     await page.goto('/');
-      10 |     await helpers.waitForPromptsToLoad();
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:7:8
-
-    Error: page.waitForSelector: Test timeout of 30000ms exceeded.
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
     Call log:
       - waiting for locator('[data-testid="prompt-card"]') to be visible
 
 
-       at utils\test-helpers.ts:10
+       at utils\test-helpers.ts:62
 
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
+      60 |
+      61 |     // Wait for prompt cards to appear with a longer timeout
+    > 62 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 30000 });
          |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:10:19
+      63 |
+      64 |     // Additional buffer to ensure everything is stable
+      65 |     await this.page.waitForTimeout(2000);
+        at TestHelpers.waitForPageLoaded (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:62:21)
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\create-prompt.spec.ts:10:5
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\create-prompt-Create-Promp-01a35-ld-validate-required-fields-chromium\test-failed-1.png
@@ -411,27 +259,33 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="homepage.spec.ts" timestamp="2025-09-06T22:46:56.682Z" hostname="chromium" tests="4" failures="4" skipped="0" time="91.014" errors="0">
-<testcase name="Homepage Functionality › should load homepage with prompts" classname="homepage.spec.ts" time="29.966">
+<testsuite name="homepage.spec.ts" timestamp="2025-09-06T23:21:28.317Z" hostname="chromium" tests="4" failures="1" skipped="0" time="94.732" errors="0">
+<testcase name="Homepage Functionality › should load homepage with prompts" classname="homepage.spec.ts" time="67.062">
 <failure message="homepage.spec.ts:13:7 should load homepage with prompts" type="FAILURE">
 <![CDATA[  [chromium] › homepage.spec.ts:13:7 › Homepage Functionality › should load homepage with prompts @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[data-testid="prompt-card"]')
+    Expected: 1
+    Received: 45
+    Timeout:  10000ms
+
     Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('[data-testid="prompt-card"]')
+        13 × locator resolved to 45 elements
+           - unexpected value "45"
 
 
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\homepage.spec.ts:10:19
+      13 |   test('should load homepage with prompts', { tag: '@P1' }, async ({ page }) => {
+      14 |     // Check if the page loads with prompts
+    > 15 |     await expect(page.locator('[data-testid="prompt-card"]')).toHaveCount(1);
+         |                                                               ^
+      16 |     
+      17 |     // Check if header elements are visible
+      18 |     await expect(page.locator('[data-testid="header"]')).toBeVisible();
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\homepage.spec.ts:15:63
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\homepage-Homepage-Function-0d3a9--load-homepage-with-prompts-chromium\test-failed-1.png
@@ -454,196 +308,40 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Homepage Functionality › should display search filters correctly" classname="homepage.spec.ts" time="18.217">
-<failure message="homepage.spec.ts:25:7 should display search filters correctly" type="FAILURE">
-<![CDATA[  [chromium] › homepage.spec.ts:25:7 › Homepage Functionality › should display search filters correctly @P1 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
-
-
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\homepage.spec.ts:10:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\video.webm]]
-
-[[ATTACHMENT|homepage-Homepage-Function-9e026-ay-search-filters-correctly-chromium\error-context.md]]
-]]>
-</system-out>
+<testcase name="Homepage Functionality › should display search filters correctly" classname="homepage.spec.ts" time="8.444">
 </testcase>
-<testcase name="Homepage Functionality › should search prompts effectively" classname="homepage.spec.ts" time="21.463">
-<failure message="homepage.spec.ts:52:7 should search prompts effectively" type="FAILURE">
-<![CDATA[  [chromium] › homepage.spec.ts:52:7 › Homepage Functionality › should search prompts effectively @P1 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
-
-
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\homepage.spec.ts:10:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\video.webm]]
-
-[[ATTACHMENT|homepage-Homepage-Function-59eca--search-prompts-effectively-chromium\error-context.md]]
-]]>
-</system-out>
+<testcase name="Homepage Functionality › should search prompts effectively" classname="homepage.spec.ts" time="10.643">
 </testcase>
-<testcase name="Homepage Functionality › should display prompt cards with correct information" classname="homepage.spec.ts" time="21.368">
-<failure message="homepage.spec.ts:130:7 should display prompt cards with correct information" type="FAILURE">
-<![CDATA[  [chromium] › homepage.spec.ts:130:7 › Homepage Functionality › should display prompt cards with correct information @P1 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
-
-
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\homepage.spec.ts:10:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\video.webm]]
-
-[[ATTACHMENT|homepage-Homepage-Function-0cd7c-ds-with-correct-information-chromium\error-context.md]]
-]]>
-</system-out>
+<testcase name="Homepage Functionality › should display prompt cards with correct information" classname="homepage.spec.ts" time="8.583">
 </testcase>
 </testsuite>
-<testsuite name="prompt-modal.spec.ts" timestamp="2025-09-06T22:46:56.682Z" hostname="chromium" tests="6" failures="6" skipped="0" time="171.865" errors="0">
-<testcase name="Prompt Modal Functionality › should open prompt modal when clicking on prompt card" classname="prompt-modal.spec.ts" time="28.759">
-<failure message="prompt-modal.spec.ts:13:7 should open prompt modal when clicking on prompt card" type="FAILURE">
-<![CDATA[  [chromium] › prompt-modal.spec.ts:13:7 › Prompt Modal Functionality › should open prompt modal when clicking on prompt card @P1 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
-
-
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:10:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\video.webm]]
-
-[[ATTACHMENT|prompt-modal-Prompt-Modal--8ccb4-hen-clicking-on-prompt-card-chromium\error-context.md]]
-]]>
-</system-out>
+<testsuite name="prompt-modal.spec.ts" timestamp="2025-09-06T23:21:28.317Z" hostname="chromium" tests="6" failures="5" skipped="0" time="458.828" errors="0">
+<testcase name="Prompt Modal Functionality › should open prompt modal when clicking on prompt card" classname="prompt-modal.spec.ts" time="25.025">
 </testcase>
-<testcase name="Prompt Modal Functionality › should display prompt information correctly in modal" classname="prompt-modal.spec.ts" time="28.701">
+<testcase name="Prompt Modal Functionality › should display prompt information correctly in modal" classname="prompt-modal.spec.ts" time="37.446">
 <failure message="prompt-modal.spec.ts:25:7 should display prompt information correctly in modal" type="FAILURE">
 <![CDATA[  [chromium] › prompt-modal.spec.ts:25:7 › Prompt Modal Functionality › should display prompt information correctly in modal @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  locator('[data-testid="modal-tags"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Timeout:  10000ms
+
     Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for locator('[data-testid="modal-tags"]')
 
 
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:10:19
+      30 |     
+      31 |     // Check if tags are displayed
+    > 32 |     await expect(page.locator('[data-testid="modal-tags"]')).toBeVisible();
+         |                                                              ^
+      33 |     
+      34 |     // Check if content is displayed
+      35 |     await expect(page.locator('[data-testid="modal-content"]')).toBeVisible();
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:32:62
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\prompt-modal-Prompt-Modal--c77e2-ormation-correctly-in-modal-chromium\test-failed-1.png
@@ -666,26 +364,32 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Prompt Modal Functionality › should copy prompt content to clipboard" classname="prompt-modal.spec.ts" time="29.563">
+<testcase name="Prompt Modal Functionality › should copy prompt content to clipboard" classname="prompt-modal.spec.ts" time="27.48">
 <failure message="prompt-modal.spec.ts:71:7 should copy prompt content to clipboard" type="FAILURE">
 <![CDATA[  [chromium] › prompt-modal.spec.ts:71:7 › Prompt Modal Functionality › should copy prompt content to clipboard @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('[data-testid="copy-prompt-button"]')
+    Expected string: "Copied!"
+    Received string: "Copy Prompt"
+    Timeout: 10000ms
+
     Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('[data-testid="copy-prompt-button"]')
+        13 × locator resolved to <button data-testid="copy-prompt-button" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg">…</button>
+           - unexpected value "Copy Prompt"
 
 
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:10:19
+      77 |     
+      78 |     // Should show copied state
+    > 79 |     await expect(copyButton).toContainText('Copied!');
+         |                              ^
+      80 |     
+      81 |     // Should show toast notification
+      82 |     await helpers.waitForToast('Prompt copied to clipboard!');
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:79:30
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\prompt-modal-Prompt-Modal--a1b2a-prompt-content-to-clipboard-chromium\test-failed-1.png
@@ -708,26 +412,25 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Prompt Modal Functionality › should enter edit mode when edit button is clicked" classname="prompt-modal.spec.ts" time="28.32">
+<testcase name="Prompt Modal Functionality › should enter edit mode when edit button is clicked" classname="prompt-modal.spec.ts" time="123.029">
 <failure message="prompt-modal.spec.ts:85:7 should enter edit mode when edit button is clicked" type="FAILURE">
 <![CDATA[  [chromium] › prompt-modal.spec.ts:85:7 › Prompt Modal Functionality › should enter edit mode when edit button is clicked @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
     Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
+      - waiting for locator('[data-testid="edit-prompt-button"]')
 
 
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:10:19
+      87 |     
+      88 |     // Click edit button
+    > 89 |     await page.locator('[data-testid="edit-prompt-button"]').click();
+         |                                                              ^
+      90 |     
+      91 |     // Should be in edit mode
+      92 |     await expect(page.locator('[data-testid="edit-title-input"]')).toBeVisible();
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:89:62
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\prompt-modal-Prompt-Modal--3827b-when-edit-button-is-clicked-chromium\test-failed-1.png
@@ -750,26 +453,25 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Prompt Modal Functionality › should edit prompt title successfully" classname="prompt-modal.spec.ts" time="28.329">
+<testcase name="Prompt Modal Functionality › should edit prompt title successfully" classname="prompt-modal.spec.ts" time="123.049">
 <failure message="prompt-modal.spec.ts:97:7 should edit prompt title successfully" type="FAILURE">
 <![CDATA[  [chromium] › prompt-modal.spec.ts:97:7 › Prompt Modal Functionality › should edit prompt title successfully @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
     Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
+      - waiting for locator('[data-testid="edit-prompt-button"]')
 
 
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:10:19
+       97 |   test('should edit prompt title successfully', { tag: '@P1' }, async ({ page }) => {
+       98 |     await helpers.openPromptModal(0);
+    >  99 |     await page.locator('[data-testid="edit-prompt-button"]').click();
+          |                                                              ^
+      100 |     
+      101 |     const titleInput = page.locator('[data-testid="edit-title-input"]');
+      102 |     const originalTitle = await titleInput.inputValue();
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:99:62
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\prompt-modal-Prompt-Modal--8cb78-t-prompt-title-successfully-chromium\test-failed-1.png
@@ -792,26 +494,25 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="Prompt Modal Functionality › should delete prompt successfully" classname="prompt-modal.spec.ts" time="28.193">
+<testcase name="Prompt Modal Functionality › should delete prompt successfully" classname="prompt-modal.spec.ts" time="122.799">
 <failure message="prompt-modal.spec.ts:208:7 should delete prompt successfully" type="FAILURE">
 <![CDATA[  [chromium] › prompt-modal.spec.ts:208:7 › Prompt Modal Functionality › should delete prompt successfully @P1 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
     Call log:
-      - waiting for locator('[data-testid="prompt-card"]') to be visible
+      - waiting for locator('[data-testid="delete-prompt-button"]')
 
 
-       at utils\test-helpers.ts:10
-
-       8 |    */
-       9 |   async waitForPromptsToLoad() {
-    > 10 |     await this.page.waitForSelector('[data-testid="prompt-card"]', { timeout: 10000 });
-         |                     ^
-      11 |   }
-      12 |
-      13 |   /**
-        at TestHelpers.waitForPromptsToLoad (C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\utils\test-helpers.ts:10:21)
-        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:10:19
+      208 |   test('should delete prompt successfully', { tag: '@P1' }, async ({ page }) => {
+      209 |     await helpers.openPromptModal(0);
+    > 210 |     await page.locator('[data-testid="delete-prompt-button"]').click();
+          |                                                                ^
+      211 |     
+      212 |     // Confirm deletion
+      213 |     await page.locator('[data-testid="confirm-delete-button"]').click();
+        at C:\Users\AbyTJoseph\Desktop\AI Experiments\personal-prompt-collections\prompt-hub\tests\prompt-modal.spec.ts:210:64
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\prompt-modal-Prompt-Modal--9a8fd--delete-prompt-successfully-chromium\test-failed-1.png

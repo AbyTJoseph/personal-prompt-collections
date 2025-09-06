@@ -364,7 +364,7 @@ export default function Home() {
 
             {/* Toast Notification */}
             {showToast && (
-              <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+              <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50" data-testid="toast-notification">
                 <div className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg font-medium">
                   {toastMessage}
                 </div>
@@ -377,6 +377,7 @@ export default function Home() {
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="glass-card p-3 border-white/20 backdrop-blur-sm text-white/80 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
                 aria-label="Scroll to top"
+                data-testid="scroll-to-top-button"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
@@ -388,7 +389,7 @@ export default function Home() {
           /* Loading State */
           <div className="flex items-center justify-center py-20">
             <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-4 border-white/20 border-t-white mx-auto mb-4"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-white/20 border-t-white mx-auto mb-4" data-testid="loading-spinner"></div>
               <p className="text-white font-medium">Loading templates...</p>
               <p className="text-white/60 text-sm mt-2">Discovering amazing AI templates</p>
             </div>
