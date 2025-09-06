@@ -171,6 +171,11 @@
 }
 
 @layer utilities {
+  /* Ensure all buttons show pointer cursor */
+  button {
+    cursor: pointer;
+  }
+
   .line-clamp-1 {
     overflow: hidden;
     display: -webkit-box;
