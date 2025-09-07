@@ -38,8 +38,8 @@ export function generateCatalogEntry(prompt: Prompt): PromptCatalogEntry {
     .filter(line => line.trim() !== '')
     .slice(0, EXCERPT_LINES)
     .join(' ');
-  
-  const excerpt = processedText.length > EXCERPT_LENGTH 
+
+  const excerpt = processedText.length > EXCERPT_LENGTH
     ? processedText.slice(0, EXCERPT_LENGTH) + '...'
     : processedText;
 
@@ -49,7 +49,9 @@ export function generateCatalogEntry(prompt: Prompt): PromptCatalogEntry {
     tags: prompt.frontmatter.tags,
     aliases: prompt.frontmatter.aliases,
     collection: prompt.frontmatter.collection,
+    createdAt: prompt.frontmatter.createdAt,
     updatedAt: prompt.frontmatter.updatedAt,
+    likes: prompt.frontmatter.likes || 0,
     excerpt,
   };
 }

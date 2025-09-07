@@ -1,8 +1,15 @@
 'use client';
 
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { Search, Plus, Grid3X3, List, Filter } from 'lucide-react';
+import { Search, Plus, Grid3X3, List, Filter, ArrowUpDown } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 interface SearchFiltersProps {
   searchQuery: string;
@@ -11,6 +18,8 @@ interface SearchFiltersProps {
   onViewModeChange: (mode: 'grid' | 'list') => void;
   onCreateNew: () => void;
   totalResults: number;
+  sortBy: string;
+  onSortChange: (sortBy: string) => void;
 }
 
 export function SearchFilters({
@@ -20,6 +29,8 @@ export function SearchFilters({
   onViewModeChange,
   onCreateNew,
   totalResults,
+  sortBy,
+  onSortChange,
 }: SearchFiltersProps) {
   const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery);
   const debounceTimeoutRef = useRef<NodeJS.Timeout>();
@@ -68,34 +79,67 @@ export function SearchFilters({
           Create New Prompt
         </button>
 
-        {/* View Mode Toggle - Moved to right */}
-        <div className="flex items-center gap-2">
-          <span className="text-white/80 text-sm mr-2">View:</span>
-          <div className="flex bg-white/10 backdrop-blur-sm rounded-full p-1 border border-white/20">
-            <button
-              onClick={() => onViewModeChange('grid')}
-              className={`p-2 rounded-full transition-all duration-300 ${
-                viewMode === 'grid'
-                  ? 'bg-white/20 text-white shadow-md'
-                  : 'text-white/60 hover:text-white/80 hover:bg-white/10'
-              }`}
-              title="Grid View"
-              data-testid="view-toggle-grid"
-            >
-              <Grid3X3 className="h-4 w-4" />
-            </button>
-            <button
-              onClick={() => onViewModeChange('list')}
-              className={`p-2 rounded-full transition-all duration-300 ${
-                viewMode === 'list'
-                  ? 'bg-white/20 text-white shadow-md'
-                  : 'text-white/60 hover:text-white/80 hover:bg-white/10'
-              }`}
-              title="List View"
-              data-testid="view-toggle-list"
-            >
-              <List className="h-4 w-4" />
-            </button>
+        {/* Controls - Sort and View Mode */}
+        <div className="flex items-center gap-4">
+          {/* Sort Dropdown */}
+          <div className="flex items-center gap-2">
+            <span className="text-white/80 text-sm mr-2">Sort:</span>
+            <Select value={sortBy} onValueChange={onSortChange}>
+              <SelectTrigger className="w-[140px] bg-white/10 border-white/20 text-white backdrop-blur-sm hover:bg-white/20 transition-all duration-300" data-testid="sort-select">
+                <SelectValue placeholder="Sort by..." />
+              </SelectTrigger>
+              <SelectContent className="bg-white/95 backdrop-blur-sm border-white/20">
+                <SelectItem value="recent" className="text-gray-800 hover:bg-white/10 cursor-pointer">
+                  <div className="flex items-center gap-2">
+                    <ArrowUpDown className="h-4 w-4" />
+                    Recent
+                  </div>
+                </SelectItem>
+                <SelectItem value="likes" className="text-gray-800 hover:bg-white/10 cursor-pointer">
+                  <div className="flex items-center gap-2">
+                    <span className="text-red-500">❤️</span>
+                    Likes
+                  </div>
+                </SelectItem>
+                <SelectItem value="alphabetical" className="text-gray-800 hover:bg-white/10 cursor-pointer">
+                  <div className="flex items-center gap-2">
+                    <span className="text-blue-500">🔤</span>
+                    A-Z
+                  </div>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* View Mode Toggle */}
+          <div className="flex items-center gap-2">
+            <span className="text-white/80 text-sm mr-2">View:</span>
+            <div className="flex bg-white/10 backdrop-blur-sm rounded-full p-1 border border-white/20">
+              <button
+                onClick={() => onViewModeChange('grid')}
+                className={`p-2 rounded-full transition-all duration-300 ${
+                  viewMode === 'grid'
+                    ? 'bg-white/20 text-white shadow-md'
+                    : 'text-white/60 hover:text-white/80 hover:bg-white/10'
+                }`}
+                title="Grid View"
+                data-testid="view-toggle-grid"
+              >
+                <Grid3X3 className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => onViewModeChange('list')}
+                className={`p-2 rounded-full transition-all duration-300 ${
+                  viewMode === 'list'
+                    ? 'bg-white/20 text-white shadow-md'
+                    : 'text-white/60 hover:text-white/80 hover:bg-white/10'
+                }`}
+                title="List View"
+                data-testid="view-toggle-list"
+              >
+                <List className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

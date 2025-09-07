@@ -39,7 +39,9 @@ export type PromptCatalogEntry = Pick<Prompt, 'slug'> & {
   tags: string[];
   aliases?: string[];
   collection?: string;
+  createdAt?: string;
   updatedAt?: string;
+  likes?: number;
   excerpt: string;
 };
 

@@ -12,6 +12,36 @@ import { ClientOnly } from '@/components/client-only';
 import { searchPrompts, indexPrompts } from '@/lib/search';
 import type { PromptCatalogEntry } from '@/types/prompt';
 
+// Sorting functions
+const sortByRecent = (a: PromptCatalogEntry, b: PromptCatalogEntry): number => {
+  // Use createdAt for "Recent" to show when prompts were originally created
+  const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+  const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+  return dateB - dateA; // Most recent first
+};
+
+const sortByLikes = (a: PromptCatalogEntry, b: PromptCatalogEntry): number => {
+  const likesA = a.likes || 0;
+  const likesB = b.likes || 0;
+  return likesB - likesA; // Most liked first
+};
+
+const sortByAlphabetical = (a: PromptCatalogEntry, b: PromptCatalogEntry): number => {
+  return a.title.localeCompare(b.title); // A-Z
+};
+
+const getSortFunction = (sortBy: string) => {
+  switch (sortBy) {
+    case 'likes':
+      return sortByLikes;
+    case 'alphabetical':
+      return sortByAlphabetical;
+    case 'recent':
+    default:
+      return sortByRecent;
+  }
+};
+
 export default function Home() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -30,6 +60,13 @@ export default function Home() {
 
   // URL-synced state
   const searchQuery = searchParams.get('q') || '';
+  const sortBy = searchParams.get('sort') || 'recent';
+  const [sortByState, setSortByState] = useState(sortBy);
+
+  // Sync sortBy state with URL parameter
+  useEffect(() => {
+    setSortByState(sortBy);
+  }, [sortBy]);
 
   const filteredPrompts = useMemo(() => {
     if (!catalog || catalog.length === 0) {
@@ -37,21 +74,25 @@ export default function Home() {
     }
 
     // Filter out invalid prompts first
-    const validPrompts = catalog.filter(prompt => 
-      prompt && 
-      prompt.slug && 
-      prompt.title && 
-      prompt.excerpt && 
+    const validPrompts = catalog.filter(prompt =>
+      prompt &&
+      prompt.slug &&
+      prompt.title &&
+      prompt.excerpt &&
       Array.isArray(prompt.tags)
     );
 
     // Use FlexSearch for fast searching
-    if (searchQuery) {
-      return searchPrompts(searchQuery, validPrompts);
-    }
+    let result = searchQuery
+      ? searchPrompts(searchQuery, validPrompts)
+      : validPrompts;
 
-    return validPrompts;
-  }, [catalog, searchQuery]);
+    // Apply sorting
+    const sortFunction = getSortFunction(sortByState);
+    result = [...result].sort(sortFunction);
+
+    return result;
+  }, [catalog, searchQuery, sortByState]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -182,6 +223,11 @@ export default function Home() {
     router.push(`/?${newParams.toString()}`);
   };
 
+  const handleSortChange = (newSortBy: string) => {
+    setSortByState(newSortBy);
+    updateSearchParams({ sort: newSortBy });
+  };
+
   const openModal = (prompt: PromptCatalogEntry) => {
     setSelectedPrompt(prompt);
     setIsModalOpen(true);
@@ -309,6 +355,8 @@ export default function Home() {
               onViewModeChange={setViewMode}
               onCreateNew={() => setIsCreateModalOpen(true)}
               totalResults={filteredPrompts.length}
+              sortBy={sortByState}
+              onSortChange={handleSortChange}
             />
 
             {/* Cards Container */}

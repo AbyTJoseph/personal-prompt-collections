@@ -3,9 +3,9 @@ title: Study Routine
 tags:
   - Misc
 createdAt: '2025-09-04T23:52:49.934Z'
-updatedAt: '2025-09-04T23:52:49.934Z'
+updatedAt: '2025-09-07T00:22:54.720Z'
 collection: Misc
-likes: 0
+likes: 7
 ---
 1. The Deep Dive Explainer:
 

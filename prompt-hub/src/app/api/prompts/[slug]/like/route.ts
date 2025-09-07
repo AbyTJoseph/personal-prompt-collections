@@ -36,11 +36,10 @@ export async function POST(
     const currentLikes = frontmatter.likes || 0;
     const newLikes = currentLikes + 1;
 
-    // Update frontmatter
+    // Update frontmatter - don't update updatedAt since "Recent" now uses createdAt
     const updatedFrontmatter = {
       ...frontmatter,
       likes: newLikes,
-      updatedAt: new Date().toISOString(),
     };
 
     // Create updated markdown content

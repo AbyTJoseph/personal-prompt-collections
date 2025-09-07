@@ -334,7 +334,7 @@
       "Misc"
     ],
     "collection": "Misc",
-    "updatedAt": "2025-09-05T21:33:19.044Z",
+    "updatedAt": "2025-09-07T00:22:27.509Z",
     "excerpt": "1. \"Think step-by-step and show your work\" The most underrated power move. AI literally gets smarter when forced to explain its reasoning. \"I'm stuck on this Excel formula. Think step-by-step and show your work.\" Instead of random formulas, you get the logic behind each piece. Works for everything from math to business strategy. 2. \"Act as a [specific expert] with 20+ years of experience\""
   },
   {
@@ -355,7 +355,7 @@
       "UI",
       "Test"
     ],
-    "updatedAt": "2025-09-07T00:15:34.355Z",
+    "updatedAt": "2025-09-07T00:22:43.585Z",
     "excerpt": "Add smooth animations and micro interactions like： - smooth hover effects - gentle tilt effects - scroll-based animations - animated glitch-style"
   },
   {
@@ -365,7 +365,7 @@
       "Misc"
     ],
     "collection": "Misc",
-    "updatedAt": "2025-09-04T23:52:49.934Z",
+    "updatedAt": "2025-09-07T00:22:54.720Z",
     "excerpt": "1. The Deep Dive Explainer: \"Break down [complex topic] like I'm 12, then gradually increase complexity over 5 levels until I reach expert understanding.\" 2. Mistake Prevention System: \"List the 10 most common mistakes beginners make with [skill/topic]. For each, give me a simple check to avoid it.\" 3. Learning Path Architect:"
   },
   {
@@ -395,6 +395,14 @@
     "collection": "Test",
     "updatedAt": "2025-09-07T00:13:54.326Z",
     "excerpt": "Test"
+  },
+  {
+    "slug": "testtesttest",
+    "title": "TestTestTest",
+    "tags": [],
+    "collection": "TestTestTest",
+    "updatedAt": "2025-09-07T00:27:13.454Z",
+    "excerpt": "TestTestTest"
   },
   {
     "slug": "the-success-architect",

@@ -3,9 +3,9 @@ title: Prompt Tricks
 tags:
   - Misc
 createdAt: '2025-09-05T21:33:19.040Z'
-updatedAt: '2025-09-05T21:33:19.044Z'
+updatedAt: '2025-09-07T00:22:27.509Z'
 collection: Misc
-likes: 0
+likes: 1
 ---
 1. "Think step-by-step and show your work"
 

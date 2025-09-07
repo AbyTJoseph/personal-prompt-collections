@@ -37,14 +37,14 @@ function getPromptBySlug(slug: string) {
 
 function generateCatalogEntry(prompt: any) {
   if (!prompt) return null;
-  
+
   const processedText = prompt.content
     .split('\n')
     .filter((line: string) => line.trim() !== '')
     .slice(0, EXCERPT_LINES)
     .join(' ');
-  
-  const excerpt = processedText.length > EXCERPT_LENGTH 
+
+  const excerpt = processedText.length > EXCERPT_LENGTH
     ? processedText.slice(0, EXCERPT_LENGTH) + '...'
     : processedText;
 
@@ -54,7 +54,9 @@ function generateCatalogEntry(prompt: any) {
     tags: prompt.frontmatter.tags || [],
     aliases: prompt.frontmatter.aliases,
     collection: prompt.frontmatter.collection,
+    createdAt: prompt.frontmatter.createdAt,
     updatedAt: prompt.frontmatter.updatedAt,
+    likes: prompt.frontmatter.likes || 0,
     excerpt,
   };
 }
