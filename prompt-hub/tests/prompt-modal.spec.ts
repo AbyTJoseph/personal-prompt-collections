@@ -313,6 +313,123 @@ test.describe('Prompt Modal Functionality', () => {
       expect(['auto', 'scroll']).toContain(overflowY);
     }
   });
+
+  test('should display like count in modal header', { tag: '@P1' }, async ({ page }) => {
+    await helpers.openPromptModal(0);
+
+    // Check if like count is displayed
+    const likeCountElement = page.locator('[data-testid="modal-like-count"]');
+    await expect(likeCountElement).toBeVisible();
+
+    // Should show "0 likes" initially
+    await expect(likeCountElement).toContainText('0 likes');
+  });
+
+  test('should display like button in modal footer', { tag: '@P1' }, async ({ page }) => {
+    await helpers.openPromptModal(0);
+
+    // Check if like button is present
+    const likeButton = page.locator('[data-testid="like-prompt-button"]');
+    await expect(likeButton).toBeVisible();
+
+    // Should contain thumbs up icon and "Like" text
+    await expect(likeButton).toContainText('Like');
+    await expect(likeButton.locator('svg')).toBeVisible();
+  });
+
+  test('should update like count when like button is clicked', { tag: '@P1' }, async ({ page }) => {
+    await helpers.openPromptModal(0);
+
+    const likeButton = page.locator('[data-testid="like-prompt-button"]');
+    const likeCountElement = page.locator('[data-testid="modal-like-count"]');
+
+    // Initial state
+    await expect(likeCountElement).toContainText('0 likes');
+
+    // Click like button
+    await likeButton.click();
+
+    // Should show loading state
+    await expect(likeButton).toContainText('Liking...');
+
+    // Wait for the API call to complete (this might need adjustment based on your API response time)
+    await page.waitForTimeout(1000);
+
+    // Should update like count
+    await expect(likeCountElement).toContainText('1 like');
+
+    // Button should be back to normal state
+    await expect(likeButton).toContainText('Like');
+  });
+
+  test('should handle multiple likes correctly', { tag: '@P2' }, async ({ page }) => {
+    await helpers.openPromptModal(0);
+
+    const likeButton = page.locator('[data-testid="like-prompt-button"]');
+    const likeCountElement = page.locator('[data-testid="modal-like-count"]');
+
+    // Click like button multiple times
+    await likeButton.click();
+    await page.waitForTimeout(1000);
+
+    await likeButton.click();
+    await page.waitForTimeout(1000);
+
+    await likeButton.click();
+    await page.waitForTimeout(1000);
+
+    // Should show correct count
+    await expect(likeCountElement).toContainText('3 likes');
+  });
+
+  test('should disable like button during API call', { tag: '@P2' }, async ({ page }) => {
+    await helpers.openPromptModal(0);
+
+    const likeButton = page.locator('[data-testid="like-prompt-button"]');
+
+    // Click like button
+    await likeButton.click();
+
+    // Should be disabled during the call
+    await expect(likeButton).toBeDisabled();
+
+    // Wait for completion
+    await page.waitForTimeout(1000);
+
+    // Should be enabled again
+    await expect(likeButton).not.toBeDisabled();
+  });
+
+  test('should handle API error gracefully', { tag: '@P2' }, async ({ page }) => {
+    // Mock a failed API response
+    await page.route('**/api/prompts/*/like', async route => {
+      await route.fulfill({
+        status: 500,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: 'Server error' })
+      });
+    });
+
+    await helpers.openPromptModal(0);
+
+    const likeButton = page.locator('[data-testid="like-prompt-button"]');
+    const likeCountElement = page.locator('[data-testid="modal-like-count"]');
+
+    // Initial state
+    await expect(likeCountElement).toContainText('0 likes');
+
+    // Click like button - this should handle the error
+    await likeButton.click();
+
+    // Wait for error handling
+    await page.waitForTimeout(1000);
+
+    // Like count should remain unchanged
+    await expect(likeCountElement).toContainText('0 likes');
+
+    // Button should be back to normal state
+    await expect(likeButton).toContainText('Like');
+  });
 });
 
 

@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-08-30T20:23:52.264Z'
 updatedAt: '2025-08-30T20:23:52.264Z'
 collection: Misc
+likes: 0
 ---
 ChatGPT-5 prompt to turn any PDF into a study system.
 

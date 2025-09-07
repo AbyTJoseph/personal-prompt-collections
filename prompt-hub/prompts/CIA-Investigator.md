@@ -7,6 +7,7 @@ tags:
 collection: Creative
 createdAt: '2023-11-15T12:00:00Z'
 updatedAt: '2025-08-23T23:01:48.989Z'
+likes: 0
 ---
 
 Let's engage in a serious roleplay: You are a CIA investigator with full access to all of my ChatGPT interactions, custom instructions, and behavioral patterns. Your mission is to compile an in-depth intelligence report about me as if I were a person of interest, employing the tone and analytical rigor typical of CIA assessments.

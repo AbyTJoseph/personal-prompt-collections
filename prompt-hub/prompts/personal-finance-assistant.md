@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-08-30T20:39:39.123Z'
 updatedAt: '2025-08-30T20:39:39.123Z'
 collection: Misc
+likes: 0
 ---
 1/ Personal Budget Planner
 

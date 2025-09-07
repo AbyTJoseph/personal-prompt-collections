@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T21:39:04.585Z'
 updatedAt: '2025-08-24T21:39:04.585Z'
 collection: Misc
+likes: 0
 ---
 Grok 4 prompt to organize your chaotic life.
 

@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T23:36:02.084Z'
 updatedAt: '2025-08-24T23:36:22.874Z'
 collection: Misc
+likes: 0
 ---
 Prompt to get a brutally honest psychological profile on yourself.
 

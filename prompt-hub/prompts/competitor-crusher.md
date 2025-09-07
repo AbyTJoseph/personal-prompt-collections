@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-08-24T21:23:29.492Z'
 updatedAt: '2025-08-24T21:23:29.493Z'
 collection: Misc
+likes: 0
 ---
 #CONTEXT  
 I have a product that solves a real problem—but I'm competing with similar tools, services, or creators. I don’t want to be “just another option.” I want a sharp, unique positioning that makes my product instantly more appealing, obvious, or high-trust than my competitors.

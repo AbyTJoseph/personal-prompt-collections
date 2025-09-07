@@ -266,6 +266,13 @@
     "content": "Suggest a short, effective format for weekly team check-ins. Show me an example.\n"
   },
   {
+    "id": "test",
+    "title": "Test",
+    "tags": "",
+    "aliases": "",
+    "content": "Test\n"
+  },
+  {
     "id": "the-success-architect",
     "title": "THE SUCCESS ARCHITECT",
     "tags": "Misc",

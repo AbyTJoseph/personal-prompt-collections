@@ -7,6 +7,7 @@ tags:
 createdAt: '2025-08-24T23:45:48.629Z'
 updatedAt: '2025-08-24T23:45:48.629Z'
 collection: Misc
+likes: 0
 ---
 Prompt to help you prioritize tasks if you're struggling with ADHD.
 

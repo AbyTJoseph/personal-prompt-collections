@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T21:33:54.761Z'
 updatedAt: '2025-08-24T21:33:54.761Z'
 collection: Misc
+likes: 0
 ---
 Generate a million-dollar product concept in 10 minutes using the Hidden Pain Matrix™ system
 

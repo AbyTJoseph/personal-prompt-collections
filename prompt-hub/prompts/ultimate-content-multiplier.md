@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T21:32:01.537Z'
 updatedAt: '2025-08-24T21:32:01.537Z'
 collection: Misc
+likes: 0
 ---
 Multiply any piece of content with the same tone of voice for any platform.
 

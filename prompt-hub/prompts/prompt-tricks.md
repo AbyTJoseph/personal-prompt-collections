@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-09-05T21:33:19.040Z'
 updatedAt: '2025-09-05T21:33:19.044Z'
 collection: Misc
+likes: 0
 ---
 1. "Think step-by-step and show your work"
 

@@ -7,6 +7,7 @@ tags:
 createdAt: '2025-08-24T21:36:21.628Z'
 updatedAt: '2025-08-24T21:36:21.628Z'
 collection: Misc
+likes: 0
 ---
 Prompt to build a fully functioning AI business using 100% free tools - no code required.
 

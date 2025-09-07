@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T23:39:12.942Z'
 updatedAt: '2025-08-24T23:39:12.942Z'
 collection: Misc
+likes: 0
 ---
 Prompt to generate full n8n workflows from screenshots.
 

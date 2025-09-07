@@ -7,6 +7,7 @@ tags:
 createdAt: '2025-08-24T23:29:36.499Z'
 updatedAt: '2025-08-24T23:29:36.499Z'
 collection: Misc
+likes: 0
 ---
 o3 prompt to create high-converting landing pages with psychological triggers and stunning minimal design.
 

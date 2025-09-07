@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-08-30T20:24:59.482Z'
 updatedAt: '2025-08-30T20:24:59.482Z'
 collection: Misc
+likes: 0
 ---
 Gemini prompt to turn your goals into actionable seven steps to success framework by Brian Tracy.
 

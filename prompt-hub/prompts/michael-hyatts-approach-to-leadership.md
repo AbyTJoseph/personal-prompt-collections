@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-09-05T23:34:13.683Z'
 updatedAt: '2025-09-05T23:34:13.689Z'
 collection: Misc
+likes: 0
 ---
 Michael Hyatt's approach to leadership and productivity and realized his frameworks work brilliantly as AI prompts. It's like turning AI into your personal leadership mentor who builds everything around intentional outcomes:
 

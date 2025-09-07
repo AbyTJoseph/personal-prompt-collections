@@ -41,6 +41,7 @@ export async function POST(request: NextRequest) {
       tags: tags || [],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
+      likes: 0,
     };
 
     // Only add collection if it has a value

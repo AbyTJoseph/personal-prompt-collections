@@ -4,6 +4,7 @@ tags: []
 createdAt: '2025-08-24T21:29:54.149Z'
 updatedAt: '2025-08-24T21:29:54.149Z'
 collection: Misc
+likes: 0
 ---
 Solve any problem from multiple expert perspectives at once, giving you deeper insights than any single approach.
 

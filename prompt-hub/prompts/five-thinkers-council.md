@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T23:33:11.220Z'
 updatedAt: '2025-08-24T23:33:11.220Z'
 collection: Misc
+likes: 0
 ---
 Prompt to summon a council of five wise thinkers to solve any problem.
 

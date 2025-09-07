@@ -4,6 +4,7 @@ tags: []
 createdAt: '2025-08-30T20:21:48.572Z'
 updatedAt: '2025-08-30T20:21:48.573Z'
 collection: Misc
+likes: 0
 ---
 Prompt to optimize your own prompts for any model.
 

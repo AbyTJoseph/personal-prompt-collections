@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-31T00:27:45.109Z'
 updatedAt: '2025-08-31T00:27:45.111Z'
 collection: Misc
+likes: 0
 ---
 Claude 4 prompt for engineers.
 

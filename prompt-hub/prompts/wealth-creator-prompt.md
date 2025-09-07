@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T23:44:17.415Z'
 updatedAt: '2025-08-24T23:44:17.415Z'
 collection: Misc
+likes: 0
 ---
 prompt to identify emerging opportunities to generate wealth with AI.
 

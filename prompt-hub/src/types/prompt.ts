@@ -20,6 +20,7 @@ export const PromptFrontmatterSchema = z.object({
   variables: z.array(PromptVariableSchema).optional(),
   createdAt: z.string().datetime().optional(),
   updatedAt: z.string().datetime().optional(),
+  likes: z.number().min(0).optional().default(0),
 });
 
 export const PromptSchema = z.object({

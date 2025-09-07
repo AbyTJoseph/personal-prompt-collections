@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T23:28:19.509Z'
 updatedAt: '2025-08-24T23:28:19.510Z'
 collection: Misc
+likes: 0
 ---
 Prompt to beat your procrastination.
 

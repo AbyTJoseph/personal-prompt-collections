@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-09-04T23:39:18.190Z'
 updatedAt: '2025-09-04T23:39:18.190Z'
 collection: Misc
+likes: 0
 ---
 -PARK Prompt-
 

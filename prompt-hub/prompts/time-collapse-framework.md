@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-08-24T21:27:51.606Z'
 updatedAt: '2025-08-24T21:27:51.610Z'
 collection: Misc
+likes: 0
 ---
 Analyze any idea through the lens of its past, present, and future simultaneously.
 

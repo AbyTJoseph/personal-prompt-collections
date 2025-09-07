@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-08-25T01:07:32.944Z'
 updatedAt: '2025-08-25T01:07:32.947Z'
 collection: Misc
+likes: 0
 ---
 Prompt to turn ChatGPT into your critical co-thinker.
 

@@ -5,6 +5,7 @@ tags:
 createdAt: '2025-09-01T20:39:01.888Z'
 updatedAt: '2025-09-01T20:39:01.890Z'
 collection: Misc
+likes: 0
 ---
 Objective: Create a personalized 1 hour intensive course to take me from 0 knowledge to expert level in a chosen subject. 
 

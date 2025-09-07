@@ -355,7 +355,7 @@
       "UI",
       "Test"
     ],
-    "updatedAt": "2025-08-24T00:10:24.291Z",
+    "updatedAt": "2025-09-07T00:15:34.355Z",
     "excerpt": "Add smooth animations and micro interactions like： - smooth hover effects - gentle tilt effects - scroll-based animations - animated glitch-style"
   },
   {
@@ -387,6 +387,14 @@
     "collection": "Work",
     "updatedAt": "2025-08-30T20:35:04.796Z",
     "excerpt": "Suggest a short, effective format for weekly team check-ins. Show me an example."
+  },
+  {
+    "slug": "test",
+    "title": "Test",
+    "tags": [],
+    "collection": "Test",
+    "updatedAt": "2025-09-07T00:13:54.326Z",
+    "excerpt": "Test"
   },
   {
     "slug": "the-success-architect",

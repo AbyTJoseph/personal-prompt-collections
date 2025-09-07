@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Copy, X, Edit2, Plus, Trash2 } from 'lucide-react';
+import { Copy, X, Edit2, Plus, Trash2, ThumbsUp } from 'lucide-react';
 import type { PromptCatalogEntry } from '@/types/prompt';
 import type { Prompt } from '@/types/prompt';
 
@@ -27,6 +27,8 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
   const [isSaving, setIsSaving] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [likes, setLikes] = useState(0);
+  const [isLiking, setIsLiking] = useState(false);
 
   // Fetch full prompt content when modal opens
   useEffect(() => {
@@ -41,6 +43,7 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
             setEditedTags(data.frontmatter.tags || []);
             setEditedTitle(data.frontmatter.title || '');
             setEditedContent(data.content || '');
+            setLikes(data.frontmatter.likes || 0);
           }
         } catch (error) {
           console.error('Failed to fetch full prompt:', error);
@@ -111,6 +114,8 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
       setEditedTitle('');
       setEditedContent('');
       setIsSaving(false);
+      setLikes(0);
+      setIsLiking(false);
     }
   }, [isOpen]);
 
@@ -125,6 +130,44 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy text: ', err);
+    }
+  };
+
+  const handleLike = async () => {
+    if (!prompt || isLiking) return;
+
+    setIsLiking(true);
+    try {
+      const response = await fetch(`/api/prompts/${prompt.slug}/like`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to like prompt');
+      }
+
+      const data = await response.json();
+      setLikes(data.likes);
+
+      // Update the full prompt state if it exists
+      if (fullPrompt) {
+        setFullPrompt({
+          ...fullPrompt,
+          frontmatter: {
+            ...fullPrompt.frontmatter,
+            likes: data.likes,
+          },
+        });
+      }
+    } catch (error) {
+      console.error('Failed to like prompt:', error);
+      alert('Failed to like prompt. Please try again.');
+    } finally {
+      setIsLiking(false);
     }
   };
 
@@ -255,7 +298,15 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
                       placeholder="Enter title..."
                     />
                   )}
-                  
+
+                  {/* Likes Count */}
+                  <div className="flex items-center gap-2 mb-3" data-testid="modal-like-count">
+                    <ThumbsUp className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                      {likes} {likes === 1 ? 'like' : 'likes'}
+                    </span>
+                  </div>
+
                   {/* Tags Section */}
                   <div className="flex flex-wrap items-center gap-2">
                     {!isEditing ? (
@@ -393,6 +444,15 @@ export function PromptModal({ isOpen, onClose, prompt, onCopy, onEdit, onDelete 
                 </div>
                 
                 <div className="flex items-center gap-3">
+                  <button
+                    onClick={handleLike}
+                    disabled={isLiking}
+                    className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors disabled:opacity-50"
+                    data-testid="like-prompt-button"
+                  >
+                    <ThumbsUp className={`h-4 w-4 ${isLiking ? 'animate-pulse' : ''}`} />
+                    {isLiking ? 'Liking...' : 'Like'}
+                  </button>
                   <button
                     onClick={handleCopy}
                     className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg"

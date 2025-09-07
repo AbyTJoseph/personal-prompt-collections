@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-30T17:25:20.032Z'
 updatedAt: '2025-08-30T17:25:20.032Z'
 collection: Misc
+likes: 0
 ---
 Gemini 2.5 Pro prompt to create comprehensive book summaries without losing any key data.
 

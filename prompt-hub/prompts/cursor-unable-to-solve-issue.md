@@ -7,6 +7,7 @@ tags:
 createdAt: '2025-08-24T21:19:53.046Z'
 updatedAt: '2025-08-24T21:19:53.047Z'
 collection: Cursor
+likes: 0
 ---
 When Claude in Cursor can't solve your issue after a few tries follow this 2 step plan and fix it IMMEDIATELY:
 

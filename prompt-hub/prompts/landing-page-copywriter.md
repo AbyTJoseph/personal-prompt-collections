@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T23:37:33.489Z'
 updatedAt: '2025-08-24T23:37:33.489Z'
 collection: Misc
+likes: 0
 ---
 Prompt to create high-converting landing pages.
 

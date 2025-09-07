@@ -6,6 +6,7 @@ tags:
 createdAt: '2025-08-24T23:43:05.693Z'
 updatedAt: '2025-08-24T23:43:05.695Z'
 collection: Misc
+likes: 0
 ---
 Prompt to get interviewed and build a fully working AI agent with code. 
 
